@@ -1,0 +1,54 @@
+name: Assistente trading
+
+# Ogni 15 minuti. I minuti sono volutamente sfalsati da :00 e :30, che sono i
+# momenti piu' congestionati su GitHub e quindi quelli con piu' ritardi.
+on:
+  schedule:
+    - cron: "3,18,33,48 * * * *"
+  workflow_dispatch:        # ti permette di lanciarlo a mano quando vuoi
+
+permissions:
+  contents: write           # serve per salvare state.json tra un giro e l'altro
+
+concurrency:
+  group: assistente
+  cancel-in-progress: false
+
+jobs:
+  analisi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Scarica il codice
+        uses: actions/checkout@v4
+
+      - name: Prepara Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Analizza i mercati
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+        run: python3 main.py --once
+
+      - name: Salva lo stato
+        if: always()
+        run: |
+          if [ ! -f state.json ]; then
+            echo "Nessuno stato da salvare."
+            exit 0
+          fi
+          git config user.name "assistente-trading"
+          git config user.email "actions@github.com"
+          git add state.json
+          if git diff --staged --quiet; then
+            echo "Stato invariato."
+          else
+            git commit -m "stato $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git pull --rebase --autostash
+            git push
+          fi
