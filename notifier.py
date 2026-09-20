@@ -61,21 +61,22 @@ def fmt_money(value: Optional[float]) -> str:
 def _operational_block(plan: Plan, digits: int, symbol_cfg: dict, currency: str) -> List[str]:
     unit = symbol_cfg.get("unit", "unita'")
     lines = [
-        "<b>━━ OPERATIVO ━━</b>",
-        f"Ingresso: <b>{fmt(plan.reference, digits)}</b>",
-        f"Stop loss: <b>{fmt(plan.invalidation, digits)}</b>  (rischio {fmt(plan.risk_per_unit, digits)} per {unit})",
-        f"Take profit 1: <b>{fmt(plan.target_1r, digits)}</b>  (1R)",
-        f"Take profit 2: <b>{fmt(plan.target_2r, digits)}</b>  (2R)",
+        "<b>━━ PIANO OPERATIVO ━━</b>",
+        f"Ingresso di riferimento: <b>{fmt(plan.reference, digits)}</b>",
+        f"Stop loss: <b>{fmt(plan.invalidation, digits)}</b>  (distanza {fmt(plan.risk_per_unit, digits)} per {unit})",
+        f"Target 1: <b>{fmt(plan.target_1r, digits)}</b>  (1R)",
+        f"Target 2: <b>{fmt(plan.target_2r, digits)}</b>  (2R)",
     ]
 
     if plan.structural_target is not None:
-        lines.append(f"Primo ostacolo sul grafico: {fmt(plan.structural_target, digits)}")
+        lines.append(f"Resistenza/ostacolo chiave: {fmt(plan.structural_target, digits)}")
 
     if plan.size_units is not None and plan.money_at_risk is not None:
         size_text = f"{plan.size_units:.4f} {unit}".replace(".", ",")
         if plan.size_lots is not None and symbol_cfg.get("contract_size", 1) != 1:
             size_text += f"  ≈ {plan.size_lots:.2f} lotti".replace(".", ",")
-        lines.append(f"Size: {size_text}  (rischi {fmt_money(plan.money_at_risk)} {currency})")
+        lines.append(f"Dimensione: {size_text}")
+        lines.append(f"Rischio massimo: <b>{fmt_money(plan.money_at_risk)} {currency}</b>")
 
     if plan.warning:
         lines.append(f"⚠️ {html.escape(plan.warning)}")
@@ -90,7 +91,7 @@ def format_alert(snapshot: Snapshot, signal: Signal, symbol_cfg: dict, currency:
     if signal.direction in ACTION and signal.plan:
         icon, verb = ACTION[signal.direction]
         lines += [
-            f"{icon} <b>{verb} {html.escape(snapshot.symbol)}</b>  ·  confluenza {signal.score}/100",
+            f"{icon} <b>{verb} {html.escape(snapshot.symbol)}</b>  ·  confluenza <b>{signal.score}/100</b>",
             f"<i>{html.escape(signal.title)}</i>",
             "",
         ]
@@ -103,17 +104,17 @@ def format_alert(snapshot: Snapshot, signal: Signal, symbol_cfg: dict, currency:
             "",
         ]
 
-    lines.append("<b>Perche'</b>")
+    lines.append("<b>Perché il sistema segnala questo setup</b>")
     lines += [f"• {html.escape(r)}" for r in signal.reasons]
 
-    lines += ["", "<b>Contesto</b>"]
+    lines += ["", "<b>Contesto multi-timeframe</b>"]
     for tf in ("4h", "1h", "15m"):
         lines.append(f"{tf}: {html.escape(snapshot.views[tf].describe())}")
 
     supports = [l for l in snapshot.levels if l.kind == "supporto"]
     resistances = [l for l in snapshot.levels if l.kind == "resistenza"]
     if supports or resistances:
-        lines += ["", "<b>Livelli vicini</b>"]
+        lines += ["", "<b>Livelli da monitorare</b>"]
         if resistances:
             lines.append("Sopra: " + " · ".join(fmt(l.price, digits) for l in resistances))
         if supports:
