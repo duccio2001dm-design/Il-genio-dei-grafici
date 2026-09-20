@@ -25,8 +25,8 @@
   "symbols": [
     {
       "name": "BTCUSD",
-      "coinbase": "binance",
-      "BTC-USD": "BTCUSDT",
+      "source": "binance",
+      "api_symbol": "BTCUSDT",
       "digits": 1,
       "contract_size": 1,
       "unit": "BTC",
