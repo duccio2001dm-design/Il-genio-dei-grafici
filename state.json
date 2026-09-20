@@ -1,5 +1,7 @@
 {
-  "last_alerts": {},
-  "last_summary": 0,
+  "last_alerts": {
+    "BTCUSD:pullback_long": 1789936477.4953446
+  },
+  "last_summary": 1789936477.8848522,
   "update_offset": 917340061
 }
