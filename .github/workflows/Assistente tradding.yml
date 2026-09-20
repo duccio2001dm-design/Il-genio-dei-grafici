@@ -1,10 +1,10 @@
 name: Assistente trading
 
-# Ogni 15 minuti. I minuti sono volutamente sfalsati da :00 e :30, che sono i
-# momenti piu' congestionati su GitHub e quindi quelli con piu' ritardi.
+# Ogni 5 minuti. I minuti sono sfalsati da :00 per ridurre i ritardi
+# nei momenti di maggiore congestione su GitHub.
 on:
   schedule:
-    - cron: "3,18,33,48 * * * *"
+    - cron: "2,7,12,17,22,27,32,37,42,47,52,57 * * * *"
   workflow_dispatch:        # ti permette di lanciarlo a mano quando vuoi
 
 permissions:
