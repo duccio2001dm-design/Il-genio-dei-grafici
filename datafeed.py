@@ -129,8 +129,9 @@ def fetch_coinbase(symbol: str = "BTC-USD", interval: str = "15m", limit: int = 
             break
         end = next_end
 
-        if len(parsed) < max_per_request:
-            break
+        # Coinbase puo' restituire meno di 300 candele anche quando esiste
+        # altro storico utile. Continua comunque il backfill usando la candela
+        # piu' vecchia ricevuta come nuovo limite temporale.
         time.sleep(0.15)
 
     candles = sorted(candles_by_ts.values(), key=lambda c: c.ts)
