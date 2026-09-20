@@ -75,23 +75,67 @@ def fetch_binance(symbol: str = "BTCUSDT", interval: str = "15m", limit: int = 5
 _COINBASE_GRANULARITY = {"1m": 60, "5m": 300, "15m": 900, "1h": 3600, "6h": 21600, "1d": 86400}
 
 
-def fetch_coinbase(symbol: str = "BTC-USD", interval: str = "15m", limit: int = 300) -> List[Candle]:
+def fetch_coinbase(symbol: str = "BTC-USD", interval: str = "15m", limit: int = 1200) -> List[Candle]:
+    """Scarica fino a limit candele facendo backfill a blocchi."""
     gran = _COINBASE_GRANULARITY.get(interval)
     if gran is None:
         raise DataError(f"Coinbase non supporta il timeframe {interval}")
-    raw = _get_json(
-        f"https://api.exchange.coinbase.com/products/{symbol}/candles",
-        {"granularity": gran},
-    )
-    if not isinstance(raw, list):
-        raise DataError(f"Risposta Coinbase inattesa: {str(raw)[:200]}")
-    # formato: [time, low, high, open, close, volume], ordine decrescente
-    candles = [
-        Candle(int(r[0]) * 1000, float(r[3]), float(r[2]), float(r[1]), float(r[4]), float(r[5]))
-        for r in raw
-    ]
-    candles.sort(key=lambda c: c.ts)
-    return candles[-limit:]
+    if limit <= 0:
+        return []
+
+    max_per_request = 300
+    wanted = min(limit, 5000)
+    end = int(time.time())
+    candles_by_ts: Dict[int, Candle] = {}
+
+    while len(candles_by_ts) < wanted:
+        batch_limit = min(max_per_request, wanted - len(candles_by_ts))
+        start = end - gran * batch_limit
+        raw = _get_json(
+            f"https://api.exchange.coinbase.com/products/{symbol}/candles",
+            {"granularity": gran, "start": start, "end": end},
+        )
+        if not isinstance(raw, list):
+            raise DataError(f"Risposta Coinbase inattesa: {str(raw)[:200]}")
+
+        parsed: List[Candle] = []
+        for row in raw:
+            if not isinstance(row, (list, tuple)) or len(row) < 6:
+                continue
+            try:
+                parsed.append(Candle(
+                    int(row[0]) * 1000,
+                    float(row[3]),
+                    float(row[2]),
+                    float(row[1]),
+                    float(row[4]),
+                    float(row[5]),
+                ))
+            except (TypeError, ValueError):
+                continue
+
+        if not parsed:
+            break
+
+        before = len(candles_by_ts)
+        for candle in parsed:
+            candles_by_ts[candle.ts] = candle
+        if len(candles_by_ts) == before:
+            break
+
+        oldest_ts = min(c.ts for c in parsed)
+        next_end = oldest_ts // 1000 - 1
+        if next_end >= end:
+            break
+        end = next_end
+
+        if len(parsed) < max_per_request:
+            break
+        time.sleep(0.15)
+
+    candles = sorted(candles_by_ts.values(), key=lambda c: c.ts)
+    return candles[-wanted:]
+
 
 
 _TWELVE_INTERVAL = {"1m": "1min", "5m": "5min", "15m": "15min", "30m": "30min", "1h": "1h", "4h": "4h", "1d": "1day"}
@@ -237,7 +281,8 @@ def load_frames(symbol_cfg: dict, api_keys: dict, timeframes=("15m", "1h", "4h")
             frames[tf] = drop_incomplete(fetch_binance(api_symbol, tf, limit), tf)
 
     elif source == "coinbase":
-        base = fetch_coinbase(api_symbol, "15m", 300)
+        # 1200 candele 15m forniscono circa 12,5 giorni di storico.
+        base = fetch_coinbase(api_symbol, "15m", 1200)
         frames["15m"] = drop_incomplete(base, "15m")
         for tf in timeframes:
             if tf != "15m":
