@@ -104,15 +104,19 @@ def mark_alert(state: dict, symbol: str, signal: analysis.Signal) -> None:
 # --------------------------------------------------------------------------
 
 
-def handle_commands(cfg: dict, state: dict, bot: notifier.Telegram) -> bool:
-    """Riconosce un solo comando Telegram: /stato."""
+def handle_commands(cfg: dict, state: dict, bot: notifier.Telegram) -> str:
+    """Riconosce /stato e /controlla. Il controllo parte nel ciclo che rileva il comando."""
     commands, new_offset = bot.poll_commands(state.get("update_offset", 0))
     state["update_offset"] = new_offset
     if not commands:
-        return False
+        return ""
 
     log(f"comandi ricevuti: {commands}")
-    return "/stato" in commands
+    if "/controlla" in commands:
+        return "controlla"
+    if "/stato" in commands:
+        return "stato"
+    return ""
 
 
 def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False) -> None:
@@ -120,7 +124,7 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
     closed_markets: List[str] = []
     account = cfg.get("account", {})
     currency = account.get("currency", "USD")
-    summary_requested = False if demo else handle_commands(cfg, state, bot)
+    command_request = "" if demo else handle_commands(cfg, state, bot)
     min_score = cfg.get("min_score", 60)
     cooldown = cfg.get("cooldown_minutes", 90)
 
@@ -158,7 +162,7 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
 
     summary_every = cfg.get("summary_every_minutes", 240)
     due = (time.time() - state.get("last_summary", 0)) >= summary_every * 60
-    if snapshots and (summary_requested or (due and not in_quiet_hours(cfg))):
+    if snapshots and (command_request in ("stato", "controlla") or (due and not in_quiet_hours(cfg))):
         if bot.send(notifier.format_summary(snapshots, closed_markets)):
             state["last_summary"] = time.time()
             log("riepilogo inviato")
