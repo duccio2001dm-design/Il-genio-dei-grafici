@@ -2,7 +2,8 @@
   "last_alerts": {
     "BTCUSD:pullback_long": 1789969075.7514052,
     "BTCUSD:level_approach": 1789973784.3152592,
-    "XAUUSD:level_approach": 1789972976.731511
+    "XAUUSD:level_approach": 1789972976.731511,
+    "XAUUSD:breakout_short": 1789975291.1188138
   },
   "last_summary": 1789970274.3009083,
   "update_offset": 917340068
