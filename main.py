@@ -105,22 +105,14 @@ def mark_alert(state: dict, symbol: str, signal: analysis.Signal) -> None:
 
 
 def handle_commands(cfg: dict, state: dict, bot: notifier.Telegram) -> bool:
-    """Legge i comandi mandati al bot. Restituisce True se hai chiesto un riepilogo."""
+    """Riconosce un solo comando Telegram: /stato."""
     commands, new_offset = bot.poll_commands(state.get("update_offset", 0))
     state["update_offset"] = new_offset
     if not commands:
         return False
 
     log(f"comandi ricevuti: {commands}")
-    if any(c in ("/stato", "/start", "/status", "/riepilogo") for c in commands):
-        return True
-    if any(c == "/aiuto" or c == "/help" for c in commands):
-        bot.send(
-            "<b>Comandi</b>\n"
-            "/stato — riepilogo di BTCUSD e XAUUSD\n\n"
-            "<i>Le risposte arrivano al ciclo successivo, quindi entro un quarto d'ora.</i>"
-        )
-    return False
+    return "/stato" in commands
 
 
 def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False) -> None:
