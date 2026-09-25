@@ -6,7 +6,8 @@
     "XAUUSD:breakout_short": 1790312640.8918626,
     "BTCUSD:breakout_long": 1790019594.0479734,
     "XAUUSD:breakout_long": 1790034660.2654142,
-    "XAUUSD:pullback_short": 1790316419.2369232
+    "XAUUSD:pullback_short": 1790316419.2369232,
+    "BTCUSD:breakout_short": 1790320613.5493655
   },
   "last_summary": 1790312641.378565,
   "update_offset": 917340068
