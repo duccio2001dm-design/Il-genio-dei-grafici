@@ -1,6 +1,6 @@
 {
   "last_alerts": {
-    "BTCUSD:pullback_long": 1790789972.9576733,
+    "BTCUSD:pullback_long": 1790870832.6318257,
     "BTCUSD:level_approach": 1790870236.2917128,
     "XAUUSD:level_approach": 1790868624.991435,
     "XAUUSD:breakout_short": 1790782834.0278234,
@@ -33,7 +33,32 @@
       "tp2_hit": false,
       "mfe_units": 11.696560000000318,
       "mae_units": 11.043139999999767,
-      "last_checked_ts": 1790868600000,
+      "last_checked_ts": 1790869500000,
+      "outcome_ts": null,
+      "outcome_note": null
+    },
+    {
+      "id": "BTCUSD|pullback_long|1790869500000|84130.06000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_long",
+      "title": "Ritracciamento in trend rialzista",
+      "direction": "long",
+      "score": 62,
+      "entry": 84130.06,
+      "sl": 83304.58997498454,
+      "tp1": 84955.53002501545,
+      "tp2": 85781.00005003091,
+      "structural_target": 84411.31727272726,
+      "size_units": 0.012114310268035179,
+      "money_at_risk": 10.0,
+      "entry_ts": 1790869500000,
+      "created_at": 1790870832.6318429,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1790869500000,
       "outcome_ts": null,
       "outcome_note": null
     }
