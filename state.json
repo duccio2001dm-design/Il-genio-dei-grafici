@@ -1,6 +1,6 @@
 {
   "last_alerts": {
-    "BTCUSD:pullback_long": 1790884819.2597501,
+    "BTCUSD:pullback_long": 1790892055.7068424,
     "BTCUSD:level_approach": 1790891653.6286013,
     "XAUUSD:level_approach": 1790875621.2270725,
     "XAUUSD:breakout_short": 1790782834.0278234,
@@ -33,7 +33,7 @@
       "tp2_hit": false,
       "mfe_units": 11.696560000000318,
       "mae_units": 20.99405999999999,
-      "last_checked_ts": 1790886600000,
+      "last_checked_ts": 1790891100000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -58,7 +58,7 @@
       "tp2_hit": false,
       "mfe_units": 1113.9400000000023,
       "mae_units": 102.27999999999884,
-      "last_checked_ts": 1790890200000,
+      "last_checked_ts": 1790891100000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -107,8 +107,8 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 346.91999999999825,
-      "mae_units": 434.9600000000064,
-      "last_checked_ts": 1790890200000,
+      "mae_units": 435.3500000000058,
+      "last_checked_ts": 1790891100000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -132,8 +132,33 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 197.99000000000524,
-      "mae_units": 182.8000000000029,
-      "last_checked_ts": 1790890200000,
+      "mae_units": 183.19000000000233,
+      "last_checked_ts": 1790891100000,
+      "outcome_ts": null,
+      "outcome_note": null
+    },
+    {
+      "id": "BTCUSD|pullback_long|1790891100000|84515.18000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_long",
+      "title": "Ritracciamento in trend rialzista",
+      "direction": "long",
+      "score": 76,
+      "entry": 84515.18,
+      "sl": 84397.97535757323,
+      "tp1": 84632.38464242675,
+      "tp2": 84749.58928485351,
+      "structural_target": 85065.62,
+      "size_units": 0.08532085242484158,
+      "money_at_risk": 10.0,
+      "entry_ts": 1790891100000,
+      "created_at": 1790892055.7068634,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1790891100000,
       "outcome_ts": null,
       "outcome_note": null
     }
