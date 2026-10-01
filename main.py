@@ -30,6 +30,7 @@ from typing import Dict, List
 import analysis
 import datafeed
 import notifier
+import journal
 from datafeed import Candle
 
 DEFAULT_CONFIG = "config.json"
@@ -69,7 +70,9 @@ def load_state(path: str) -> dict:
                 return json.load(fh)
         except Exception:
             pass
-    return {"last_alerts": {}, "last_summary": 0}
+    state = {"last_alerts": {}, "last_summary": 0}
+    state.setdefault("trade_journal", [])
+    return state
 
 
 def save_state(path: str, state: dict) -> None:
@@ -146,6 +149,12 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
         snapshots.append(snapshot)
         log(f"{name}: prezzo {snapshot.price:.2f}, {len(snapshot.signals)} condizioni rilevate")
 
+        # Prima di cercare nuovi segnali, aggiorna gli eventuali trade aperti
+        # usando solo candele chiuse successive all'ingresso.
+        outcome_changes = journal.update_from_candles(state, name, frames["15m"])
+        for trade in outcome_changes:
+            log(f"{name}: esito journal {trade['signal_key']} -> {trade['status']}")
+
         if in_quiet_hours(cfg):
             continue
 
@@ -157,6 +166,8 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
             text = notifier.format_alert(snapshot, signal, symbol_cfg, currency)
             if bot.send(text):
                 mark_alert(state, name, signal)
+                if journal.register_signal(state, name, signal, frames["15m"][-1].ts):
+                    log(f"{name}: registrato trade journal '{signal.key}' ({signal.score}/100)")
                 log(f"{name}: inviato avviso '{signal.key}' ({signal.score}/100)")
             break  # un solo avviso per strumento per ciclo: la sobrieta' e' una funzionalita'
 
@@ -236,6 +247,7 @@ def main() -> None:
         dry_run=args.dry_run or args.demo,
     )
     state = load_state(args.state)
+    state.setdefault("trade_journal", [])
 
     if args.once or args.demo:
         run_cycle(cfg, state, bot, demo=args.demo)
