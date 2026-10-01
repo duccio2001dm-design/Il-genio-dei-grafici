@@ -1,7 +1,7 @@
 {
   "last_alerts": {
     "BTCUSD:pullback_long": 1790870832.6318257,
-    "BTCUSD:level_approach": 1790870236.2917128,
+    "BTCUSD:level_approach": 1790877184.682889,
     "XAUUSD:level_approach": 1790875621.2270725,
     "XAUUSD:breakout_short": 1790782834.0278234,
     "BTCUSD:breakout_long": 1790876398.0412664,
@@ -32,8 +32,8 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 11.696560000000318,
-      "mae_units": 15.633300000000418,
-      "last_checked_ts": 1790874900000,
+      "mae_units": 20.99405999999999,
+      "last_checked_ts": 1790875800000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -54,11 +54,11 @@
       "entry_ts": 1790869500000,
       "created_at": 1790870832.6318429,
       "status": "open",
-      "tp1_hit": false,
+      "tp1_hit": true,
       "tp2_hit": false,
-      "mfe_units": 778.9300000000076,
+      "mfe_units": 916.8699999999953,
       "mae_units": 102.27999999999884,
-      "last_checked_ts": 1790874900000,
+      "last_checked_ts": 1790875800000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -78,14 +78,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1790873100000,
       "created_at": 1790874710.754375,
-      "status": "open",
+      "status": "sl",
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 0.41107000000010885,
-      "mae_units": 14.759900000000016,
+      "mae_units": 21.0341499999995,
       "last_checked_ts": 1790874900000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "outcome_ts": 1790875800000,
+      "outcome_note": "Stop raggiunto sulla candela 15m."
     },
     {
       "id": "BTCUSD|breakout_long|1790874900000|84897.08000000",
@@ -106,9 +106,9 @@
       "status": "open",
       "tp1_hit": false,
       "tp2_hit": false,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "last_checked_ts": 1790874900000,
+      "mfe_units": 149.84999999999127,
+      "mae_units": 148.57000000000698,
+      "last_checked_ts": 1790875800000,
       "outcome_ts": null,
       "outcome_note": null
     }
