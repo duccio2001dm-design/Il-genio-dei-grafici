@@ -108,7 +108,7 @@
       "tp2_hit": false,
       "mfe_units": 2351.970000000001,
       "mae_units": 1047.0599999999977,
-      "last_checked_ts": 1791238500000,
+      "last_checked_ts": 1791239400000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -258,7 +258,7 @@
       "tp2_hit": false,
       "mfe_units": 31.08512999999948,
       "mae_units": 14.10787000000073,
-      "last_checked_ts": 1791238500000,
+      "last_checked_ts": 1791239400000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -383,7 +383,7 @@
       "tp2_hit": false,
       "mfe_units": 226.2399999999907,
       "mae_units": 13.460000000006403,
-      "last_checked_ts": 1791238500000,
+      "last_checked_ts": 1791239400000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -403,14 +403,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1791236700000,
       "created_at": 1791238368.122798,
-      "status": "open",
+      "status": "sl",
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 0.0,
-      "mae_units": 5.134280000000217,
+      "mae_units": 5.993390000000545,
       "last_checked_ts": 1791238500000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "outcome_ts": 1791239400000,
+      "outcome_note": "Stop raggiunto sulla candela 15m."
     }
   ]
 }
