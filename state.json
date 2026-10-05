@@ -9,7 +9,7 @@
     "XAUUSD:pullback_short": 1790970417.9961486,
     "BTCUSD:breakout_short": 1790749124.554526
   },
-  "last_summary": 1791222230.6550949,
+  "last_summary": 1791237042.0138874,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -108,7 +108,7 @@
       "tp2_hit": false,
       "mfe_units": 2351.970000000001,
       "mae_units": 1047.0599999999977,
-      "last_checked_ts": 1791234900000,
+      "last_checked_ts": 1791235800000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -381,9 +381,9 @@
       "status": "open",
       "tp1_hit": false,
       "tp2_hit": false,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "last_checked_ts": 1791234900000,
+      "mfe_units": 125.67999999999302,
+      "mae_units": 13.460000000006403,
+      "last_checked_ts": 1791235800000,
       "outcome_ts": null,
       "outcome_note": null
     }
