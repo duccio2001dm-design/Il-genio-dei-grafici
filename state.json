@@ -1,6 +1,6 @@
 {
   "last_alerts": {
-    "BTCUSD:pullback_long": 1790926422.3557565,
+    "BTCUSD:pullback_long": 1791191288.8469567,
     "BTCUSD:level_approach": 1791136541.3665335,
     "XAUUSD:level_approach": 1791186136.2972054,
     "XAUUSD:breakout_short": 1790953281.0627859,
@@ -108,7 +108,7 @@
       "tp2_hit": false,
       "mfe_units": 2351.970000000001,
       "mae_units": 1047.0599999999977,
-      "last_checked_ts": 1791189000000,
+      "last_checked_ts": 1791189900000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -258,7 +258,7 @@
       "tp2_hit": false,
       "mfe_units": 30.573339999999916,
       "mae_units": 14.10787000000073,
-      "last_checked_ts": 1791189000000,
+      "last_checked_ts": 1791189900000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -311,6 +311,31 @@
       "last_checked_ts": 1791162000000,
       "outcome_ts": 1791162900000,
       "outcome_note": "Target 2 raggiunto sulla candela 15m."
+    },
+    {
+      "id": "BTCUSD|pullback_long|1791189900000|86190.66000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_long",
+      "title": "Ritracciamento in trend rialzista",
+      "direction": "long",
+      "score": 76,
+      "entry": 86190.66,
+      "sl": 85349.95825784416,
+      "tp1": 87031.36174215584,
+      "tp2": 87872.06348431169,
+      "structural_target": 86959.09333333334,
+      "size_units": 0.011894824880886588,
+      "money_at_risk": 10.0,
+      "entry_ts": 1791189900000,
+      "created_at": 1791191288.8469822,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1791189900000,
+      "outcome_ts": null,
+      "outcome_note": null
     }
   ]
 }
