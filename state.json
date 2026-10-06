@@ -1,12 +1,12 @@
 {
   "last_alerts": {
     "BTCUSD:pullback_long": 1791243569.3066626,
-    "BTCUSD:level_approach": 1791222230.0639746,
+    "BTCUSD:level_approach": 1791269141.772361,
     "XAUUSD:level_approach": 1791242291.3942883,
     "XAUUSD:breakout_short": 1790953281.0627859,
     "BTCUSD:breakout_long": 1791147968.5673692,
     "XAUUSD:breakout_long": 1790945436.4631824,
-    "XAUUSD:pullback_short": 1791244068.1971664,
+    "XAUUSD:pullback_short": 1791269142.510635,
     "BTCUSD:breakout_short": 1790749124.554526
   },
   "last_summary": 1791262880.1633348,
@@ -108,7 +108,7 @@
       "tp2_hit": false,
       "mfe_units": 2351.970000000001,
       "mae_units": 1047.0599999999977,
-      "last_checked_ts": 1791266400000,
+      "last_checked_ts": 1791268200000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -258,7 +258,7 @@
       "tp2_hit": false,
       "mfe_units": 48.70814999999948,
       "mae_units": 14.10787000000073,
-      "last_checked_ts": 1791266400000,
+      "last_checked_ts": 1791268200000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -461,6 +461,31 @@
       "last_checked_ts": 1791246600000,
       "outcome_ts": 1791247500000,
       "outcome_note": "Stop raggiunto sulla candela 15m."
+    },
+    {
+      "id": "XAUUSD|pullback_short|1791268200000|4131.13638000",
+      "symbol": "XAUUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 76,
+      "entry": 4131.13638,
+      "sl": 4136.215952180206,
+      "tp1": 4126.056807819794,
+      "tp2": 4120.977235639588,
+      "structural_target": 4126.0951159999995,
+      "size_units": 1.9686697314722332,
+      "money_at_risk": 10.0,
+      "entry_ts": 1791268200000,
+      "created_at": 1791269142.510671,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1791268200000,
+      "outcome_ts": null,
+      "outcome_note": null
     }
   ]
 }
