@@ -108,7 +108,7 @@
       "tp2_hit": false,
       "mfe_units": 2351.970000000001,
       "mae_units": 1047.0599999999977,
-      "last_checked_ts": 1791251100000,
+      "last_checked_ts": 1791252000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -258,7 +258,7 @@
       "tp2_hit": false,
       "mfe_units": 31.08512999999948,
       "mae_units": 14.10787000000073,
-      "last_checked_ts": 1791251100000,
+      "last_checked_ts": 1791252000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -382,8 +382,8 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 332.5899999999965,
-      "mae_units": 204.82000000000698,
-      "last_checked_ts": 1791251100000,
+      "mae_units": 349.570000000007,
+      "last_checked_ts": 1791252000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -428,14 +428,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1791242100000,
       "created_at": 1791243569.306707,
-      "status": "open",
+      "status": "sl",
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 216.54000000000815,
-      "mae_units": 320.86999999999534,
+      "mae_units": 465.61999999999534,
       "last_checked_ts": 1791251100000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "outcome_ts": 1791252000000,
+      "outcome_note": "Stop raggiunto sulla candela 15m."
     },
     {
       "id": "XAUUSD|pullback_short|1791243000000|4137.25290000",
