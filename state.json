@@ -259,7 +259,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 27.42884000000049,
-      "last_checked_ts": 1791392400000,
+      "last_checked_ts": 1791393300000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -559,7 +559,7 @@
       "tp2_hit": false,
       "mfe_units": 51.45400000000018,
       "mae_units": 12.734969999999521,
-      "last_checked_ts": 1791392400000,
+      "last_checked_ts": 1791393300000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -584,7 +584,7 @@
       "tp2_hit": false,
       "mfe_units": 20.35257999999976,
       "mae_units": 43.83638999999994,
-      "last_checked_ts": 1791392400000,
+      "last_checked_ts": 1791393300000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -609,7 +609,7 @@
       "tp2_hit": false,
       "mfe_units": 331.0899999999965,
       "mae_units": 606.6399999999994,
-      "last_checked_ts": 1791392400000,
+      "last_checked_ts": 1791393300000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -634,7 +634,7 @@
       "tp2_hit": false,
       "mfe_units": 1.962359999999535,
       "mae_units": 24.06638000000021,
-      "last_checked_ts": 1791392400000,
+      "last_checked_ts": 1791393300000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -654,14 +654,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1791389700000,
       "created_at": 1791391311.5493379,
-      "status": "open",
+      "status": "tp2",
       "tp1_hit": true,
-      "tp2_hit": false,
-      "mfe_units": 217.30999999999767,
+      "tp2_hit": true,
+      "mfe_units": 365.8799999999901,
       "mae_units": 128.5500000000029,
       "last_checked_ts": 1791392400000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "outcome_ts": 1791393300000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m."
     }
   ]
 }
