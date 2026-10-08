@@ -10,7 +10,7 @@
     "BTCUSD:breakout_short": 1791474244.189482,
     "BTCUSD:pullback_short": 1791471448.2583342
   },
-  "last_summary": 1791465826.1536334,
+  "last_summary": 1791480901.6153736,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -259,7 +259,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 27.42884000000049,
-      "last_checked_ts": 1791478800000,
+      "last_checked_ts": 1791479700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1032,9 +1032,9 @@
       "status": "open",
       "tp1_hit": false,
       "tp2_hit": false,
-      "mfe_units": 687.2700000000041,
+      "mfe_units": 980.6200000000099,
       "mae_units": 184.79999999998836,
-      "last_checked_ts": 1791478800000,
+      "last_checked_ts": 1791479700000,
       "outcome_ts": null,
       "outcome_note": null
     }
