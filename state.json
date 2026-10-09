@@ -9,7 +9,7 @@
     "XAUUSD:pullback_short": 1791464610.9218507,
     "BTCUSD:breakout_short": 1791474244.189482,
     "BTCUSD:pullback_short": 1791499455.1774316,
-    "XAUUSD:pullback_long": 1791559188.5213141
+    "XAUUSD:pullback_long": 1791564782.4855273
   },
   "last_summary": 1791551239.443627,
   "update_offset": 917340068,
@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 50.48707000000013,
-      "last_checked_ts": 1791562500000,
+      "last_checked_ts": 1791563400000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1135,7 +1135,7 @@
       "tp2_hit": false,
       "mfe_units": 0.04691000000002532,
       "mae_units": 32.79584999999952,
-      "last_checked_ts": 1791562500000,
+      "last_checked_ts": 1791563400000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1185,7 +1185,7 @@
       "tp2_hit": false,
       "mfe_units": 9.970839999999953,
       "mae_units": 9.20535000000018,
-      "last_checked_ts": 1791562500000,
+      "last_checked_ts": 1791563400000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1210,7 +1210,32 @@
       "tp2_hit": false,
       "mfe_units": 9.000320000000102,
       "mae_units": 0.5172599999996237,
-      "last_checked_ts": 1791562500000,
+      "last_checked_ts": 1791563400000,
+      "outcome_ts": null,
+      "outcome_note": null
+    },
+    {
+      "id": "XAUUSD|pullback_long|1791563400000|4190.80080000",
+      "symbol": "XAUUSD",
+      "signal_key": "pullback_long",
+      "title": "Ritracciamento in trend rialzista",
+      "direction": "long",
+      "score": 62,
+      "entry": 4190.8008,
+      "sl": 4176.88541867672,
+      "tp1": 4204.71618132328,
+      "tp2": 4218.631562646559,
+      "structural_target": 4197.041153333333,
+      "size_units": 0.7186292468515063,
+      "money_at_risk": 10.0,
+      "entry_ts": 1791563400000,
+      "created_at": 1791564782.4855592,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1791563400000,
       "outcome_ts": null,
       "outcome_note": null
     }
