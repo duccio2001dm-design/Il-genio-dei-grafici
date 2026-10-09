@@ -8,7 +8,8 @@
     "XAUUSD:breakout_long": 1791525038.0246775,
     "XAUUSD:pullback_short": 1791464610.9218507,
     "BTCUSD:breakout_short": 1791474244.189482,
-    "BTCUSD:pullback_short": 1791499455.1774316
+    "BTCUSD:pullback_short": 1791499455.1774316,
+    "XAUUSD:pullback_long": 1791545506.588696
   },
   "last_summary": 1791536638.9585886,
   "update_offset": 917340068,
@@ -259,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 50.48707000000013,
-      "last_checked_ts": 1791543600000,
+      "last_checked_ts": 1791544500000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1034,7 +1035,7 @@
       "tp2_hit": false,
       "mfe_units": 980.6200000000099,
       "mae_units": 1384.7399999999907,
-      "last_checked_ts": 1791543600000,
+      "last_checked_ts": 1791544500000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1134,7 +1135,32 @@
       "tp2_hit": false,
       "mfe_units": 0.04691000000002532,
       "mae_units": 26.39166000000023,
-      "last_checked_ts": 1791543600000,
+      "last_checked_ts": 1791544500000,
+      "outcome_ts": null,
+      "outcome_note": null
+    },
+    {
+      "id": "XAUUSD|pullback_long|1791544500000|4184.43419000",
+      "symbol": "XAUUSD",
+      "signal_key": "pullback_long",
+      "title": "Ritracciamento in trend rialzista",
+      "direction": "long",
+      "score": 68,
+      "entry": 4184.43419,
+      "sl": 4173.929414633987,
+      "tp1": 4194.938965366013,
+      "tp2": 4205.443740732026,
+      "structural_target": 4194.3682499999995,
+      "size_units": 0.9519480095075629,
+      "money_at_risk": 10.0,
+      "entry_ts": 1791544500000,
+      "created_at": 1791545506.588734,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1791544500000,
       "outcome_ts": null,
       "outcome_note": null
     }
