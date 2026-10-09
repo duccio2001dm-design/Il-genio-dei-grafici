@@ -259,7 +259,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 50.48707000000013,
-      "last_checked_ts": 1791529200000,
+      "last_checked_ts": 1791530100000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1034,7 +1034,7 @@
       "tp2_hit": false,
       "mfe_units": 980.6200000000099,
       "mae_units": 1302.679999999993,
-      "last_checked_ts": 1791529200000,
+      "last_checked_ts": 1791530100000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1134,7 +1134,7 @@
       "tp2_hit": false,
       "mfe_units": 0.04691000000002532,
       "mae_units": 12.396810000000187,
-      "last_checked_ts": 1791529200000,
+      "last_checked_ts": 1791530100000,
       "outcome_ts": null,
       "outcome_note": null
     }
