@@ -5,7 +5,7 @@
     "XAUUSD:level_approach": 1791522153.9671214,
     "XAUUSD:breakout_short": 1791376472.3894324,
     "BTCUSD:breakout_long": 1791299011.5023494,
-    "XAUUSD:breakout_long": 1790945436.4631824,
+    "XAUUSD:breakout_long": 1791525038.0246775,
     "XAUUSD:pullback_short": 1791464610.9218507,
     "BTCUSD:breakout_short": 1791474244.189482,
     "BTCUSD:pullback_short": 1791499455.1774316
@@ -258,8 +258,8 @@
       "tp1_hit": true,
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
-      "mae_units": 36.375600000000304,
-      "last_checked_ts": 1791522900000,
+      "mae_units": 50.48707000000013,
+      "last_checked_ts": 1791523800000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1033,8 +1033,8 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 980.6200000000099,
-      "mae_units": 1204.679999999993,
-      "last_checked_ts": 1791522900000,
+      "mae_units": 1258.449999999997,
+      "last_checked_ts": 1791523800000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1112,6 +1112,31 @@
       "last_checked_ts": 1791508500000,
       "outcome_ts": 1791509400000,
       "outcome_note": "Stop raggiunto sulla candela 15m."
+    },
+    {
+      "id": "XAUUSD|breakout_long|1791523800000|4201.93135000",
+      "symbol": "XAUUSD",
+      "signal_key": "breakout_long",
+      "title": "Rottura al rialzo del range",
+      "direction": "long",
+      "score": 62,
+      "entry": 4201.93135,
+      "sl": 4168.08107565458,
+      "tp1": 4235.78162434542,
+      "tp2": 4269.63189869084,
+      "structural_target": 4202.38696,
+      "size_units": 0.29541858059868265,
+      "money_at_risk": 10.0,
+      "entry_ts": 1791523800000,
+      "created_at": 1791525038.0247104,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1791523800000,
+      "outcome_ts": null,
+      "outcome_note": null
     }
   ]
 }
