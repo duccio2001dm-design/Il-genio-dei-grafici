@@ -1280,14 +1280,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1791580500000,
       "created_at": 1791581517.0155861,
-      "status": "open",
+      "status": "sl",
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 136.44000000000233,
-      "mae_units": 208.34999999999127,
+      "mae_units": 253.40999999998894,
       "last_checked_ts": 1791609300000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "outcome_ts": 1791610200000,
+      "outcome_note": "Stop raggiunto sulla candela 15m."
     }
   ]
 }
