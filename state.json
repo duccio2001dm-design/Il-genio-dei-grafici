@@ -1308,9 +1308,9 @@
       "status": "open",
       "tp1_hit": true,
       "tp2_hit": false,
-      "mfe_units": 565.6599999999889,
+      "mfe_units": 618.6899999999878,
       "mae_units": 27.810000000012224,
-      "last_checked_ts": 1791735300000,
+      "last_checked_ts": 1791736200000,
       "outcome_ts": null,
       "outcome_note": null
     }
