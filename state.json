@@ -1306,11 +1306,11 @@
       "entry_ts": 1791732600000,
       "created_at": 1791733766.0125735,
       "status": "open",
-      "tp1_hit": false,
+      "tp1_hit": true,
       "tp2_hit": false,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "last_checked_ts": 1791732600000,
+      "mfe_units": 565.6599999999889,
+      "mae_units": 27.810000000012224,
+      "last_checked_ts": 1791733500000,
       "outcome_ts": null,
       "outcome_note": null
     }
