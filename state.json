@@ -8,10 +8,10 @@
     "XAUUSD:breakout_long": 1791762561.9275858,
     "XAUUSD:pullback_short": 1791464610.9218507,
     "BTCUSD:breakout_short": 1791474244.189482,
-    "BTCUSD:pullback_short": 1791581517.0155554,
+    "BTCUSD:pullback_short": 1791840990.326814,
     "XAUUSD:pullback_long": 1791575476.8036256
   },
-  "last_summary": 1791826444.1650023,
+  "last_summary": 1791840990.750215,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -1361,6 +1361,31 @@
       "mfe_units": 6.866790000000037,
       "mae_units": 13.30952999999954,
       "last_checked_ts": 1791837000000,
+      "outcome_ts": null,
+      "outcome_note": null
+    },
+    {
+      "id": "BTCUSD|pullback_short|1791839700000|82824.96000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 76,
+      "entry": 82824.96,
+      "sl": 83105.85252169664,
+      "tp1": 82544.06747830338,
+      "tp2": 82263.17495660674,
+      "structural_target": 82756.94428571429,
+      "size_units": 0.035600805388475903,
+      "money_at_risk": 10.0,
+      "entry_ts": 1791839700000,
+      "created_at": 1791840990.3268504,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1791839700000,
       "outcome_ts": null,
       "outcome_note": null
     }
