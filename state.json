@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1791782100000,
+      "last_checked_ts": 1791783000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1135,7 +1135,7 @@
       "tp2_hit": false,
       "mfe_units": 14.275749999999789,
       "mae_units": 32.79584999999952,
-      "last_checked_ts": 1791782100000,
+      "last_checked_ts": 1791783000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1185,7 +1185,7 @@
       "tp2_hit": false,
       "mfe_units": 27.391339999999218,
       "mae_units": 9.20535000000018,
-      "last_checked_ts": 1791782100000,
+      "last_checked_ts": 1791783000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1209,8 +1209,8 @@
       "tp1_hit": true,
       "tp2_hit": false,
       "mfe_units": 31.314629999999852,
-      "mae_units": 0.7920500000000175,
-      "last_checked_ts": 1791782100000,
+      "mae_units": 4.989439999999377,
+      "last_checked_ts": 1791783000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1234,8 +1234,8 @@
       "tp1_hit": true,
       "tp2_hit": false,
       "mfe_units": 25.406299999999646,
-      "mae_units": 6.700380000000223,
-      "last_checked_ts": 1791782100000,
+      "mae_units": 10.897769999999582,
+      "last_checked_ts": 1791783000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1310,7 +1310,7 @@
       "tp2_hit": false,
       "mfe_units": 860.929999999993,
       "mae_units": 153.33000000000175,
-      "last_checked_ts": 1791782100000,
+      "last_checked_ts": 1791783000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1330,14 +1330,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1791761400000,
       "created_at": 1791762561.92762,
-      "status": "open",
+      "status": "sl",
       "tp1_hit": true,
       "tp2_hit": false,
       "mfe_units": 17.99760999999944,
-      "mae_units": 14.109070000000429,
+      "mae_units": 18.306459999999788,
       "last_checked_ts": 1791782100000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "outcome_ts": 1791783000000,
+      "outcome_note": "Stop raggiunto sulla candela 15m."
     }
   ]
 }
