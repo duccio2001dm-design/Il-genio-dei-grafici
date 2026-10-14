@@ -7,7 +7,7 @@
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1791762561.9275858,
     "XAUUSD:pullback_short": 1791464610.9218507,
-    "BTCUSD:breakout_short": 1791846343.6955132,
+    "BTCUSD:breakout_short": 1791987291.0702045,
     "BTCUSD:pullback_short": 1791840990.326814,
     "XAUUSD:pullback_long": 1791575476.8036256
   },
@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1791984600000,
+      "last_checked_ts": 1791985500000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1413,6 +1413,31 @@
       "last_checked_ts": 1791861300000,
       "outcome_ts": 1791862200000,
       "outcome_note": "Stop raggiunto sulla candela 15m."
+    },
+    {
+      "id": "BTCUSD|breakout_short|1791985500000|82242.02000000",
+      "symbol": "BTCUSD",
+      "signal_key": "breakout_short",
+      "title": "Rottura al ribasso del range",
+      "direction": "short",
+      "score": 72,
+      "entry": 82242.02,
+      "sl": 83962.55958020588,
+      "tp1": 80521.48041979413,
+      "tp2": 78800.94083958825,
+      "structural_target": 82220.036,
+      "size_units": 0.005812130168376256,
+      "money_at_risk": 10.0,
+      "entry_ts": 1791985500000,
+      "created_at": 1791987291.0702422,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1791985500000,
+      "outcome_ts": null,
+      "outcome_note": null
     }
   ]
 }
