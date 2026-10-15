@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792023300000,
+      "last_checked_ts": 1792025100000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1433,9 +1433,9 @@
       "status": "open",
       "tp1_hit": false,
       "tp2_hit": false,
-      "mfe_units": 909.8700000000099,
+      "mfe_units": 960.7400000000052,
       "mae_units": 209.0500000000029,
-      "last_checked_ts": 1792023300000,
+      "last_checked_ts": 1792025100000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1480,14 +1480,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792008900000,
       "created_at": 1792010286.4263937,
-      "status": "open",
+      "status": "tp2",
       "tp1_hit": true,
-      "tp2_hit": false,
-      "mfe_units": 474.0,
+      "tp2_hit": true,
+      "mfe_units": 524.8699999999953,
       "mae_units": 67.2100000000064,
-      "last_checked_ts": 1792023300000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "last_checked_ts": 1792024200000,
+      "outcome_ts": 1792025100000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m."
     },
     {
       "id": "XAUUSD|pullback_short|1792008900000|4099.96331000",
