@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792069200000,
+      "last_checked_ts": 1792071900000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1433,9 +1433,9 @@
       "status": "open",
       "tp1_hit": true,
       "tp2_hit": false,
-      "mfe_units": 2117.020000000004,
+      "mfe_units": 2566.0,
       "mae_units": 209.0500000000029,
-      "last_checked_ts": 1792069200000,
+      "last_checked_ts": 1792071900000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1580,14 +1580,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792053000000,
       "created_at": 1792054624.2515755,
-      "status": "open",
+      "status": "tp2",
       "tp1_hit": true,
-      "tp2_hit": false,
-      "mfe_units": 860.3800000000047,
+      "tp2_hit": true,
+      "mfe_units": 1015.3000000000029,
       "mae_units": 183.92999999999302,
       "last_checked_ts": 1792069200000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "outcome_ts": 1792070100000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m."
     },
     {
       "id": "BTCUSD|pullback_short|1792064700000|80882.90000000",
@@ -1605,14 +1605,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792064700000,
       "created_at": 1792066153.0603392,
-      "status": "open",
+      "status": "tp2",
       "tp1_hit": true,
-      "tp2_hit": false,
-      "mfe_units": 613.7599999999948,
+      "tp2_hit": true,
+      "mfe_units": 1206.87999999999,
       "mae_units": 194.59000000001106,
-      "last_checked_ts": 1792069200000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "last_checked_ts": 1792071000000,
+      "outcome_ts": 1792071900000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m."
     }
   ]
 }
