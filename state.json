@@ -2,12 +2,12 @@
   "last_alerts": {
     "BTCUSD:pullback_long": 1791298304.418036,
     "BTCUSD:level_approach": 1792162224.4650853,
-    "XAUUSD:level_approach": 1792156569.048012,
+    "XAUUSD:level_approach": 1792167067.3704243,
     "XAUUSD:breakout_short": 1791808874.6300426,
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1791762561.9275858,
     "XAUUSD:pullback_short": 1792020681.2280161,
-    "BTCUSD:breakout_short": 1791987291.0702045,
+    "BTCUSD:breakout_short": 1792167066.713379,
     "BTCUSD:pullback_short": 1792066153.0603056,
     "XAUUSD:pullback_long": 1792150534.473659
   },
@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792163700000,
+      "last_checked_ts": 1792165500000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1435,7 +1435,7 @@
       "tp2_hit": false,
       "mfe_units": 2566.0,
       "mae_units": 588.9899999999907,
-      "last_checked_ts": 1792163700000,
+      "last_checked_ts": 1792165500000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1638,6 +1638,31 @@
       "last_checked_ts": 1792151100000,
       "outcome_ts": 1792152000000,
       "outcome_note": "Stop raggiunto sulla candela 15m."
+    },
+    {
+      "id": "BTCUSD|breakout_short|1792165500000|81242.09000000",
+      "symbol": "BTCUSD",
+      "signal_key": "breakout_short",
+      "title": "Rottura al ribasso del range",
+      "direction": "short",
+      "score": 73,
+      "entry": 81242.09,
+      "sl": 82469.59906656468,
+      "tp1": 80014.58093343531,
+      "tp2": 78787.07186687062,
+      "structural_target": 81073.45499999999,
+      "size_units": 0.008146579338909537,
+      "money_at_risk": 10.0,
+      "entry_ts": 1792165500000,
+      "created_at": 1792167066.713422,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1792165500000,
+      "outcome_ts": null,
+      "outcome_note": null
     }
   ]
 }
