@@ -8,10 +8,10 @@
     "XAUUSD:breakout_long": 1791762561.9275858,
     "XAUUSD:pullback_short": 1792020681.2280161,
     "BTCUSD:breakout_short": 1792167066.713379,
-    "BTCUSD:pullback_short": 1792179977.7944899,
+    "BTCUSD:pullback_short": 1792187035.660641,
     "XAUUSD:pullback_long": 1792150534.473659
   },
-  "last_summary": 1792171867.2934403,
+  "last_summary": 1792187036.0168638,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -1435,7 +1435,7 @@
       "tp2_hit": false,
       "mfe_units": 2566.0,
       "mae_units": 588.9899999999907,
-      "last_checked_ts": 1792184400000,
+      "last_checked_ts": 1792185300000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1660,7 +1660,7 @@
       "tp2_hit": false,
       "mfe_units": 548.3999999999942,
       "mae_units": 467.88000000000466,
-      "last_checked_ts": 1792184400000,
+      "last_checked_ts": 1792185300000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1684,8 +1684,33 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 3.790000000008149,
-      "mae_units": 447.8899999999994,
-      "last_checked_ts": 1792184400000,
+      "mae_units": 456.4400000000023,
+      "last_checked_ts": 1792185300000,
+      "outcome_ts": null,
+      "outcome_note": null
+    },
+    {
+      "id": "BTCUSD|pullback_short|1792185300000|81617.14000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 70,
+      "entry": 81617.14,
+      "sl": 81773.5335917299,
+      "tp1": 81460.7464082701,
+      "tp2": 81304.35281654021,
+      "structural_target": 81509.10666666667,
+      "size_units": 0.0639412388281922,
+      "money_at_risk": 10.0,
+      "entry_ts": 1792185300000,
+      "created_at": 1792187035.660681,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1792185300000,
       "outcome_ts": null,
       "outcome_note": null
     }
