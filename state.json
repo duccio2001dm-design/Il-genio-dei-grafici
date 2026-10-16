@@ -1,7 +1,7 @@
 {
   "last_alerts": {
     "BTCUSD:pullback_long": 1791298304.418036,
-    "BTCUSD:level_approach": 1792140451.7588549,
+    "BTCUSD:level_approach": 1792150533.8583193,
     "XAUUSD:level_approach": 1792148896.3648143,
     "XAUUSD:breakout_short": 1791808874.6300426,
     "BTCUSD:breakout_long": 1791733766.012543,
@@ -9,7 +9,7 @@
     "XAUUSD:pullback_short": 1792020681.2280161,
     "BTCUSD:breakout_short": 1791987291.0702045,
     "BTCUSD:pullback_short": 1792066153.0603056,
-    "XAUUSD:pullback_long": 1791575476.8036256
+    "XAUUSD:pullback_long": 1792150534.473659
   },
   "last_summary": 1792142120.9949949,
   "update_offset": 917340068,
@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792147500000,
+      "last_checked_ts": 1792149300000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1434,8 +1434,8 @@
       "tp1_hit": true,
       "tp2_hit": false,
       "mfe_units": 2566.0,
-      "mae_units": 313.0599999999977,
-      "last_checked_ts": 1792147500000,
+      "mae_units": 588.9899999999907,
+      "last_checked_ts": 1792149300000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1613,6 +1613,31 @@
       "last_checked_ts": 1792071000000,
       "outcome_ts": 1792071900000,
       "outcome_note": "Target 2 raggiunto sulla candela 15m."
+    },
+    {
+      "id": "XAUUSD|pullback_long|1792149300000|4181.98121000",
+      "symbol": "XAUUSD",
+      "signal_key": "pullback_long",
+      "title": "Ritracciamento in trend rialzista",
+      "direction": "long",
+      "score": 68,
+      "entry": 4181.98121,
+      "sl": 4171.486510492081,
+      "tp1": 4192.475909507919,
+      "tp2": 4202.970609015838,
+      "structural_target": 4187.7079674999995,
+      "size_units": 0.9528619654573521,
+      "money_at_risk": 10.0,
+      "entry_ts": 1792149300000,
+      "created_at": 1792150534.4736946,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1792149300000,
+      "outcome_ts": null,
+      "outcome_note": null
     }
   ]
 }
