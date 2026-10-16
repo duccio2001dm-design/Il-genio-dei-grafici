@@ -1,7 +1,7 @@
 {
   "last_alerts": {
     "BTCUSD:pullback_long": 1791298304.418036,
-    "BTCUSD:level_approach": 1792184171.0623465,
+    "BTCUSD:level_approach": 1792193861.8861618,
     "XAUUSD:level_approach": 1792179978.8057356,
     "XAUUSD:breakout_short": 1791808874.6300426,
     "BTCUSD:breakout_long": 1791733766.012543,
@@ -1435,7 +1435,7 @@
       "tp2_hit": false,
       "mfe_units": 2566.0,
       "mae_units": 588.9899999999907,
-      "last_checked_ts": 1792191600000,
+      "last_checked_ts": 1792192500000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1660,7 +1660,7 @@
       "tp2_hit": false,
       "mfe_units": 548.3999999999942,
       "mae_units": 478.0100000000093,
-      "last_checked_ts": 1792191600000,
+      "last_checked_ts": 1792192500000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1685,7 +1685,7 @@
       "tp2_hit": false,
       "mfe_units": 3.790000000008149,
       "mae_units": 486.1900000000023,
-      "last_checked_ts": 1792191600000,
+      "last_checked_ts": 1792192500000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1708,9 +1708,9 @@
       "status": "open",
       "tp1_hit": false,
       "tp2_hit": false,
-      "mfe_units": 62.020000000004075,
+      "mfe_units": 115.47999999999593,
       "mae_units": 102.9600000000064,
-      "last_checked_ts": 1792191600000,
+      "last_checked_ts": 1792192500000,
       "outcome_ts": null,
       "outcome_note": null
     }
