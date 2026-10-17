@@ -8,7 +8,7 @@
     "XAUUSD:breakout_long": 1791762561.9275858,
     "XAUUSD:pullback_short": 1792020681.2280161,
     "BTCUSD:breakout_short": 1792167066.713379,
-    "BTCUSD:pullback_short": 1792213252.365815,
+    "BTCUSD:pullback_short": 1792234675.5479357,
     "XAUUSD:pullback_long": 1792150534.473659
   },
   "last_summary": 1792228125.348354,
@@ -1435,7 +1435,7 @@
       "tp2_hit": false,
       "mfe_units": 2566.0,
       "mae_units": 588.9899999999907,
-      "last_checked_ts": 1792232100000,
+      "last_checked_ts": 1792233000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1660,7 +1660,7 @@
       "tp2_hit": false,
       "mfe_units": 548.3999999999942,
       "mae_units": 478.0100000000093,
-      "last_checked_ts": 1792232100000,
+      "last_checked_ts": 1792233000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1685,7 +1685,7 @@
       "tp2_hit": false,
       "mfe_units": 3.790000000008149,
       "mae_units": 486.1900000000023,
-      "last_checked_ts": 1792232100000,
+      "last_checked_ts": 1792233000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1735,7 +1735,7 @@
       "tp2_hit": false,
       "mfe_units": 247.34999999999127,
       "mae_units": 136.32000000000698,
-      "last_checked_ts": 1792232100000,
+      "last_checked_ts": 1792233000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1763,6 +1763,31 @@
       "last_checked_ts": 1792221300000,
       "outcome_ts": 1792222200000,
       "outcome_note": "Stop raggiunto sulla candela 15m."
+    },
+    {
+      "id": "BTCUSD|pullback_short|1792233000000|81523.88000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 70,
+      "entry": 81523.88,
+      "sl": 81679.64865795003,
+      "tp1": 81368.11134204998,
+      "tp2": 81212.34268409995,
+      "structural_target": 81344.235,
+      "size_units": 0.06419776694235876,
+      "money_at_risk": 10.0,
+      "entry_ts": 1792233000000,
+      "created_at": 1792234675.547974,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1792233000000,
+      "outcome_ts": null,
+      "outcome_note": null
     }
   ]
 }
