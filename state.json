@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792368000000,
+      "last_checked_ts": 1792370700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1435,7 +1435,7 @@
       "tp2_hit": false,
       "mfe_units": 2566.0,
       "mae_units": 588.9899999999907,
-      "last_checked_ts": 1792368000000,
+      "last_checked_ts": 1792370700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1659,8 +1659,8 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 677.5199999999895,
-      "mae_units": 941.4700000000012,
-      "last_checked_ts": 1792368000000,
+      "mae_units": 1212.4100000000035,
+      "last_checked_ts": 1792370700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1855,14 +1855,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792329300000,
       "created_at": 1792330790.137699,
-      "status": "open",
+      "status": "sl",
       "tp1_hit": true,
       "tp2_hit": false,
       "mfe_units": 897.2899999999936,
-      "mae_units": 679.0099999999948,
-      "last_checked_ts": 1792368000000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "mae_units": 918.9799999999959,
+      "last_checked_ts": 1792368900000,
+      "outcome_ts": 1792369800000,
+      "outcome_note": "Stop raggiunto sulla candela 15m."
     },
     {
       "id": "BTCUSD|breakout_short|1792351800000|80743.12000000",
@@ -1909,8 +1909,8 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 13.788930000000619,
-      "mae_units": 1.4948100000001432,
-      "last_checked_ts": 1792368000000,
+      "mae_units": 2.1608499999993,
+      "last_checked_ts": 1792370700000,
       "outcome_ts": null,
       "outcome_note": null
     }
