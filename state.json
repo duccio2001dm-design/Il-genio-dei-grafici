@@ -1,12 +1,12 @@
 {
   "last_alerts": {
     "BTCUSD:pullback_long": 1791298304.418036,
-    "BTCUSD:level_approach": 1792428723.1259525,
+    "BTCUSD:level_approach": 1792435333.4117205,
     "XAUUSD:level_approach": 1792425213.288658,
     "XAUUSD:breakout_short": 1791808874.6300426,
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1792362511.879453,
-    "XAUUSD:pullback_short": 1792020681.2280161,
+    "XAUUSD:pullback_short": 1792435334.1609466,
     "BTCUSD:breakout_short": 1792353254.7702827,
     "BTCUSD:pullback_short": 1792278082.363373,
     "XAUUSD:pullback_long": 1792150534.473659
@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792431900000,
+      "last_checked_ts": 1792433700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1435,7 +1435,7 @@
       "tp2_hit": false,
       "mfe_units": 2566.0,
       "mae_units": 834.2099999999919,
-      "last_checked_ts": 1792431900000,
+      "last_checked_ts": 1792433700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1913,6 +1913,31 @@
       "last_checked_ts": 1792410300000,
       "outcome_ts": 1792411200000,
       "outcome_note": "Stop raggiunto sulla candela 15m."
+    },
+    {
+      "id": "XAUUSD|pullback_short|1792433700000|4145.15646000",
+      "symbol": "XAUUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 76,
+      "entry": 4145.15646,
+      "sl": 4153.201733458171,
+      "tp1": 4137.11118654183,
+      "tp2": 4129.065913083659,
+      "structural_target": 4135.08912,
+      "size_units": 1.2429658298120936,
+      "money_at_risk": 10.0,
+      "entry_ts": 1792433700000,
+      "created_at": 1792435334.1609864,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1792433700000,
+      "outcome_ts": null,
+      "outcome_note": null
     }
   ]
 }
