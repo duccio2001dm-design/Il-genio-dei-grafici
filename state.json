@@ -6,7 +6,7 @@
     "XAUUSD:breakout_short": 1791808874.6300426,
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1792362511.879453,
-    "XAUUSD:pullback_short": 1792494500.733366,
+    "XAUUSD:pullback_short": 1792513407.357569,
     "BTCUSD:breakout_short": 1792353254.7702827,
     "BTCUSD:pullback_short": 1792497820.0115583,
     "XAUUSD:pullback_long": 1792150534.473659
@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792510200000,
+      "last_checked_ts": 1792512000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1435,7 +1435,7 @@
       "tp2_hit": false,
       "mfe_units": 2566.0,
       "mae_units": 1102.229999999996,
-      "last_checked_ts": 1792510200000,
+      "last_checked_ts": 1792512000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -2038,6 +2038,31 @@
       "last_checked_ts": 1792499400000,
       "outcome_ts": 1792500300000,
       "outcome_note": "Stop raggiunto sulla candela 15m."
+    },
+    {
+      "id": "XAUUSD|pullback_short|1792512000000|4127.55496000",
+      "symbol": "XAUUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 76,
+      "entry": 4127.55496,
+      "sl": 4158.557524446559,
+      "tp1": 4096.552395553442,
+      "tp2": 4065.549831106883,
+      "structural_target": 4113.083096666666,
+      "size_units": 0.32255396218070065,
+      "money_at_risk": 10.0,
+      "entry_ts": 1792512000000,
+      "created_at": 1792513407.3576121,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1792512000000,
+      "outcome_ts": null,
+      "outcome_note": null
     }
   ]
 }
