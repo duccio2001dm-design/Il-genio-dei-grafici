@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792455300000,
+      "last_checked_ts": 1792458000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1435,7 +1435,7 @@
       "tp2_hit": false,
       "mfe_units": 2566.0,
       "mae_units": 834.2099999999919,
-      "last_checked_ts": 1792455300000,
+      "last_checked_ts": 1792458000000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1930,14 +1930,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792433700000,
       "created_at": 1792435334.1609864,
-      "status": "open",
+      "status": "tp2",
       "tp1_hit": true,
-      "tp2_hit": false,
-      "mfe_units": 14.7459800000006,
+      "tp2_hit": true,
+      "mfe_units": 23.242640000000392,
       "mae_units": 4.416790000000219,
-      "last_checked_ts": 1792455300000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "last_checked_ts": 1792457100000,
+      "outcome_ts": 1792458000000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m."
     },
     {
       "id": "XAUUSD|pullback_short|1792447200000|4142.16888000",
@@ -1955,14 +1955,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792447200000,
       "created_at": 1792448738.2778914,
-      "status": "open",
+      "status": "tp2",
       "tp1_hit": true,
-      "tp2_hit": false,
-      "mfe_units": 11.75840000000062,
+      "tp2_hit": true,
+      "mfe_units": 20.255060000000412,
       "mae_units": 0.22369999999955326,
-      "last_checked_ts": 1792455300000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "last_checked_ts": 1792457100000,
+      "outcome_ts": 1792458000000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m."
     }
   ]
 }
