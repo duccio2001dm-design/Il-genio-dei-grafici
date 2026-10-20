@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792504800000,
+      "last_checked_ts": 1792506600000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1434,8 +1434,8 @@
       "tp1_hit": true,
       "tp2_hit": false,
       "mfe_units": 2566.0,
-      "mae_units": 909.9599999999919,
-      "last_checked_ts": 1792504800000,
+      "mae_units": 1024.8699999999953,
+      "last_checked_ts": 1792506600000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1980,14 +1980,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792473300000,
       "created_at": 1792474204.0482626,
-      "status": "open",
+      "status": "sl",
       "tp1_hit": true,
       "tp2_hit": false,
       "mfe_units": 21.20242000000053,
-      "mae_units": 3.4601199999997334,
+      "mae_units": 19.606939999999668,
       "last_checked_ts": 1792504800000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "outcome_ts": 1792505700000,
+      "outcome_note": "Stop raggiunto sulla candela 15m."
     },
     {
       "id": "XAUUSD|pullback_short|1792493100000|4120.96498000",
@@ -2005,14 +2005,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792493100000,
       "created_at": 1792494500.7333848,
-      "status": "open",
+      "status": "sl",
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 8.446469999999863,
-      "mae_units": 12.72722000000067,
+      "mae_units": 31.68649000000005,
       "last_checked_ts": 1792504800000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "outcome_ts": 1792505700000,
+      "outcome_note": "Stop raggiunto sulla candela 15m."
     },
     {
       "id": "BTCUSD|pullback_short|1792496700000|81386.96000000",
