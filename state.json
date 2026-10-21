@@ -1,6 +1,6 @@
 {
   "last_alerts": {
-    "BTCUSD:pullback_long": 1792561263.480188,
+    "BTCUSD:pullback_long": 1792578873.4083586,
     "BTCUSD:level_approach": 1792504701.0380063,
     "XAUUSD:level_approach": 1792509903.8159802,
     "XAUUSD:breakout_short": 1791808874.6300426,
@@ -11,7 +11,7 @@
     "BTCUSD:pullback_short": 1792497820.0115583,
     "XAUUSD:pullback_long": 1792150534.473659
   },
-  "last_summary": 1792561264.1441083,
+  "last_summary": 1792578873.896748,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792559700000,
+      "last_checked_ts": 1792577700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1434,8 +1434,8 @@
       "tp1_hit": true,
       "tp2_hit": false,
       "mfe_units": 2566.0,
-      "mae_units": 1102.229999999996,
-      "last_checked_ts": 1792559700000,
+      "mae_units": 1366.7200000000012,
+      "last_checked_ts": 1792577700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -2060,7 +2060,7 @@
       "tp2_hit": false,
       "mfe_units": 20.670579999999973,
       "mae_units": 3.996470000000045,
-      "last_checked_ts": 1792559700000,
+      "last_checked_ts": 1792577700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -2085,7 +2085,7 @@
       "tp2_hit": false,
       "mfe_units": 15.076689999999871,
       "mae_units": 9.590360000000146,
-      "last_checked_ts": 1792559700000,
+      "last_checked_ts": 1792577700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -2105,12 +2105,37 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792559700000,
       "created_at": 1792561263.4802227,
+      "status": "sl",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 46.19000000000233,
+      "mae_units": 263.75999999999476,
+      "last_checked_ts": 1792560600000,
+      "outcome_ts": 1792561500000,
+      "outcome_note": "Stop raggiunto sulla candela 15m."
+    },
+    {
+      "id": "BTCUSD|pullback_long|1792577700000|83201.67000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_long",
+      "title": "Ritracciamento in trend rialzista",
+      "direction": "long",
+      "score": 68,
+      "entry": 83201.67,
+      "sl": 82591.2134855377,
+      "tp1": 83812.1265144623,
+      "tp2": 84422.58302892461,
+      "structural_target": 83468.65999999999,
+      "size_units": 0.016381183201571833,
+      "money_at_risk": 10.0,
+      "entry_ts": 1792577700000,
+      "created_at": 1792578873.4083936,
       "status": "open",
       "tp1_hit": false,
       "tp2_hit": false,
       "mfe_units": 0.0,
       "mae_units": 0.0,
-      "last_checked_ts": 1792559700000,
+      "last_checked_ts": 1792577700000,
       "outcome_ts": null,
       "outcome_note": null
     }
