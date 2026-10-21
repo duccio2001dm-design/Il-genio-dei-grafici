@@ -1,6 +1,6 @@
 {
   "last_alerts": {
-    "BTCUSD:pullback_long": 1791298304.418036,
+    "BTCUSD:pullback_long": 1792561263.480188,
     "BTCUSD:level_approach": 1792504701.0380063,
     "XAUUSD:level_approach": 1792509903.8159802,
     "XAUUSD:breakout_short": 1791808874.6300426,
@@ -11,7 +11,7 @@
     "BTCUSD:pullback_short": 1792497820.0115583,
     "XAUUSD:pullback_long": 1792150534.473659
   },
-  "last_summary": 1792536228.3238428,
+  "last_summary": 1792561264.1441083,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -260,7 +260,7 @@
       "tp2_hit": false,
       "mfe_units": 94.76230999999962,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792542600000,
+      "last_checked_ts": 1792559700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -1435,7 +1435,7 @@
       "tp2_hit": false,
       "mfe_units": 2566.0,
       "mae_units": 1102.229999999996,
-      "last_checked_ts": 1792542600000,
+      "last_checked_ts": 1792559700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -2058,9 +2058,9 @@
       "status": "open",
       "tp1_hit": false,
       "tp2_hit": false,
-      "mfe_units": 15.31619000000046,
+      "mfe_units": 20.670579999999973,
       "mae_units": 3.996470000000045,
-      "last_checked_ts": 1792542600000,
+      "last_checked_ts": 1792559700000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -2083,9 +2083,34 @@
       "status": "open",
       "tp1_hit": false,
       "tp2_hit": false,
-      "mfe_units": 9.72230000000036,
+      "mfe_units": 15.076689999999871,
       "mae_units": 9.590360000000146,
-      "last_checked_ts": 1792542600000,
+      "last_checked_ts": 1792559700000,
+      "outcome_ts": null,
+      "outcome_note": null
+    },
+    {
+      "id": "BTCUSD|pullback_long|1792559700000|82798.76000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_long",
+      "title": "Ritracciamento in trend rialzista",
+      "direction": "long",
+      "score": 62,
+      "entry": 82798.76,
+      "sl": 82587.04318988483,
+      "tp1": 83010.47681011516,
+      "tp2": 83222.19362023032,
+      "structural_target": 83091.9011111111,
+      "size_units": 0.04723290509884674,
+      "money_at_risk": 10.0,
+      "entry_ts": 1792559700000,
+      "created_at": 1792561263.4802227,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "last_checked_ts": 1792559700000,
       "outcome_ts": null,
       "outcome_note": null
     }
