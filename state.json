@@ -11,7 +11,7 @@
     "BTCUSD:pullback_short": 1792497820.0115583,
     "XAUUSD:pullback_long": 1792150534.473659
   },
-  "last_summary": 1792664739.978836,
+  "last_summary": 1792682690.3306475,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -258,9 +258,9 @@
       "status": "open",
       "tp1_hit": true,
       "tp2_hit": false,
-      "mfe_units": 94.76230999999962,
+      "mfe_units": 109.7157299999999,
       "mae_units": 59.710579999999936,
-      "last_checked_ts": 1792663200000,
+      "last_checked_ts": 1792681200000,
       "outcome_ts": null,
       "outcome_note": null
     },
@@ -2055,14 +2055,14 @@
       "money_at_risk": 10.0,
       "entry_ts": 1792512000000,
       "created_at": 1792513407.3576121,
-      "status": "open",
+      "status": "tp2",
       "tp1_hit": true,
-      "tp2_hit": false,
-      "mfe_units": 59.537710000000516,
+      "tp2_hit": true,
+      "mfe_units": 69.27810000000045,
       "mae_units": 15.118719999999485,
-      "last_checked_ts": 1792663200000,
-      "outcome_ts": null,
-      "outcome_note": null
+      "last_checked_ts": 1792666800000,
+      "outcome_ts": 1792667700000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m."
     },
     {
       "id": "XAUUSD|pullback_short|1792521000000|4121.96107000",
