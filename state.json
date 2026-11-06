@@ -11,7 +11,7 @@
     "BTCUSD:pullback_short": 1793984075.705531,
     "XAUUSD:pullback_long": 1793867315.0393622
   },
-  "last_summary": 1793984076.4355614,
+  "last_summary": 1794001675.1610892,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -2308,9 +2308,9 @@
       "status": "open",
       "tp1_hit": false,
       "tp2_hit": false,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "last_checked_ts": 1793982600000,
+      "mfe_units": 159.11999999999534,
+      "mae_units": 497.4600000000064,
+      "last_checked_ts": 1794000600000,
       "outcome_ts": null,
       "outcome_note": null
     }
