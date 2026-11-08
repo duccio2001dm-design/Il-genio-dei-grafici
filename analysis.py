@@ -255,8 +255,12 @@ def build_plan(
         struct_level = nearest_level(levels, close, "supporto")
 
     structural_target = struct_level.price if struct_level else None
-    if structural_target is not None and abs(structural_target - close) < 0.5 * risk:
-        warning = (warning or "") + " Il primo livello di struttura e' molto vicino: poco spazio prima dell'ostacolo."
+    if structural_target is not None:
+        room_r = abs(structural_target - close) / risk
+        if room_r < 0.5:
+            warning = (warning + " " if warning else "") + (
+                f"⚠️ Ostacolo strutturale a {room_r:.2f}R: meno di mezzo R di spazio utile."
+            )
 
     size_units = size_lots = money = None
     equity = account.get("equity")
@@ -378,6 +382,8 @@ def detect_breakout(candles15: List[Candle], v15: TFView, v1h: TFView, v4h: TFVi
             f"Chiusura sopra il massimo delle ultime {lookback} candele da 15m",
             f"Candela ampia {expansion:.1f} volte l'ATR: c'e' partecipazione dietro la rottura",
         ]
+        if expansion >= 2.6:
+            reasons.append(f"⚠️ BREAKOUT ESTESO: range candela {expansion:.2f} ATR. Rischio di inseguire il movimento; attendere conferma e non aumentare la size.")
         bonus, extra = _higher_tf_bonus(v1h, v4h, "long")
         score += bonus
         reasons += extra
@@ -392,6 +398,8 @@ def detect_breakout(candles15: List[Candle], v15: TFView, v1h: TFView, v4h: TFVi
             f"Chiusura sotto il minimo delle ultime {lookback} candele da 15m",
             f"Candela ampia {expansion:.1f} volte l'ATR: c'e' partecipazione dietro la rottura",
         ]
+        if expansion >= 2.6:
+            reasons.append(f"⚠️ BREAKOUT ESTESO: range candela {expansion:.2f} ATR. Rischio di inseguire il movimento; attendere conferma e non aumentare la size.")
         bonus, extra = _higher_tf_bonus(v1h, v4h, "short")
         score += bonus
         reasons += extra

@@ -68,11 +68,12 @@ def load_state(path: str) -> dict:
         try:
             with open(path, "r", encoding="utf-8") as fh:
                 return json.load(fh)
-        except Exception:
-            pass
-    state = {"last_alerts": {}, "last_summary": 0}
-    state.setdefault("trade_journal", [])
-    return state
+        except Exception as exc:
+            raise RuntimeError(
+                f"Stato NEXUS non leggibile ({path}): {exc}. "
+                "Non sovrascrivo il Journal con uno stato vuoto."
+            ) from exc
+    return {"last_alerts": {}, "last_summary": 0, "trade_journal": [], "signal_audit": []}
 
 
 def save_state(path: str, state: dict) -> None:
@@ -122,13 +123,42 @@ def handle_commands(cfg: dict, state: dict, bot: notifier.Telegram) -> str:
     return ""
 
 
+def _record_signal_audit(state: dict, symbol: str, signal: analysis.Signal, candle_ts: int,
+                         snapshot: analysis.Snapshot, decision: str, detail: str = "") -> None:
+    """Registra segnali inviati e scartati, senza modificare il punteggio."""
+    atr15 = snapshot.views["15m"].atr
+    plan = signal.plan
+    event = {
+        "observed_at": datetime.now(timezone.utc).isoformat(),
+        "candle_ts": int(candle_ts), "symbol": symbol, "key": signal.key,
+        "title": signal.title, "direction": signal.direction, "score": int(signal.score),
+        "decision": decision, "detail": detail, "price": snapshot.price,
+        "atr_15m": atr15, "ema20_15m": snapshot.views["15m"].ema20,
+        "candle_range_atr": state.get("_current_candle_range_atr"),
+        "reasons": list(signal.reasons),
+        "plan": ({"entry": plan.reference, "sl": plan.invalidation,
+                  "tp1": plan.target_1r, "tp2": plan.target_2r,
+                  "structural_target": plan.structural_target, "warning": plan.warning}
+                 if plan else None),
+    }
+    audit = state.setdefault("signal_audit", [])
+    audit.append(event)
+    if len(audit) > 1000:
+        del audit[:-1000]
+    log(f"{symbol}: audit {signal.key} score={signal.score} decision={decision}" + (f" ({detail})" if detail else ""))
+
+
 def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False) -> None:
     snapshots: List[analysis.Snapshot] = []
     closed_markets: List[str] = []
+    health = state.setdefault("health", {})
+    health["last_cycle_started_at"] = datetime.now(timezone.utc).isoformat()
+    health["symbols"] = health.get("symbols", {})
     account = cfg.get("account", {})
     currency = account.get("currency", "USD")
     command_request = "" if demo else handle_commands(cfg, state, bot)
-    min_score = cfg.get("min_score", 60)
+    min_score = cfg.get("min_score", 60)  # soglia operativa invariata
+    min_info_score = cfg.get("min_info_score", 45)  # warning informativi separati
     cooldown = cfg.get("cooldown_minutes", 90)
 
     for symbol_cfg in cfg["symbols"]:
@@ -136,17 +166,27 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
 
         if symbol_cfg.get("market") == "forex" and not demo and not datafeed.forex_is_open():
             closed_markets.append(name)
+            health["symbols"][name] = {"status": "market_closed", "checked_at": datetime.now(timezone.utc).isoformat()}
             log(f"{name}: mercato chiuso, salto")
             continue
 
         try:
             frames = demo_frames(symbol_cfg) if demo else datafeed.load_frames(symbol_cfg, cfg.get("api_keys", {}))
         except datafeed.DataError as exc:
+            health["symbols"][name] = {"status": "data_error", "checked_at": datetime.now(timezone.utc).isoformat(), "error": str(exc)}
             log(f"{name}: dati non disponibili — {exc}")
             continue
 
         snapshot = analysis.analyze(symbol_cfg, frames, account)
         snapshots.append(snapshot)
+        last_candle = frames["15m"][-1]
+        atr15 = snapshot.views["15m"].atr
+        state["_current_candle_range_atr"] = ((last_candle.high - last_candle.low) / atr15) if atr15 else None
+        health["symbols"][name] = {
+            "status": "ok", "checked_at": datetime.now(timezone.utc).isoformat(),
+            "last_candle_ts": int(last_candle.ts), "price": snapshot.price,
+            "signals_detected": len(snapshot.signals),
+        }
         log(f"{name}: prezzo {snapshot.price:.2f}, {len(snapshot.signals)} condizioni rilevate")
 
         # Prima di cercare nuovi segnali, aggiorna gli eventuali trade aperti
@@ -155,21 +195,35 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
         for trade in outcome_changes:
             log(f"{name}: esito journal {trade['signal_key']} -> {trade['status']}")
 
-        if in_quiet_hours(cfg):
-            continue
-
+        quiet = in_quiet_hours(cfg)
+        sent_kinds = {"operational": False, "informational": False}
+        candle_ts = int(frames["15m"][-1].ts)
         for signal in snapshot.signals:
-            if signal.score < min_score:
-                continue
-            if not should_alert(state, name, signal, cooldown):
-                continue
-            text = notifier.format_alert(snapshot, signal, symbol_cfg, currency)
-            if bot.send(text):
-                mark_alert(state, name, signal)
-                if journal.register_signal(state, name, signal, frames["15m"][-1].ts):
-                    log(f"{name}: registrato trade journal '{signal.key}' ({signal.score}/100)")
-                log(f"{name}: inviato avviso '{signal.key}' ({signal.score}/100)")
-            break  # un solo avviso per strumento per ciclo: la sobrieta' e' una funzionalita'
+            kind = "operational" if signal.direction in ("long", "short") else "informational"
+            if quiet:
+                decision, detail = "quiet_hours", "orario di silenzio UTC"
+            elif kind == "operational" and signal.plan is None:
+                decision, detail = "no_plan", "segnale direzionale senza piano valido"
+            elif kind == "operational" and signal.score < min_score:
+                decision, detail = "below_min_score", f"soglia operativa {min_score}"
+            elif kind == "informational" and signal.score < min_info_score:
+                decision, detail = "below_min_info_score", f"soglia informativa {min_info_score}"
+            elif not should_alert(state, name, signal, cooldown):
+                decision, detail = "cooldown", f"cooldown {cooldown} minuti"
+            elif sent_kinds[kind]:
+                decision, detail = "one_alert_per_kind", "avviso della stessa categoria gia' inviato nel ciclo"
+            else:
+                text = notifier.format_alert(snapshot, signal, symbol_cfg, currency)
+                if bot.send(text):
+                    mark_alert(state, name, signal)
+                    sent_kinds[kind] = True
+                    if kind == "operational" and journal.register_signal(state, name, signal, candle_ts):
+                        log(f"{name}: registrato trade journal '{signal.key}' ({signal.score}/100)")
+                    decision, detail = "sent", "invio Telegram confermato"
+                else:
+                    decision, detail = "send_failed", "Telegram non ha confermato l'invio"
+            _record_signal_audit(state, name, signal, candle_ts, snapshot, decision, detail)
+        state.pop("_current_candle_range_atr", None)
 
     summary_every = cfg.get("summary_every_minutes", 240)
     due = (time.time() - state.get("last_summary", 0)) >= summary_every * 60
@@ -177,6 +231,8 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
         if bot.send(notifier.format_summary(snapshots, closed_markets)):
             state["last_summary"] = time.time()
             log("riepilogo inviato")
+    health["last_cycle_completed_at"] = datetime.now(timezone.utc).isoformat()
+    health["last_cycle_status"] = "ok"
 
 
 def log(message: str) -> None:
@@ -250,9 +306,11 @@ def main() -> None:
     state.setdefault("trade_journal", [])
 
     if args.once or args.demo:
-        run_cycle(cfg, state, bot, demo=args.demo)
-        if not args.demo:
-            save_state(args.state, state)
+        try:
+            run_cycle(cfg, state, bot, demo=args.demo)
+        finally:
+            if not args.demo:
+                save_state(args.state, state)
         return
 
     interval = cfg.get("poll_seconds", 300)
@@ -260,14 +318,17 @@ def main() -> None:
     while True:
         try:
             run_cycle(cfg, state, bot)
-            save_state(args.state, state)
         except KeyboardInterrupt:
             log("interrotto")
             return
         except Exception:
-            log("errore nel ciclo:\n" + traceback.format_exc())
+            log("errore nel ciclo:\\n" + traceback.format_exc())
+        finally:
+            try:
+                save_state(args.state, state)
+            except Exception:
+                log("errore nel salvataggio dello stato:\\n" + traceback.format_exc())
         time.sleep(interval)
-
 
 EXAMPLE_CONFIG = """
 {
