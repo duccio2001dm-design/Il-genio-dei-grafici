@@ -27,6 +27,15 @@ class JournalTests(unittest.TestCase):
         journal.update_from_candles(state,"BTCUSD",[candle(2000,111,89)])
         self.assertEqual(state["trade_journal"][0]["status"],"ambiguous_ohlc")
 
+    def test_legacy_records_get_normalized_r_without_inventing_tp1_time(self):
+        trade = self.make_trade()
+        trade.update({"mfe_units": 20.0, "mae_units": 15.0, "status": "sl"})
+        state = {"trade_journal": [trade]}
+        self.assertEqual(journal.migrate_legacy_metrics(state), 1)
+        self.assertEqual(trade["mfe_r"], 2.0)
+        self.assertEqual(trade["mae_r"], 1.5)
+        self.assertIsNone(trade["tp1_ts"])
+
     def test_out_of_order_candles_are_sorted_before_processing(self):
         state={"trade_journal":[self.make_trade()]}
         journal.update_from_candles(state,"BTCUSD",[candle(3000,101,89),candle(2000,112,99)])

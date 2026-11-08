@@ -135,6 +135,7 @@ def _record_signal_audit(state: dict, symbol: str, signal: analysis.Signal, cand
         "decision": decision, "detail": detail, "price": snapshot.price,
         "atr_15m": atr15, "ema20_15m": snapshot.views["15m"].ema20,
         "candle_range_atr": state.get("_current_candle_range_atr"),
+        "data_age_minutes": state.get("_current_data_age_minutes"),
         "reasons": list(signal.reasons),
         "plan": ({"entry": plan.reference, "sl": plan.invalidation,
                   "tp1": plan.target_1r, "tp2": plan.target_2r,
@@ -159,6 +160,7 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
     command_request = "" if demo else handle_commands(cfg, state, bot)
     min_score = cfg.get("min_score", 60)  # soglia operativa invariata
     min_info_score = cfg.get("min_info_score", 45)  # warning informativi separati
+    max_data_age = cfg.get("max_data_age_minutes", 30)
     cooldown = cfg.get("cooldown_minutes", 90)
 
     for symbol_cfg in cfg["symbols"]:
@@ -182,11 +184,16 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
         last_candle = frames["15m"][-1]
         atr15 = snapshot.views["15m"].atr
         state["_current_candle_range_atr"] = ((last_candle.high - last_candle.low) / atr15) if atr15 else None
+        data_age = max(0.0, (time.time() * 1000 - (last_candle.ts + 15 * 60 * 1000)) / 60000)
+        state["_current_data_age_minutes"] = round(data_age, 1)
+        stale_data = data_age > max_data_age
         health["symbols"][name] = {
-            "status": "ok", "checked_at": datetime.now(timezone.utc).isoformat(),
-            "last_candle_ts": int(last_candle.ts), "price": snapshot.price,
-            "signals_detected": len(snapshot.signals),
+            "status": "stale_data" if stale_data else "ok", "checked_at": datetime.now(timezone.utc).isoformat(),
+            "last_candle_ts": int(last_candle.ts), "data_age_minutes": round(data_age, 1),
+            "price": snapshot.price, "signals_detected": len(snapshot.signals),
         }
+        if stale_data:
+            log(f"{name}: dati obsoleti ({data_age:.1f} min), nuovi avvisi sospesi")
         log(f"{name}: prezzo {snapshot.price:.2f}, {len(snapshot.signals)} condizioni rilevate")
 
         # Prima di cercare nuovi segnali, aggiorna gli eventuali trade aperti
@@ -200,7 +207,9 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
         candle_ts = int(frames["15m"][-1].ts)
         for signal in sorted(snapshot.signals, key=lambda item: (0 if item.key == "overextension" else 1, -item.score)):
             kind = "operational" if signal.direction in ("long", "short") else "informational"
-            if quiet:
+            if stale_data:
+                decision, detail = "stale_data", f"dati piu' vecchi di {max_data_age} minuti"
+            elif quiet:
                 decision, detail = "quiet_hours", "orario di silenzio UTC"
             elif kind == "operational" and signal.plan is None:
                 decision, detail = "no_plan", "segnale direzionale senza piano valido"
@@ -224,6 +233,7 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
                     decision, detail = "send_failed", "Telegram non ha confermato l'invio"
             _record_signal_audit(state, name, signal, candle_ts, snapshot, decision, detail)
         state.pop("_current_candle_range_atr", None)
+        state.pop("_current_data_age_minutes", None)
 
     summary_every = cfg.get("summary_every_minutes", 240)
     due = (time.time() - state.get("last_summary", 0)) >= summary_every * 60
@@ -232,7 +242,7 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
             state["last_summary"] = time.time()
             log("riepilogo inviato")
     health["last_cycle_completed_at"] = datetime.now(timezone.utc).isoformat()
-    health["last_cycle_status"] = "partial" if any(item.get("status") == "data_error" for item in health["symbols"].values()) else "ok"
+    health["last_cycle_status"] = "partial" if any(item.get("status") in ("data_error", "stale_data") for item in health["symbols"].values()) else "ok"
 
 
 def log(message: str) -> None:
@@ -304,6 +314,9 @@ def main() -> None:
     )
     state = load_state(args.state)
     state.setdefault("trade_journal", [])
+    migrated = journal.migrate_legacy_metrics(state)
+    if migrated:
+        log(f"Journal: metriche MFE/MAE in R normalizzate su {migrated} record")
 
     if args.once or args.demo:
         try:

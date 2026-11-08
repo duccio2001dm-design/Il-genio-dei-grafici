@@ -61,6 +61,25 @@ def register_signal(state: dict, symbol: str, signal, candle_ts: int) -> bool:
     return True
 
 
+def migrate_legacy_metrics(state: dict) -> int:
+    """Aggiunge metriche in R ai record storici usando entry/stop già salvati."""
+    migrated = 0
+    for trade in _ensure(state):
+        try:
+            risk = abs(float(trade["entry"]) - float(trade["sl"]))
+            if risk <= 0:
+                continue
+            trade.setdefault("risk_per_unit", risk)
+            trade.setdefault("mfe_r", max(0.0, float(trade.get("mfe_units", 0.0))) / risk)
+            trade.setdefault("mae_r", max(0.0, float(trade.get("mae_units", 0.0))) / risk)
+            # Il timestamp TP1 storico non e' ricostruibile senza le candele originali.
+            trade.setdefault("tp1_ts", None)
+            migrated += 1
+        except (KeyError, TypeError, ValueError):
+            continue
+    return migrated
+
+
 def _excursion(trade: dict, high: float, low: float) -> tuple[float, float]:
     entry = float(trade["entry"])
     if trade["direction"] == "long":
