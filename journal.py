@@ -48,13 +48,36 @@ def register_signal(state: dict, symbol: str, signal, candle_ts: int) -> bool:
         "status": "open",
         "tp1_hit": False,
         "tp2_hit": False,
+        "risk_per_unit": plan.risk_per_unit,
         "mfe_units": 0.0,
         "mae_units": 0.0,
+        "mfe_r": 0.0,
+        "mae_r": 0.0,
+        "tp1_ts": None,
         "last_checked_ts": candle_ts,
         "outcome_ts": None,
         "outcome_note": None,
     })
     return True
+
+
+def migrate_legacy_metrics(state: dict) -> int:
+    """Aggiunge metriche in R ai record storici usando entry/stop già salvati."""
+    migrated = 0
+    for trade in _ensure(state):
+        try:
+            risk = abs(float(trade["entry"]) - float(trade["sl"]))
+            if risk <= 0:
+                continue
+            trade.setdefault("risk_per_unit", risk)
+            trade.setdefault("mfe_r", max(0.0, float(trade.get("mfe_units", 0.0))) / risk)
+            trade.setdefault("mae_r", max(0.0, float(trade.get("mae_units", 0.0))) / risk)
+            # Il timestamp TP1 storico non e' ricostruibile senza le candele originali.
+            trade.setdefault("tp1_ts", None)
+            migrated += 1
+        except (KeyError, TypeError, ValueError):
+            continue
+    return migrated
 
 
 def _excursion(trade: dict, high: float, low: float) -> tuple[float, float]:
@@ -79,13 +102,19 @@ def update_from_candles(state: dict, symbol: str, candles: list) -> List[dict]:
         tp1 = float(trade["tp1"])
         tp2 = float(trade["tp2"])
 
-        for candle in candles:
+        risk_per_unit = abs(float(trade.get("risk_per_unit", float(trade["entry"]) - sl)))
+        if risk_per_unit <= 0:
+            risk_per_unit = abs(float(trade["entry"]) - sl)
+
+        for candle in sorted(candles, key=lambda item: item.ts):
             if candle.ts <= entry_ts or candle.ts <= int(trade.get("last_checked_ts", entry_ts)):
                 continue
 
             mfe, mae = _excursion(trade, candle.high, candle.low)
             trade["mfe_units"] = max(float(trade.get("mfe_units", 0.0)), mfe)
             trade["mae_units"] = max(float(trade.get("mae_units", 0.0)), mae)
+            trade["mfe_r"] = max(float(trade.get("mfe_r", 0.0)), max(0.0, float(trade["mfe_units"])) / risk_per_unit)
+            trade["mae_r"] = max(float(trade.get("mae_r", 0.0)), max(0.0, float(trade["mae_units"])) / risk_per_unit)
 
             if direction == "long":
                 sl_hit = candle.low <= sl
@@ -96,7 +125,10 @@ def update_from_candles(state: dict, symbol: str, candles: list) -> List[dict]:
                 tp1_hit = candle.low <= tp1
                 tp2_hit = candle.low <= tp2
 
-            if tp1_hit:
+            if tp1_hit and not trade.get("tp1_hit"):
+                trade["tp1_hit"] = True
+                trade["tp1_ts"] = candle.ts
+            elif tp1_hit:
                 trade["tp1_hit"] = True
 
             if sl_hit and (tp2_hit or tp1_hit):

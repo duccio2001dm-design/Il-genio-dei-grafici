@@ -19,7 +19,7 @@
   "cooldown_minutes": 90,
   "account": {
     "equity": 1000,
-    "risk_pct": 1.0,
+    "risk_pct": 1,
     "currency": "USD"
   },
   "symbols": [
@@ -41,5 +41,7 @@
       "unit": "oncia",
       "market": "forex"
     }
-  ]
+  ],
+  "min_info_score": 45,
+  "max_data_age_minutes": 30
 }
