@@ -198,7 +198,7 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
         quiet = in_quiet_hours(cfg)
         sent_kinds = {"operational": False, "informational": False}
         candle_ts = int(frames["15m"][-1].ts)
-        for signal in snapshot.signals:
+        for signal in sorted(snapshot.signals, key=lambda item: (0 if item.key == "overextension" else 1, -item.score)):
             kind = "operational" if signal.direction in ("long", "short") else "informational"
             if quiet:
                 decision, detail = "quiet_hours", "orario di silenzio UTC"
@@ -232,7 +232,7 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
             state["last_summary"] = time.time()
             log("riepilogo inviato")
     health["last_cycle_completed_at"] = datetime.now(timezone.utc).isoformat()
-    health["last_cycle_status"] = "ok"
+    health["last_cycle_status"] = "partial" if any(item.get("status") == "data_error" for item in health["symbols"].values()) else "ok"
 
 
 def log(message: str) -> None:
@@ -338,6 +338,7 @@ EXAMPLE_CONFIG = """
   "summary_every_minutes": 240,
   "quiet_hours_utc": [],
   "min_score": 60,
+  "min_info_score": 45,
   "cooldown_minutes": 90,
   "account": {"equity": 1000, "risk_pct": 1.0, "currency": "USD"},
   "symbols": [
