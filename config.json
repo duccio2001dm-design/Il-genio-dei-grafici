@@ -19,7 +19,7 @@
   "cooldown_minutes": 90,
   "account": {
     "equity": 1000,
-    "risk_pct": 1,
+    "risk_pct": 1.0,
     "currency": "USD"
   },
   "symbols": [

@@ -322,12 +322,12 @@ def main() -> None:
             log("interrotto")
             return
         except Exception:
-            log("errore nel ciclo:\\n" + traceback.format_exc())
+            log("errore nel ciclo:\n" + traceback.format_exc())
         finally:
             try:
                 save_state(args.state, state)
             except Exception:
-                log("errore nel salvataggio dello stato:\\n" + traceback.format_exc())
+                log("errore nel salvataggio dello stato:\n" + traceback.format_exc())
         time.sleep(interval)
 
 EXAMPLE_CONFIG = """
