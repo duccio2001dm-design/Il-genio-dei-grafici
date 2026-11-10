@@ -224,6 +224,7 @@ def build_plan(
     levels: List[Level],
     account: dict,
     contract_size: float,
+    stop_buffer_atr: float = 0.3,
 ) -> Optional[Plan]:
     if view15.atr is None or view15.atr <= 0:
         return None
@@ -234,11 +235,11 @@ def build_plan(
 
     if direction == "long":
         structure = min(c.low for c in lookback)
-        invalidation = structure - 0.3 * atr_val
+        invalidation = structure - stop_buffer_atr * atr_val
         risk = close - invalidation
     else:
         structure = max(c.high for c in lookback)
-        invalidation = structure + 0.3 * atr_val
+        invalidation = structure + stop_buffer_atr * atr_val
         risk = invalidation - close
 
     warning = None
@@ -540,6 +541,12 @@ def detect_overextension(v15: TFView, v1h: TFView) -> Optional[Signal]:
     )
 
 
+def trend_aligned(snapshot: "Snapshot", direction: str) -> bool:
+    """True se orario e 4 ore puntano entrambi nella direzione del segnale."""
+    wanted = 1 if direction == "long" else -1
+    return snapshot.views["1h"].trend_dir == wanted and snapshot.views["4h"].trend_dir == wanted
+
+
 # --------------------------------------------------------------------------
 # Orchestrazione
 # --------------------------------------------------------------------------
@@ -576,6 +583,7 @@ def analyze(symbol_cfg: dict, frames: Dict[str, List[Candle]], account: dict) ->
                 levels,
                 account,
                 symbol_cfg.get("contract_size", 1),
+                float(symbol_cfg.get("stop_atr_buffer", 0.3)),
             )
 
     signals.sort(key=lambda s: s.score, reverse=True)

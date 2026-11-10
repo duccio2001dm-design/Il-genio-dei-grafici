@@ -12,6 +12,7 @@ Ingresso: 68.068,8
 Stop loss: 67.703,3  (rischio 365,5 per BTC)
 Take profit 1: 68.434,3  (1R)
 Take profit 2: 68.799,9  (2R)
+Gestione: a Target 1 chiudi meta' e sposta lo stop a pareggio
 Size: 0,0274 BTC  (rischi 10,00 USD)
 
 Perche'
@@ -55,7 +56,7 @@ questo", non come un ordine.
 
 ## 2. Le condizioni che riconosce
 
-Undici, ricalcolate a ogni ciclo su candele chiuse a 15 minuti, 1 ora e 4 ore:
+Sette, ricalcolate a ogni ciclo su candele chiuse a 15 minuti, 1 ora e 4 ore:
 
 | Condizione | Direzione | Cosa guarda |
 |---|---|---|
@@ -71,20 +72,49 @@ Le prime quattro producono un messaggio operativo con COMPRA o VENDI. Le tre in 
 sono informative: segnalano un contesto, non una direzione, perché fingere di saperla
 in quelle situazioni sarebbe inventare.
 
+**Sull'oro il filtro è più severo.** Un segnale COMPRA/VENDI su XAUUSD parte solo se
+l'orario e il 4 ore sono entrambi nella sua direzione, e lo stop ha un margine più
+largo (0,5 ATR invece di 0,3). Il motivo: nel primo mese di registro i segnali
+sull'oro hanno chiuso a −26R contro i +22R di Bitcoin. I segnali scartati dal filtro
+non ti arrivano ma vengono seguiti lo stesso in silenzio, e `/report` ti mostra come
+sarebbero andati: se fanno meglio di quelli inviati, il filtro va tolto
+(`"require_trend_alignment": false` in `config.json`).
+
 ---
 
-## 3. Comandi Telegram
+## 3. Dopo il segnale: gestione e aggiornamenti
+
+Il bot segue ogni operazione che ti ha segnalato e ti scrive quando succede qualcosa:
+
+- 🎯 **Target 1 raggiunto**: chiudi metà e sposta lo stop a pareggio
+- ⚖️ **Tornato al pareggio** dopo il Target 1: la parte rimasta si chiude a zero (+0,5R in totale)
+- ✅ **Target 2 raggiunto** / 🛑 **Stop loss raggiunto**
+
+Perché questa gestione: nel registro 17 operazioni su 64 finite in stop avevano già
+toccato il Target 1. Chiudendo metà lì, il risultato complessivo del primo mese passa
+da −4R a +6,5R. Sono poche operazioni e il calcolo non include spread e commissioni:
+è un'indicazione, non una garanzia.
+
+Durante le ore di silenzio questi aggiornamenti non si perdono: arrivano tutti insieme
+appena finisce il silenzio.
+
+---
+
+## 4. Comandi Telegram
 
 - `/stato` — riepilogo di entrambi gli strumenti
+- `/report` — risultati di tutti i segnali registrati, per strumento e tipo di segnale,
+  sia tenendo tutta la posizione sia con la gestione "metà a T1 + pareggio"
+- `/report 30` — lo stesso, solo sugli ultimi 30 giorni
 - `/aiuto` — elenco dei comandi
 
-La risposta arriva al ciclo successivo (entro un quarto d'ora): senza un server sempre
-acceso il bot non può ascoltare in tempo reale. Per una risposta immediata, lancia il
+La risposta arriva al ciclo successivo (di solito entro 5-10 minuti): senza un server
+sempre acceso il bot non può ascoltare in tempo reale. Per una risposta immediata, lancia il
 workflow a mano da GitHub → Actions → Run workflow.
 
 ---
 
-## 4. Impostazioni utili (`config.json`)
+## 5. Impostazioni utili (`config.json`)
 
 ```jsonc
 {
@@ -100,6 +130,13 @@ workflow a mano da GitHub → Actions → Run workflow.
 }
 ```
 
+Per ogni strumento, dentro `symbols`:
+
+```jsonc
+"require_trend_alignment": true,  // COMPRA/VENDI solo con 1h e 4h concordi (attivo sull'oro)
+"stop_atr_buffer": 0.5            // margine dello stop oltre la struttura, in ATR (default 0,3)
+```
+
 Troppi messaggi → alza `min_score` a 70. Troppo pochi → scendi a 55, ricordando che
 abbassare la soglia moltiplica i falsi allarmi molto più delle occasioni buone.
 
@@ -108,7 +145,7 @@ dall'1 alle 7 del mattino italiane d'estate, metti `[23,0,1,2,3,4,5]`.
 
 ---
 
-## 5. Provarlo in locale (facoltativo)
+## 6. Provarlo in locale (facoltativo)
 
 Se hai Python sul computer:
 
@@ -123,15 +160,15 @@ Non è necessario per usarlo: su GitHub Actions gira tutto da solo.
 
 ---
 
-## 6. I dati
+## 7. I dati
 
-**Bitcoin**: Binance, endpoint pubblico, gratis, nessuna registrazione, 24/7.
-Se dai server GitHub non fosse raggiungibile, in `config.json` cambia `"source"` in
-`"coinbase"` e `"api_symbol"` in `"BTC-USD"`.
+**Bitcoin**: Coinbase, endpoint pubblico, gratis, nessuna registrazione, 24/7.
+In alternativa c'è Binance (`"source": "binance"`, `"api_symbol": "BTCUSDT"`), che però
+spesso non risponde ai server di GitHub.
 
 **Oro**: Twelve Data, piano gratuito. Per risparmiare chiamate scarico solo le candele
 da 15 minuti e ricostruisco 1 ora e 4 ore in locale: una chiamata per ciclo invece di
-tre, circa 100 al giorno, comodamente dentro il piano free.
+tre, meno di 300 al giorno con il ciclo da 5 minuti, dentro il limite di 800 del piano free.
 
 Il mercato dell'oro chiude nel weekend e il sistema lo sa: sabato e domenica non prova
 nemmeno a scaricare. E il prezzo del provider **non coincide mai esattamente** con
@@ -140,7 +177,7 @@ Controlla sempre i livelli sulla tua piattaforma prima di piazzare un ordine.
 
 ---
 
-## 7. Cosa il sistema non può vedere
+## 8. Cosa il sistema non può vedere
 
 Vale la pena tenerlo a mente, perché sono i casi in cui sbaglia di più:
 

@@ -39,7 +39,9 @@
       "digits": 2,
       "contract_size": 100,
       "unit": "oncia",
-      "market": "forex"
+      "market": "forex",
+      "require_trend_alignment": true,
+      "stop_atr_buffer": 0.5
     }
   ],
   "min_info_score": 45,

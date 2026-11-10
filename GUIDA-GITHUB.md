@@ -3,7 +3,7 @@
 Tutto quello che serve si fa dal browser, anche dal telefono. Costo totale: zero.
 Tempo: una ventina di minuti la prima volta.
 
-Il meccanismo: GitHub esegue gratuitamente uno script ogni 15 minuti. Lo script
+Il meccanismo: GitHub esegue gratuitamente uno script ogni 5 minuti. Lo script
 guarda i grafici, e se trova qualcosa ti scrive su Telegram. Non c'e' nessun server
 da gestire, nessuna carta di credito, niente da tenere acceso in casa.
 
@@ -72,13 +72,13 @@ solo su Bitcoin e ti scriverà che i dati dell'oro non sono disponibili.
 
 **Perché pubblico?** Su GitHub i repository pubblici hanno minuti di esecuzione
 illimitati e gratuiti; quelli privati ne hanno 2000 al mese, che con un ciclo ogni
-15 minuti non bastano. Pubblico significa che si vede il *codice* — che è comunque
+5 minuti non bastano. Pubblico significa che si vede il *codice* — che è comunque
 il codice che ti ho dato, niente di tuo. Il token e la chiave **non** finiscono nel
 repository: li metti nel passo successivo, dove GitHub li tiene cifrati e non li
 mostra mai, nemmeno nei log.
 
-Se preferisci comunque tenerlo privato: apri `.github/workflows/assistente.yml` e
-cambia la riga del cron in `- cron: "13,43 * * * *"` (ogni 30 minuti invece di 15).
+Se preferisci comunque tenerlo privato: apri `.github/workflows/Assistente tradding.yml` e
+cambia la riga del cron in `- cron: "13,43 * * * *"` (ogni 30 minuti invece di 5).
 Così rientri nei 2000 minuti gratuiti.
 
 ---
@@ -122,10 +122,11 @@ workflow a mano.
 
 ## Dopo, nell'uso normale
 
-- **Non devi fare niente.** Il workflow parte da solo ogni 15 minuti.
+- **Non devi fare niente.** Il workflow parte da solo ogni 5 minuti.
 - **Per un controllo immediato**: Actions → Assistente trading → Run workflow.
 - **Per chiedere il punto della situazione**: manda `/stato` al bot. La risposta
-  arriva al ciclo successivo, quindi entro un quarto d'ora. È il limite di un
+  arriva al ciclo successivo, di solito entro 5-10 minuti. Con `/report` vedi i
+  risultati di tutti i segnali, con `/aiuto` l'elenco dei comandi. È il limite di un
   sistema che non ha un server sempre acceso.
 - **Per cambiare le impostazioni**: apri `config.json` nel repository, clicca la
   matita, modifica, **Commit changes**. Le più utili sono `min_score` (alzala a 70
@@ -143,9 +144,7 @@ errore `HTTP 400` o `403` su Telegram indica token o chat_id sbagliati.
 
 **Il workflow è rosso.** Aprilo e leggi l'ultima riga rossa. Gli errori più comuni:
 chiave Twelve Data mancante o esaurita (limite giornaliero del piano gratuito), o
-Binance temporaneamente irraggiungibile dai server GitHub. Nel secondo caso apri
-`config.json` e per BTCUSD cambia `"source"` in `"coinbase"` e `"api_symbol"` in
-`"BTC-USD"`.
+Coinbase temporaneamente irraggiungibile. Di solito al giro dopo torna tutto a posto.
 
 **Gli orari non sono precisi.** GitHub esegue i lavori pianificati quando ha risorse
 libere: ritardi di 5-20 minuti sono normali, soprattutto negli orari di punta. Per un
@@ -160,7 +159,7 @@ pulsante di riattivazione.
 **Caricare `.github` da telefono.** L'app e il browser mobile a volte ignorano le
 cartelle che iniziano con un punto. In quel caso: nel repository clicca
 **Add file** → **Create new file**, e nel campo del nome scrivi esattamente
-`.github/workflows/assistente.yml` (le barre creano le cartelle da sole), poi incolla
+`.github/workflows/Assistente tradding.yml` (le barre creano le cartelle da sole), poi incolla
 dentro il contenuto del file e salva.
 
 ---
@@ -170,7 +169,7 @@ dentro il contenuto del file e salva.
 | Voce | Costo |
 |---|---|
 | GitHub Actions (repository pubblico) | 0 € |
-| Dati Bitcoin (Binance) | 0 € |
+| Dati Bitcoin (Coinbase) | 0 € |
 | Dati oro (Twelve Data, piano free) | 0 € |
 | Telegram | 0 € |
 

@@ -68,6 +68,10 @@ def _operational_block(plan: Plan, digits: int, symbol_cfg: dict, currency: str)
         f"Target 2: <b>{fmt(plan.target_2r, digits)}</b>  (2R)",
     ]
 
+    lines.append(
+        f"Gestione: a Target 1 chiudi meta' e sposta lo stop a pareggio ({fmt(plan.reference, digits)})"
+    )
+
     if plan.structural_target is not None:
         lines.append(f"Resistenza/ostacolo chiave: {fmt(plan.structural_target, digits)}")
 
@@ -174,6 +178,90 @@ def format_summary(snapshots: List[Snapshot], closed_markets: List[str]) -> str:
     return "\n".join(lines)
 
 
+EVENT_TEXT = {
+    "tp1": ("🎯", "Target 1 raggiunto", "Chiudi meta' posizione e sposta lo stop a pareggio ({entry})."),
+    "be": ("⚖️", "Tornato al pareggio dopo il Target 1", "Con la gestione suggerita la parte rimasta si chiude a zero: +0,5R in totale."),
+    "tp2": ("✅", "Target 2 raggiunto", "Operazione completata."),
+    "sl": ("🛑", "Stop loss raggiunto", "Operazione chiusa in perdita."),
+    "ambiguous": ("❔", "Stop e target toccati nella stessa candela", "Dal grafico a 15 minuti non si capisce quale e' arrivato prima: controlla sulla tua piattaforma."),
+}
+
+
+def format_trade_event(trade: dict, event: str, digits: int) -> str:
+    icon, title, hint = EVENT_TEXT[event]
+    verb = ACTION.get(trade.get("direction"), ("", trade.get("direction", "")))[1]
+    opened = datetime.fromtimestamp(int(trade["entry_ts"]) / 1000, timezone.utc).strftime("%d/%m %H:%M UTC")
+    if event == "sl" and trade.get("tp1_hit"):
+        hint = "Il Target 1 era gia' stato toccato: con la gestione suggerita eri a pareggio, +0,5R in totale."
+    return "\n".join([
+        f"{icon} <b>{html.escape(trade['symbol'])} · {title}</b>",
+        f"{verb} da {fmt(float(trade['entry']), digits)} ({html.escape(trade.get('title', ''))}, {opened})",
+        f"Stop {fmt(float(trade['sl']), digits)} · T1 {fmt(float(trade['tp1']), digits)} · T2 {fmt(float(trade['tp2']), digits)}",
+        hint.format(entry=fmt(float(trade["entry"]), digits)),
+    ])
+
+
+def _fmt_r(value: float) -> str:
+    return f"{value:+.1f}R".replace(".", ",")
+
+
+def format_report(journal_trades: List[dict], days: Optional[int] = None) -> str:
+    """Statistiche del registro per strumento e tipo di segnale."""
+    import journal as jr
+
+    trades = journal_trades
+    title = "tutto lo storico"
+    if days:
+        cutoff = (time.time() - days * 86400) * 1000
+        trades = [t for t in trades if int(t.get("entry_ts", 0)) >= cutoff]
+        title = f"ultimi {days} giorni"
+
+    sent = [t for t in trades if not t.get("shadow")]
+    shadow = [t for t in trades if t.get("shadow")]
+    lines = [f"📒 <b>Registro segnali</b> · {title}", ""]
+    if not trades:
+        lines.append("Nessun segnale registrato nel periodo.")
+        return "\n".join(lines)
+
+    def row(label: str, group: List[dict]) -> str:
+        st = jr.stats(group)
+        tp1 = f"{st['tp1_rate'] * 100:.0f}%" if st["tp1_rate"] is not None else "n/d"
+        extra = f", {st['open']} aperti" if st["open"] else ""
+        return (f"{label}: {st['closed']} chiusi ({st['tp2']}✅ {st['sl']}🛑{extra}) · "
+                f"T1 {tp1} · intera {_fmt_r(st['base_r'])} · gestita {_fmt_r(st['managed_r'])}")
+
+    lines.append("<b>" + html.escape(row("Totale", sent)) + "</b>")
+    for symbol in sorted({t["symbol"] for t in sent}):
+        group = [t for t in sent if t["symbol"] == symbol]
+        lines += ["", "<b>" + html.escape(row(symbol, group)) + "</b>"]
+        for key in sorted({t["signal_key"] for t in group}):
+            lines.append("  " + html.escape(row(key, [t for t in group if t["signal_key"] == key])))
+
+    if shadow:
+        lines += ["", "<b>Scartati dal filtro di trend (non inviati)</b>",
+                  html.escape(row("Filtrati", shadow)),
+                  "<i>Se i filtrati vanno meglio degli inviati, il filtro sta facendo danni.</i>"]
+
+    lines += ["",
+              "<i>Intera = tutta la posizione fino a stop o T2. Gestita = meta' a T1 e stop a pareggio. "
+              "Ingresso alla chiusura della candela, senza spread ne' commissioni: sul conto reale "
+              "i numeri sono un po' peggiori. Servono molte decine di operazioni per ogni riga prima "
+              "che dicano qualcosa.</i>"]
+    return "\n".join(lines)
+
+
+HELP_TEXT = "\n".join([
+    "🤖 <b>Comandi</b>",
+    "/stato — riepilogo di entrambi gli strumenti",
+    "/controlla — come /stato",
+    "/report — risultati di tutti i segnali registrati",
+    "/report 30 — solo gli ultimi 30 giorni (o il numero che vuoi)",
+    "/aiuto — questo elenco",
+    "",
+    "<i>La risposta arriva al ciclo successivo, di solito entro 5-10 minuti.</i>",
+])
+
+
 # --------------------------------------------------------------------------
 # Invio e ricezione
 # --------------------------------------------------------------------------
@@ -226,7 +314,7 @@ class Telegram:
         """
         Legge i comandi che hai mandato al bot dall'ultimo giro.
         Su GitHub Actions la risposta arrivera' al ciclo successivo, quindi con
-        un ritardo fino a un quarto d'ora: e' il prezzo dell'hosting gratuito.
+        un ritardo di qualche minuto: e' il prezzo dell'hosting gratuito.
         """
         if self.dry_run or not self.token:
             return [], offset

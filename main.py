@@ -73,7 +73,7 @@ def load_state(path: str) -> dict:
                 f"Stato NEXUS non leggibile ({path}): {exc}. "
                 "Non sovrascrivo il Journal con uno stato vuoto."
             ) from exc
-    return {"last_alerts": {}, "last_summary": 0, "trade_journal": [], "signal_audit": []}
+    return {"last_alerts": {}, "last_summary": 0, "trade_journal": [], "signal_audit": [], "pending_notices": []}
 
 
 def save_state(path: str, state: dict) -> None:
@@ -108,19 +108,55 @@ def mark_alert(state: dict, symbol: str, signal: analysis.Signal) -> None:
 # --------------------------------------------------------------------------
 
 
-def handle_commands(cfg: dict, state: dict, bot: notifier.Telegram) -> str:
-    """Riconosce /stato e /controlla. Il controllo parte nel ciclo che rileva il comando."""
+def handle_commands(cfg: dict, state: dict, bot: notifier.Telegram) -> set:
+    """
+    Legge i comandi Telegram arrivati dall'ultimo ciclo.
+    /aiuto e /report rispondono subito; /stato e /controlla chiedono il riepilogo,
+    che parte a fine ciclo con i dati appena calcolati.
+    """
     commands, new_offset = bot.poll_commands(state.get("update_offset", 0))
     state["update_offset"] = new_offset
     if not commands:
-        return ""
+        return set()
 
     log(f"comandi ricevuti: {commands}")
-    if "/controlla" in commands:
-        return "controlla"
-    if "/stato" in commands:
-        return "stato"
-    return ""
+    requests = set()
+    for command in commands:
+        parts = command.split()
+        name = parts[0]
+        if name in ("/stato", "/controlla"):
+            requests.add("stato")
+        elif name == "/report":
+            days = None
+            if len(parts) > 1 and parts[1].isdigit() and int(parts[1]) > 0:
+                days = int(parts[1])
+            bot.send(notifier.format_report(state.get("trade_journal", []), days))
+        elif name in ("/aiuto", "/help", "/start"):
+            bot.send(notifier.HELP_TEXT)
+        else:
+            bot.send(f"Comando {notifier.html.escape(name)} non riconosciuto. Scrivi /aiuto per l'elenco.")
+    return requests
+
+
+def queue_or_send(state: dict, bot: notifier.Telegram, text: str, quiet: bool) -> None:
+    """Gli aggiornamenti sui trade non si perdono: in orario di silenzio aspettano."""
+    if quiet:
+        state.setdefault("pending_notices", []).append(text)
+        return
+    if not bot.send(text):
+        state.setdefault("pending_notices", []).append(text)
+
+
+def flush_pending(state: dict, bot: notifier.Telegram) -> None:
+    pending = state.get("pending_notices") or []
+    if not pending:
+        return
+    pending = pending[-20:]  # oltre non ha senso: sono notizie vecchie
+    text = "🕘 <b>Aggiornamenti arrivati durante il silenzio</b>\n\n" + "\n\n".join(pending)
+    if bot.send(text):
+        state["pending_notices"] = []
+    else:
+        state["pending_notices"] = pending
 
 
 def _record_signal_audit(state: dict, symbol: str, signal: analysis.Signal, candle_ts: int,
@@ -157,7 +193,9 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
     health["symbols"] = health.get("symbols", {})
     account = cfg.get("account", {})
     currency = account.get("currency", "USD")
-    command_request = "" if demo else handle_commands(cfg, state, bot)
+    command_requests = set() if demo else handle_commands(cfg, state, bot)
+    if not demo and not in_quiet_hours(cfg):
+        flush_pending(state, bot)
     min_score = cfg.get("min_score", 60)  # soglia operativa invariata
     min_info_score = cfg.get("min_info_score", 45)  # warning informativi separati
     max_data_age = cfg.get("max_data_age_minutes", 30)
@@ -198,11 +236,13 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
 
         # Prima di cercare nuovi segnali, aggiorna gli eventuali trade aperti
         # usando solo candele chiuse successive all'ingresso.
-        outcome_changes = journal.update_from_candles(state, name, frames["15m"])
-        for trade in outcome_changes:
-            log(f"{name}: esito journal {trade['signal_key']} -> {trade['status']}")
-
         quiet = in_quiet_hours(cfg)
+        for item in journal.update_from_candles(state, name, frames["15m"]):
+            trade, event = item["trade"], item["event"]
+            log(f"{name}: journal {trade['signal_key']} -> {event}" + (" (filtrato)" if trade.get("shadow") else ""))
+            if not trade.get("shadow") and not demo:
+                queue_or_send(state, bot, notifier.format_trade_event(trade, event, snapshot.digits), quiet)
+
         sent_kinds = {"operational": False, "informational": False}
         candle_ts = int(frames["15m"][-1].ts)
         for signal in sorted(snapshot.signals, key=lambda item: (0 if item.key == "overextension" else 1, -item.score)):
@@ -215,6 +255,13 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
                 decision, detail = "no_plan", "segnale direzionale senza piano valido"
             elif kind == "operational" and signal.score < min_score:
                 decision, detail = "below_min_score", f"soglia operativa {min_score}"
+            elif (kind == "operational" and symbol_cfg.get("require_trend_alignment")
+                  and not analysis.trend_aligned(snapshot, signal.direction)):
+                decision, detail = "trend_filter", "1h e 4h non entrambi nella direzione del segnale"
+                # Non inviato, ma seguito in silenzio per verificare il filtro.
+                if should_alert(state, name, signal, cooldown):
+                    mark_alert(state, name, signal)
+                    journal.register_signal(state, name, signal, candle_ts, shadow=True)
             elif kind == "informational" and signal.score < min_info_score:
                 decision, detail = "below_min_info_score", f"soglia informativa {min_info_score}"
             elif not should_alert(state, name, signal, cooldown):
@@ -237,7 +284,7 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
 
     summary_every = cfg.get("summary_every_minutes", 240)
     due = (time.time() - state.get("last_summary", 0)) >= summary_every * 60
-    if snapshots and (command_request in ("stato", "controlla") or (due and not in_quiet_hours(cfg))):
+    if snapshots and ("stato" in command_requests or (due and not in_quiet_hours(cfg))):
         if bot.send(notifier.format_summary(snapshots, closed_markets)):
             state["last_summary"] = time.time()
             log("riepilogo inviato")
@@ -355,10 +402,11 @@ EXAMPLE_CONFIG = """
   "cooldown_minutes": 90,
   "account": {"equity": 1000, "risk_pct": 1.0, "currency": "USD"},
   "symbols": [
-    {"name": "BTCUSD", "source": "binance", "api_symbol": "BTCUSDT",
+    {"name": "BTCUSD", "source": "coinbase", "api_symbol": "BTC-USD",
      "digits": 1, "contract_size": 1, "unit": "BTC", "market": "24/7"},
     {"name": "XAUUSD", "source": "twelvedata", "api_symbol": "XAU/USD",
-     "digits": 2, "contract_size": 100, "unit": "oncia", "market": "forex"}
+     "digits": 2, "contract_size": 100, "unit": "oncia", "market": "forex",
+     "require_trend_alignment": true, "stop_atr_buffer": 0.5}
   ]
 }
 """
