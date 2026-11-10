@@ -1,0 +1,20 @@
+name: NEXUS tests
+on:
+  push:
+    branches: [main, "fix/**"]
+  pull_request:
+    branches: [main]
+jobs:
+  tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Syntax check
+        run: python -m py_compile main.py analysis.py journal.py notifier.py datafeed.py indicators.py oracle.py
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Demo smoke test
+        run: python main.py --demo
