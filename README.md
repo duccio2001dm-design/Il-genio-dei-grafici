@@ -100,12 +100,66 @@ appena finisce il silenzio.
 
 ---
 
-## 4. Comandi Telegram
+## 4. L'oracolo (solo BTCUSD)
+
+Oltre ai segnali, il bot ha un **oracolo probabilistico** per Bitcoin a 1 e 4 ore.
+Non dice "compra" o "vendi": dice quanto è probabile che il prezzo salga e dentro
+quale forbice resterà.
+
+```
+🔮 Oracolo BTCUSD · 10/11 14:00 UTC
+Prossima ora: ↗️ 54% rialzo
+  forbice 80%: 74.827 – 75.537
+Prossime 4 ore: ➖ 52% rialzo, troppo vicino al 50%: nessun vantaggio
+  forbice 80%: 74.463 – 75.893
+```
+
+Lo trovi con `/oracolo`, nel riepilogo ogni 4 ore e, in una riga, in ogni segnale
+COMPRA/VENDI su BTC ("concorda", "contrario" o "neutro").
+
+**Come è stato costruito.** Un modello statistico (regressione logistica per la
+direzione, un modello di volatilità per le forbici) addestrato su 8 anni di candele
+da 15 minuti di BTC/USD (Bitstamp, 2018-2026). È stato verificato in modo
+*walk-forward*: per ogni anno dal 2021 al 2026 è stato addestrato solo sugli anni
+precedenti e misurato su quello, che non aveva mai visto. Le probabilità sono
+calibrate: quando dice 55%, storicamente si è avverato il 55% delle volte.
+
+**Cosa è venuto fuori, senza abbellimenti:**
+
+| | Media 2021-2026 | 2026 |
+|---|---|---|
+| Forbice 80%: il prezzo ci resta dentro | 78-80% | 79% |
+| Direzione giusta a 1 ora | 53,2% | 51,7% |
+| Direzione giusta a 4 ore | 53,5% | 51,3% |
+
+Le **forbici funzionano**: sono stabili su tutti gli anni e molto più informative di
+una stima ingenua. Servono per mettere stop e target dove il mercato ha spazio di
+muoversi, o per capire quando un movimento è fuori dal normale. Sulla **direzione**
+il vantaggio è piccolo, è calato negli anni e nel 2026 è quasi nullo: vale meno dello
+spread di un broker, quindi da solo non giustifica un'operazione. Per questo, sotto il
+53% o sopra il 47%, l'oracolo risponde "nessun vantaggio", che è la cosa onesta.
+
+**La pagella dal vivo.** Una volta all'ora l'oracolo registra la sua previsione, e
+un'ora e quattro ore dopo la confronta con il prezzo vero. `/oracolo` ti mostra il
+conteggio aggiornato: se le forbici smettono di prendere il 75-80% o la direzione
+scende stabilmente sotto il 50%, il modello va rifatto.
+
+**Rifare i pesi** (facoltativo, una volta ogni qualche mese): con un CSV di candele
+da 15 minuti (`ts,open,high,low,close,volume`) lancia
+`pip install numpy scikit-learn` e poi `python train_oracle.py candele.csv`. Il
+risultato sostituisce `oracle_model.json` e stampa la verifica anno per anno.
+
+Per disattivarlo: in `config.json` metti `"oracle": {"enabled": false}`.
+
+---
+
+## 5. Comandi Telegram
 
 - `/stato` — riepilogo di entrambi gli strumenti
 - `/report` — risultati di tutti i segnali registrati, per strumento e tipo di segnale,
   sia tenendo tutta la posizione sia con la gestione "metà a T1 + pareggio"
 - `/report 30` — lo stesso, solo sugli ultimi 30 giorni
+- `/oracolo` — probabilità e forbici di BTC a 1 e 4 ore, con la pagella
 - `/aiuto` — elenco dei comandi
 
 La risposta arriva al ciclo successivo (di solito entro 5-10 minuti): senza un server
@@ -114,7 +168,7 @@ workflow a mano da GitHub → Actions → Run workflow.
 
 ---
 
-## 5. Impostazioni utili (`config.json`)
+## 6. Impostazioni utili (`config.json`)
 
 ```jsonc
 {
@@ -145,7 +199,7 @@ dall'1 alle 7 del mattino italiane d'estate, metti `[23,0,1,2,3,4,5]`.
 
 ---
 
-## 6. Provarlo in locale (facoltativo)
+## 7. Provarlo in locale (facoltativo)
 
 Se hai Python sul computer:
 
@@ -160,7 +214,7 @@ Non è necessario per usarlo: su GitHub Actions gira tutto da solo.
 
 ---
 
-## 7. I dati
+## 8. I dati
 
 **Bitcoin**: Coinbase, endpoint pubblico, gratis, nessuna registrazione, 24/7.
 In alternativa c'è Binance (`"source": "binance"`, `"api_symbol": "BTCUSDT"`), che però
@@ -177,7 +231,7 @@ Controlla sempre i livelli sulla tua piattaforma prima di piazzare un ordine.
 
 ---
 
-## 8. Cosa il sistema non può vedere
+## 9. Cosa il sistema non può vedere
 
 Vale la pena tenerlo a mente, perché sono i casi in cui sbaglia di più:
 

@@ -30,7 +30,8 @@
       "digits": 1,
       "contract_size": 1,
       "unit": "BTC",
-      "market": "24/7"
+      "market": "24/7",
+      "oracle": true
     },
     {
       "name": "XAUUSD",
@@ -45,5 +46,9 @@
     }
   ],
   "min_info_score": 45,
-  "max_data_age_minutes": 30
+  "max_data_age_minutes": 30,
+  "oracle": {
+    "enabled": true,
+    "lean_threshold": 0.03
+  }
 }

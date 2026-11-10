@@ -31,6 +31,7 @@ import analysis
 import datafeed
 import notifier
 import journal
+import oracle
 from datafeed import Candle
 
 DEFAULT_CONFIG = "config.json"
@@ -126,6 +127,8 @@ def handle_commands(cfg: dict, state: dict, bot: notifier.Telegram) -> set:
         name = parts[0]
         if name in ("/stato", "/controlla"):
             requests.add("stato")
+        elif name in ("/oracolo", "/oracle"):
+            requests.add("oracolo")
         elif name == "/report":
             days = None
             if len(parts) > 1 and parts[1].isdigit() and int(parts[1]) > 0:
@@ -196,6 +199,10 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
     command_requests = set() if demo else handle_commands(cfg, state, bot)
     if not demo and not in_quiet_hours(cfg):
         flush_pending(state, bot)
+    oracle_cfg = cfg.get("oracle", {})
+    oracle_threshold = float(oracle_cfg.get("lean_threshold", 0.03))
+    oracle_model = oracle.load_model() if oracle_cfg.get("enabled", True) else None
+    forecasts: Dict[str, dict] = {}
     min_score = cfg.get("min_score", 60)  # soglia operativa invariata
     min_info_score = cfg.get("min_info_score", 45)  # warning informativi separati
     max_data_age = cfg.get("max_data_age_minutes", 30)
@@ -236,6 +243,18 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
 
         # Prima di cercare nuovi segnali, aggiorna gli eventuali trade aperti
         # usando solo candele chiuse successive all'ingresso.
+        if oracle_model and symbol_cfg.get("oracle"):
+            try:
+                closed = oracle.resolve(state, name, frames["15m"])
+                forecast = None if stale_data else oracle.predict(frames["15m"], oracle_model)
+                if forecast:
+                    forecasts[name] = forecast
+                    oracle.record(state, name, forecast, oracle_threshold)
+                    h1, h4 = forecast["horizons"]["1h"], forecast["horizons"]["4h"]
+                    log(f"{name}: oracolo 1h {h1['p_up']:.3f} 4h {h4['p_up']:.3f}" + (f", {closed} verificate" if closed else ""))
+            except Exception:
+                log(f"{name}: errore oracolo (il resto continua)\n" + traceback.format_exc())
+
         quiet = in_quiet_hours(cfg)
         for item in journal.update_from_candles(state, name, frames["15m"]):
             trade, event = item["trade"], item["event"]
@@ -269,7 +288,9 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
             elif sent_kinds[kind]:
                 decision, detail = "one_alert_per_kind", "avviso della stessa categoria gia' inviato nel ciclo"
             else:
-                text = notifier.format_alert(snapshot, signal, symbol_cfg, currency)
+                oracle_line = (notifier.format_oracle_line(forecasts[name], signal.direction, oracle_threshold)
+                               if kind == "operational" and name in forecasts else None)
+                text = notifier.format_alert(snapshot, signal, symbol_cfg, currency, oracle_line)
                 if bot.send(text):
                     mark_alert(state, name, signal)
                     sent_kinds[kind] = True
@@ -284,8 +305,20 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
 
     summary_every = cfg.get("summary_every_minutes", 240)
     due = (time.time() - state.get("last_summary", 0)) >= summary_every * 60
+    score = state.get("oracle", {}).get("score", {})
+    if "oracolo" in command_requests:
+        if not oracle_model:
+            bot.send("🔮 Oracolo non disponibile: manca il file oracle_model.json.")
+        elif not forecasts:
+            bot.send("🔮 Nessuna previsione in questo momento (dati non disponibili o troppo vecchi). Riprova tra poco.")
+        for sym, forecast in forecasts.items():
+            digits = next((s_["digits"] for s_ in cfg["symbols"] if s_["name"] == sym), 2)
+            bot.send(notifier.format_oracle(sym, forecast, oracle_model, score, digits, oracle_threshold))
+
     if snapshots and ("stato" in command_requests or (due and not in_quiet_hours(cfg))):
-        if bot.send(notifier.format_summary(snapshots, closed_markets)):
+        blocks = {sym: notifier.format_oracle(sym, fc, oracle_model, score, snap.digits, oracle_threshold, compact=True)
+                  for sym, fc in forecasts.items() for snap in snapshots if snap.symbol == sym}
+        if bot.send(notifier.format_summary(snapshots, closed_markets, blocks)):
             state["last_summary"] = time.time()
             log("riepilogo inviato")
     health["last_cycle_completed_at"] = datetime.now(timezone.utc).isoformat()
@@ -400,10 +433,11 @@ EXAMPLE_CONFIG = """
   "min_score": 60,
   "min_info_score": 45,
   "cooldown_minutes": 90,
+  "oracle": {"enabled": true, "lean_threshold": 0.03},
   "account": {"equity": 1000, "risk_pct": 1.0, "currency": "USD"},
   "symbols": [
     {"name": "BTCUSD", "source": "coinbase", "api_symbol": "BTC-USD",
-     "digits": 1, "contract_size": 1, "unit": "BTC", "market": "24/7"},
+     "digits": 1, "contract_size": 1, "unit": "BTC", "market": "24/7", "oracle": true},
     {"name": "XAUUSD", "source": "twelvedata", "api_symbol": "XAU/USD",
      "digits": 2, "contract_size": 100, "unit": "oncia", "market": "forex",
      "require_trend_alignment": true, "stop_atr_buffer": 0.5}

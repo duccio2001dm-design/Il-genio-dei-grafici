@@ -103,9 +103,9 @@ class CommandTests(unittest.TestCase):
 
     def test_commands(self):
         import main
-        bot=self.FakeBot(["/aiuto","/report 30","/stato","/boh"])
+        bot=self.FakeBot(["/aiuto","/report 30","/stato","/oracolo","/boh"])
         req=main.handle_commands({}, {"trade_journal":[]}, bot)
-        self.assertEqual(req,{"stato"})
+        self.assertEqual(req,{"stato","oracolo"})
         self.assertEqual(len(bot.sent),3)
         self.assertIn("/report",bot.sent[0])
         self.assertIn("ultimi 30 giorni",bot.sent[1])

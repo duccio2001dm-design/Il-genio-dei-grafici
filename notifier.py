@@ -88,7 +88,8 @@ def _operational_block(plan: Plan, digits: int, symbol_cfg: dict, currency: str)
     return lines
 
 
-def format_alert(snapshot: Snapshot, signal: Signal, symbol_cfg: dict, currency: str = "USD") -> str:
+def format_alert(snapshot: Snapshot, signal: Signal, symbol_cfg: dict, currency: str = "USD",
+                 oracle_line: Optional[str] = None) -> str:
     digits = snapshot.digits
     lines: List[str] = []
 
@@ -100,6 +101,8 @@ def format_alert(snapshot: Snapshot, signal: Signal, symbol_cfg: dict, currency:
             "",
         ]
         lines += _operational_block(signal.plan, digits, symbol_cfg, currency)
+        if oracle_line:
+            lines.append(oracle_line)
         lines.append("")
     else:
         lines += [
@@ -136,7 +139,7 @@ def format_alert(snapshot: Snapshot, signal: Signal, symbol_cfg: dict, currency:
     return "\n".join(lines)
 
 
-def format_summary(snapshots: List[Snapshot], closed_markets: List[str]) -> str:
+def format_summary(snapshots: List[Snapshot], closed_markets: List[str], oracle_blocks: Optional[dict] = None) -> str:
     now = datetime.now(timezone.utc).strftime("%d/%m %H:%M UTC")
     lines = [f"📊 <b>Riepilogo mercato</b> · {now}", ""]
 
@@ -169,6 +172,8 @@ def format_summary(snapshots: List[Snapshot], closed_markets: List[str]) -> str:
 
         for note in snapshot.notes:
             lines.append(f"  ⚠️ {html.escape(note)}")
+        if oracle_blocks and snapshot.symbol in oracle_blocks:
+            lines.append(oracle_blocks[snapshot.symbol])
         lines.append("")
 
     for market in closed_markets:
@@ -250,10 +255,97 @@ def format_report(journal_trades: List[dict], days: Optional[int] = None) -> str
     return "\n".join(lines)
 
 
+ARROW = {"up": "↗️", "down": "↘️", "none": "➖"}
+
+
+def _oracle_phrase(h: dict, threshold: float) -> str:
+    import oracle as orc
+    p = h["p_up"]
+    side = orc.lean(p, threshold)
+    if side == "up":
+        return f"{ARROW[side]} {p*100:.0f}% rialzo".replace(".", ",")
+    if side == "down":
+        return f"{ARROW[side]} {(1-p)*100:.0f}% ribasso".replace(".", ",")
+    word = "rialzo" if p >= 0.5 else "ribasso"
+    return f"{ARROW[side]} {max(p, 1-p)*100:.0f}% {word}, troppo vicino al 50%: nessun vantaggio"
+
+
+def format_oracle_line(forecast: dict, direction: str, threshold: float) -> str:
+    """Una riga per gli avvisi operativi: l'oracolo concorda con il segnale?"""
+    import oracle as orc
+    h = forecast["horizons"]["4h"]
+    side = orc.lean(h["p_up"], threshold)
+    wanted = "up" if direction == "long" else "down"
+    verdict = "concorda" if side == wanted else ("contrario" if side != "none" else "neutro")
+    return f"🔮 Oracolo 4h: {_oracle_phrase(h, threshold)} · <b>{verdict}</b> con il segnale"
+
+
+def format_oracle(symbol: str, forecast: dict, model: dict, score: dict, digits: int, threshold: float,
+                  compact: bool = False) -> str:
+    when = datetime.fromtimestamp((forecast["ts"] + 15 * 60 * 1000) / 1000, timezone.utc).strftime("%d/%m %H:%M UTC")
+    lines = [] if compact else [f"🔮 <b>Oracolo {html.escape(symbol)}</b> · {when}",
+                                f"Prezzo {fmt(forecast['price'], digits)}", ""]
+    if compact:
+        lines.append(f"  🔮 Oracolo:")
+    names = {"1h": "Prossima ora", "4h": "Prossime 4 ore"}
+    for label in ("1h", "4h"):
+        h = forecast["horizons"][label]
+        lo80, hi80 = h["bands"]["80"]
+        lo50, hi50 = h["bands"]["50"]
+        pad = "    " if compact else ""
+        lines.append(f"{pad}<b>{names[label]}</b>: {_oracle_phrase(h, threshold)}")
+        lines.append(f"{pad}  forbice 80%: {fmt(lo80, digits)} – {fmt(hi80, digits)}")
+        if not compact:
+            lines.append(f"{pad}  forbice 50%: {fmt(lo50, digits)} – {fmt(hi50, digits)}")
+    calm = forecast["horizons"]["4h"].get("calm_ratio")
+    if calm and not compact:
+        if calm >= 1.3:
+            mood = f"più agitato del solito (×{calm:.1f})".replace(".", ",")
+        elif calm <= 0.77:
+            mood = f"più calmo del solito (×{calm:.1f})".replace(".", ",")
+        else:
+            mood = "nella norma"
+        lines += ["", f"Movimento atteso: {mood}"]
+    if compact:
+        return "\n".join(lines)
+
+    lines += ["", "<b>Pagella dal vivo</b>"]
+    any_live = False
+    for label in ("1h", "4h"):
+        s = score.get(f"{symbol}:{label}")
+        if not s or not s["n"]:
+            continue
+        any_live = True
+        lean_txt = (f", quando si sbilancia {s['lean_hits']/s['lean_n']*100:.0f}% su {s['lean_n']}"
+                    if s["lean_n"] else "")
+        lines.append(f"{label}: {s['n']} previsioni · direzione giusta {s['hits']/s['n']*100:.0f}%{lean_txt} · "
+                     f"forbice 80% presa {s['in80']/s['n']*100:.0f}%, 50% presa {s['in50']/s['n']*100:.0f}%")
+    if not any_live:
+        lines.append("Ancora nessuna previsione verificata: la prima arriva dopo un'ora.")
+
+    val = model.get("validation", {})
+    lines += ["", "<b>Verifica su anni mai visti (2021-2026)</b>"]
+    for label in ("1h", "4h"):
+        years = val.get(label, {}).get("years", [])
+        if not years:
+            continue
+        acc = sum(y["acc_cal"] for y in years) / len(years)
+        cov = sum(y["cover80"] for y in years) / len(years)
+        last = years[-1]
+        lines.append(f"{label}: direzione giusta {acc*100:.1f}% in media, {last['acc_cal']*100:.1f}% nel {last['year']} · "
+                     f"forbice 80% presa {cov*100:.0f}%".replace(".", ","))
+    lines += ["",
+              "<i>Le forbici sono la parte affidabile. Sulla direzione il vantaggio è piccolo e nel 2026 "
+              "quasi nullo: \"nessun vantaggio\" è la risposta onesta la maggior parte delle volte. "
+              "Non è un ordine e non vede le notizie.</i>"]
+    return "\n".join(lines)
+
+
 HELP_TEXT = "\n".join([
     "🤖 <b>Comandi</b>",
     "/stato — riepilogo di entrambi gli strumenti",
     "/controlla — come /stato",
+    "/oracolo — probabilita' e forbici di prezzo di BTC a 1 e 4 ore, con la pagella",
     "/report — risultati di tutti i segnali registrati",
     "/report 30 — solo gli ultimi 30 giorni (o il numero che vuoi)",
     "/aiuto — questo elenco",
