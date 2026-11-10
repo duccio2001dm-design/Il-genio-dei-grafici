@@ -2,7 +2,7 @@
   "last_alerts": {
     "BTCUSD:pullback_long": 1793867314.3126047,
     "BTCUSD:level_approach": 1793806891.7084913,
-    "XAUUSD:level_approach": 1793571594.2646854,
+    "XAUUSD:level_approach": 1794349389.4247527,
     "XAUUSD:breakout_short": 1791808874.6300426,
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1792362511.879453,
@@ -12,7 +12,7 @@
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1794303513.389846
   },
-  "last_summary": 1794330948.6963494,
+  "last_summary": 1794349389.8263385,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3055,26 +3055,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-10T17:15:46.801662+00:00",
+    "last_cycle_started_at": "2026-11-10T22:23:07.578405+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-10T17:15:48.207920+00:00",
-        "last_candle_ts": 1794330000000,
-        "data_age_minutes": 0.8,
-        "price": 72923.29,
+        "checked_at": "2026-11-10T22:23:08.801234+00:00",
+        "last_candle_ts": 1794348000000,
+        "data_age_minutes": 8.1,
+        "price": 73834.98,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-10T17:15:48.370135+00:00",
-        "last_candle_ts": 1794330000000,
-        "data_age_minutes": 0.8,
-        "price": 4024.50274,
-        "signals_detected": 0
+        "checked_at": "2026-11-10T22:23:09.110272+00:00",
+        "last_candle_ts": 1794348000000,
+        "data_age_minutes": 8.2,
+        "price": 4033.17883,
+        "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-10T17:15:48.696394+00:00",
+    "last_cycle_completed_at": "2026-11-10T22:23:09.826391+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -3343,6 +3343,28 @@
         "Il prezzo dista 2.8 ATR dalla EMA20 sui 15m",
         "Entrare adesso nella direzione del movimento significa comprare caro o vendere a sconto",
         "Statisticamente segue una pausa o un ritracciamento, ma un trend forte puo' restare esteso a lungo"
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-10T22:23:09.424762+00:00",
+      "candle_ts": 1794348000000,
+      "symbol": "XAUUSD",
+      "key": "level_approach",
+      "title": "Prezzo sul supporto a 4.031,74",
+      "direction": "neutro",
+      "score": 62,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 4033.17883,
+      "atr_15m": 5.997365382642132,
+      "ema20_15m": 4032.471899922565,
+      "candle_range_atr": 0.22417176780507547,
+      "data_age_minutes": 8.2,
+      "reasons": [
+        "Livello costruito su 3 tocchi (min orario)",
+        "Distanza attuale: 1,44, meno di mezzo ATR",
+        "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
       ],
       "plan": null
     }
