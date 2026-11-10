@@ -9,9 +9,10 @@
     "XAUUSD:pullback_short": 1792522083.2284892,
     "BTCUSD:breakout_short": 1792353254.7702827,
     "BTCUSD:pullback_short": 1794076322.3414536,
-    "XAUUSD:pullback_long": 1793867315.0393622
+    "XAUUSD:pullback_long": 1793867315.0393622,
+    "XAUUSD:overextension": 1794303513.389846
   },
-  "last_summary": 1794251572.5621889,
+  "last_summary": 1794303513.9170854,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3054,26 +3055,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-10T02:08:30.964017+00:00",
+    "last_cycle_started_at": "2026-11-10T09:38:30.796099+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-10T02:08:32.276916+00:00",
-        "last_candle_ts": 1794275100000,
+        "checked_at": "2026-11-10T09:38:32.585325+00:00",
+        "last_candle_ts": 1794302100000,
         "data_age_minutes": 8.5,
-        "price": 74977.57,
-        "signals_detected": 2
+        "price": 74367.42,
+        "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-10T02:08:32.417617+00:00",
-        "last_candle_ts": 1794275100000,
+        "checked_at": "2026-11-10T09:38:32.909638+00:00",
+        "last_candle_ts": 1794302100000,
         "data_age_minutes": 8.5,
-        "price": 4128.11699,
+        "price": 4091.32329,
         "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-10T02:08:32.417727+00:00",
+    "last_cycle_completed_at": "2026-11-10T09:38:33.917138+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -3322,44 +3323,69 @@
         "structural_target": 4106.21235,
         "warning": null
       }
+    },
+    {
+      "observed_at": "2026-11-10T09:38:33.389858+00:00",
+      "candle_ts": 1794302100000,
+      "symbol": "XAUUSD",
+      "key": "overextension",
+      "title": "Prezzo molto esteso al ribasso",
+      "direction": "neutro",
+      "score": 45,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 4091.32329,
+      "atr_15m": 8.005472656051754,
+      "ema20_15m": 4114.132424406474,
+      "candle_range_atr": 0.9643340664169012,
+      "data_age_minutes": 8.5,
+      "reasons": [
+        "Il prezzo dista 2.8 ATR dalla EMA20 sui 15m",
+        "Entrare adesso nella direzione del movimento significa comprare caro o vendere a sconto",
+        "Statisticamente segue una pausa o un ritracciamento, ma un trend forte puo' restare esteso a lungo"
+      ],
+      "plan": null
     }
   ],
   "oracle": {
-    "pending": [
+    "pending": [],
+    "score": {
+      "BTCUSD:1h": {
+        "n": 1,
+        "hits": 0,
+        "brier": 0.25321024,
+        "lean_n": 0,
+        "lean_hits": 0,
+        "in80": 1,
+        "in50": 0
+      },
+      "BTCUSD:4h": {
+        "n": 1,
+        "hits": 0,
+        "brier": 0.25381444000000003,
+        "lean_n": 0,
+        "lean_hits": 0,
+        "in80": 1,
+        "in50": 1
+      }
+    },
+    "history": [
       {
         "symbol": "BTCUSD",
         "ts": 1794275100000,
-        "price": 74977.57,
-        "h": {
-          "1h": {
-            "p_up": 0.5032,
-            "lean": "none",
-            "b80": [
-              74631.07,
-              75321.06
-            ],
-            "b50": [
-              74809.67,
-              75149.17
-            ]
-          },
-          "4h": {
-            "p_up": 0.5038,
-            "lean": "none",
-            "b80": [
-              74304.98,
-              75638.63
-            ],
-            "b50": [
-              74671.3,
-              75297.43
-            ]
-          }
-        },
-        "done": []
+        "h": "1h",
+        "p_up": 0.5032,
+        "up": 0,
+        "in80": 1
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1794275100000,
+        "h": "4h",
+        "p_up": 0.5038,
+        "up": 0,
+        "in80": 1
       }
-    ],
-    "score": {},
-    "history": []
+    ]
   }
 }
