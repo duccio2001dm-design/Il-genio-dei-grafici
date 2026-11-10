@@ -41,7 +41,10 @@
       "risk_per_unit": 27.67392567375009,
       "mfe_r": 1.003790366697015,
       "mae_r": 1.0246175527925312,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "BTCUSD|pullback_long|1790869500000|84130.06000000",
@@ -70,7 +73,11 @@
       "risk_per_unit": 825.4700250154565,
       "mfe_r": 3.234448155703787,
       "mae_r": 0.12390516542146239,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1790873100000|4162.19112000",
@@ -99,7 +106,10 @@
       "risk_per_unit": 18.59354867793263,
       "mfe_r": 0.022108205761064793,
       "mae_r": 1.131260651978901,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|breakout_long|1790874900000|84897.08000000",
@@ -128,7 +138,10 @@
       "risk_per_unit": 1476.2204772813275,
       "mfe_r": 1.5932376201226341,
       "mae_r": 1.0170296531619525,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "BTCUSD|pullback_long|1790883900000|84644.92000000",
@@ -157,7 +170,11 @@
       "risk_per_unit": 702.2626982018264,
       "mfe_r": 3.0687661547711076,
       "mae_r": 0.26085679969770303,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_long|1790891100000|84515.18000000",
@@ -186,7 +203,11 @@
       "risk_per_unit": 117.20464242676098,
       "mfe_r": 2.188309222992426,
       "mae_r": 0.044110880703628196,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_long|1790896500000|84714.67000000",
@@ -215,7 +236,11 @@
       "risk_per_unit": 309.20957941608503,
       "mfe_r": 2.5397660754334144,
       "mae_r": 0.7283732943374821,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_long|1790925300000|85928.64000000",
@@ -244,7 +269,11 @@
       "risk_per_unit": 581.9538470280822,
       "mfe_r": 2.268925631719876,
       "mae_r": 0.32368546227842965,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|breakout_long|1790944200000|4212.74208000",
@@ -273,7 +302,10 @@
       "risk_per_unit": 50.54988630363823,
       "mfe_r": 0.2553439966702992,
       "mae_r": 1.1341204539143372,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|breakout_short|1790952300000|4156.49652000",
@@ -302,7 +334,11 @@
       "risk_per_unit": 73.40470245774577,
       "mfe_r": 2.2242610423219693,
       "mae_r": 0.8134435261061288,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1790969400000|4144.16007000",
@@ -331,7 +367,10 @@
       "risk_per_unit": 7.803471761742912,
       "mfe_r": 1.767469713623943,
       "mae_r": 1.0660588330420855,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "BTCUSD|breakout_long|1791146700000|85822.83000000",
@@ -360,7 +399,11 @@
       "risk_per_unit": 563.8800827973173,
       "mfe_r": 2.0805310132255297,
       "mae_r": 0.1005000916486846,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_long|1791189900000|86190.66000000",
@@ -389,7 +432,10 @@
       "risk_per_unit": 840.7017421558412,
       "mfe_r": 0.6270475884208214,
       "mae_r": 1.2081097838521313,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_long|1791197100000|86102.62000000",
@@ -418,7 +464,10 @@
       "risk_per_unit": 435.55135074761347,
       "mfe_r": 1.412462615358753,
       "mae_r": 1.5583007579588366,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "BTCUSD|pullback_long|1791234900000|85799.57000000",
@@ -447,7 +496,10 @@
       "risk_per_unit": 515.6958067530359,
       "mfe_r": 0.644934466491158,
       "mae_r": 1.3177729799254498,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|pullback_short|1791236700000|4139.59984000",
@@ -476,7 +528,10 @@
       "risk_per_unit": 5.659994517835003,
       "mfe_r": 0.0,
       "mae_r": 1.0589038524887244,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_long|1791242100000|85915.62000000",
@@ -505,7 +560,10 @@
       "risk_per_unit": 325.9508193321235,
       "mfe_r": 0.6643333507910819,
       "mae_r": 1.4284977131030239,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|pullback_short|1791243000000|4137.25290000",
@@ -534,7 +592,10 @@
       "risk_per_unit": 9.471991521844757,
       "mfe_r": 0.41343259133720556,
       "mae_r": 1.145669310933444,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|pullback_short|1791268200000|4131.13638000",
@@ -563,7 +624,10 @@
       "risk_per_unit": 5.079572180206014,
       "mfe_r": 0.6116676542380989,
       "mae_r": 1.9335959115364263,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_long|1791297000000|86292.20000000",
@@ -592,7 +656,10 @@
       "risk_per_unit": 436.088901991694,
       "mfe_r": 0.9313467922367455,
       "mae_r": 1.3505961681437468,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|breakout_long|1791297900000|86601.30000000",
@@ -621,7 +688,10 @@
       "risk_per_unit": 749.3855518494383,
       "mfe_r": 0.12950609971127594,
       "mae_r": 1.198421824097882,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|breakout_short|1791369000000|4113.18821000",
@@ -650,7 +720,10 @@
       "risk_per_unit": 28.767432291346267,
       "mfe_r": 1.7886198350583558,
       "mae_r": 1.019252942113301,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "XAUUSD|breakout_short|1791375300000|4082.08679000",
@@ -679,7 +752,10 @@
       "risk_per_unit": 45.67599098593428,
       "mfe_r": 0.445585953597969,
       "mae_r": 1.1323887863960713,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|breakout_short|1791379800000|83048.39000000",
@@ -708,7 +784,11 @@
       "risk_per_unit": 932.5458675769332,
       "mfe_r": 2.3466834995324897,
       "mae_r": 0.650520281191373,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1791386100000|4101.85680000",
@@ -737,7 +817,10 @@
       "risk_per_unit": 24.717262814811875,
       "mfe_r": 0.07939228605942508,
       "mae_r": 1.2927390156183634,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791389700000|83526.48000000",
@@ -766,7 +849,11 @@
       "risk_per_unit": 178.8721725587966,
       "mfe_r": 2.045483066292621,
       "mae_r": 0.7186696407891372,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1791394200000|4111.59414000",
@@ -795,7 +882,10 @@
       "risk_per_unit": 17.02620688916977,
       "mfe_r": 0.6588026371942586,
       "mae_r": 1.304790323799652,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791397800000|83262.14000000",
@@ -824,7 +914,11 @@
       "risk_per_unit": 464.8845209781575,
       "mfe_r": 2.3679644090617593,
       "mae_r": 0.6570233815428613,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1791400500000|4107.28911000",
@@ -853,7 +947,10 @@
       "risk_per_unit": 20.87615815976278,
       "mfe_r": 0.33108965486388114,
       "mae_r": 1.2703802968458393,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791405000000|83346.13000000",
@@ -882,7 +979,11 @@
       "risk_per_unit": 283.37332349100325,
       "mfe_r": 2.668317506690113,
       "mae_r": 0.44919542330890894,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1791409500000|4110.24815000",
@@ -911,7 +1012,10 @@
       "risk_per_unit": 4.151272938691363,
       "mfe_r": 0.31567907467280615,
       "mae_r": 1.7706544735929957,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791413100000|83192.16000000",
@@ -940,7 +1044,11 @@
       "risk_per_unit": 424.17861818872916,
       "mfe_r": 2.4302262202696676,
       "mae_r": 0.6630697256759278,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1791414900000|4109.12182000",
@@ -969,7 +1077,10 @@
       "risk_per_unit": 9.92311898690241,
       "mfe_r": 0.3560543821619053,
       "mae_r": 1.0550513416012224,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791437400000|82828.12000000",
@@ -998,7 +1109,11 @@
       "risk_per_unit": 490.14136897510616,
       "mfe_r": 2.4149767290100157,
       "mae_r": 0.8285364707108231,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_short|1791445500000|82938.67000000",
@@ -1027,7 +1142,11 @@
       "risk_per_unit": 371.1287614100438,
       "mfe_r": 2.109483503853313,
       "mae_r": 0.4906922312032704,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1791445500000|4119.09160000",
@@ -1056,7 +1175,10 @@
       "risk_per_unit": 19.479003452314828,
       "mfe_r": 0.4502581470078828,
       "mae_r": 1.0169893982767348,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791454500000|82725.25000000",
@@ -1085,7 +1207,11 @@
       "risk_per_unit": 575.8892619925027,
       "mfe_r": 2.6299500615097684,
       "mae_r": 0.10008868684332199,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1791457200000|4117.53936000",
@@ -1114,7 +1240,10 @@
       "risk_per_unit": 16.421803575720332,
       "mfe_r": 0.2130180149744149,
       "mae_r": 1.1653050112165078,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|pullback_short|1791463500000|4117.96155000",
@@ -1143,7 +1272,10 @@
       "risk_per_unit": 16.202733433144203,
       "mfe_r": 0.15835908247131125,
       "mae_r": 1.155003881117871,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791469800000|82500.89000000",
@@ -1172,7 +1304,11 @@
       "risk_per_unit": 319.6018111548037,
       "mfe_r": 4.0368982745691335,
       "mae_r": 0.6995579880857045,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|breakout_short|1791472500000|81295.32000000",
@@ -1201,7 +1337,10 @@
       "risk_per_unit": 1542.0940772984904,
       "mfe_r": 0.6359015409214878,
       "mae_r": 1.10198205480239,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791485100000|81437.68000000",
@@ -1230,7 +1369,10 @@
       "risk_per_unit": 193.6779675641883,
       "mfe_r": 0.38920276244125623,
       "mae_r": 1.1826848602389308,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791490500000|81694.41000000",
@@ -1259,7 +1401,10 @@
       "risk_per_unit": 228.40738013277587,
       "mfe_r": 0.7502384550813858,
       "mae_r": 1.0713314073203333,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791497700000|81725.00000000",
@@ -1288,7 +1433,10 @@
       "risk_per_unit": 176.43974190269364,
       "mfe_r": 1.082409200673855,
       "mae_r": 1.2135021151758545,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "XAUUSD|breakout_long|1791523800000|4201.93135000",
@@ -1317,7 +1465,10 @@
       "risk_per_unit": 33.850274345420075,
       "mfe_r": 0.42173218019815817,
       "mae_r": 1.0060373411599208,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|pullback_long|1791544500000|4184.43419000",
@@ -1346,7 +1497,10 @@
       "risk_per_unit": 10.504775366012836,
       "mfe_r": 0.5523735442048285,
       "mae_r": 1.4563557493572898,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|pullback_long|1791551700000|4188.81576000",
@@ -1375,7 +1529,10 @@
       "risk_per_unit": 21.64359127444004,
       "mfe_r": 1.265563540388372,
       "mae_r": 1.2048966213290808,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "XAUUSD|pullback_long|1791558000000|4184.89247000",
@@ -1404,7 +1561,10 @@
       "risk_per_unit": 17.922967222847547,
       "mfe_r": 1.747178891231866,
       "mae_r": 1.2361234456623542,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "XAUUSD|pullback_long|1791563400000|4190.80080000",
@@ -1433,7 +1593,10 @@
       "risk_per_unit": 13.91538132327969,
       "mfe_r": 1.825771023428317,
       "mae_r": 1.1342915895228756,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "XAUUSD|pullback_long|1791574200000|4196.93011000",
@@ -1462,7 +1625,10 @@
       "risk_per_unit": 12.77092217360132,
       "mfe_r": 0.058449968596816754,
       "mae_r": 1.0007319617386912,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791580500000|82494.46000000",
@@ -1491,7 +1657,10 @@
       "risk_per_unit": 216.79434018918255,
       "mfe_r": 0.6293522233142244,
       "mae_r": 1.1688958290094393,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|breakout_long|1791732600000|83339.07000000",
@@ -1520,7 +1689,11 @@
       "risk_per_unit": 435.4161019692983,
       "mfe_r": 2.1145520246858305,
       "mae_r": 0.35214591124793365,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|breakout_long|1791761400000|4198.20949000",
@@ -1549,7 +1722,10 @@
       "risk_per_unit": 14.836430615940117,
       "mfe_r": 1.2130687269661062,
       "mae_r": 1.2338857285748708,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "XAUUSD|breakout_short|1791807300000|4163.31552000",
@@ -1578,7 +1754,10 @@
       "risk_per_unit": 18.09472248207385,
       "mfe_r": 0.7072365996592963,
       "mae_r": 1.0133009786784253,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1791839700000|82824.96000000",
@@ -1607,7 +1786,11 @@
       "risk_per_unit": 280.89252169663087,
       "mfe_r": 2.9725248467162064,
       "mae_r": 0.14528688679036186,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|breakout_short|1791845100000|82050.43000000",
@@ -1636,7 +1819,10 @@
       "risk_per_unit": 1067.9983086643188,
       "mfe_r": 1.0514529759924462,
       "mae_r": 1.3572774303480846,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "BTCUSD|breakout_short|1791985500000|82242.02000000",
@@ -1665,7 +1851,10 @@
       "risk_per_unit": 1720.5395802058774,
       "mfe_r": 1.4913926012053473,
       "mae_r": 1.062887492411634,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "XAUUSD|pullback_short|1792002600000|4093.97388000",
@@ -1694,7 +1883,10 @@
       "risk_per_unit": 5.127160953452858,
       "mfe_r": 0.3873469192853552,
       "mae_r": 2.4640634680079927,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1792008900000|81806.15000000",
@@ -1723,7 +1915,11 @@
       "risk_per_unit": 258.9806697243039,
       "mfe_r": 2.026676356033607,
       "mae_r": 0.2595174383924266,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1792008900000|4099.96331000",
@@ -1752,7 +1948,10 @@
       "risk_per_unit": 8.757113680514522,
       "mfe_r": 0.3555726365559052,
       "mae_r": 1.0284861346541727,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|pullback_short|1792019700000|4102.56565000",
@@ -1781,7 +1980,10 @@
       "risk_per_unit": 10.719130873666472,
       "mfe_r": 0.1414088528131993,
       "mae_r": 2.402395334426255,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1792039500000|81492.72000000",
@@ -1810,7 +2012,11 @@
       "risk_per_unit": 383.305904872861,
       "mfe_r": 2.8403423640476384,
       "mae_r": 0.24901781784879357,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_short|1792053000000|81129.52000000",
@@ -1839,7 +2045,11 @@
       "risk_per_unit": 432.69031295957393,
       "mfe_r": 2.34648192850775,
       "mae_r": 0.4250846263276005,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_short|1792064700000|80882.90000000",
@@ -1868,7 +2078,11 @@
       "risk_per_unit": 500.5002551052312,
       "mfe_r": 2.411347422283014,
       "mae_r": 0.38879101062415666,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_long|1792149300000|4181.98121000",
@@ -1897,7 +2111,10 @@
       "risk_per_unit": 10.494699507918995,
       "mfe_r": 0.0,
       "mae_r": 1.009495316374339,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|breakout_short|1792165500000|81242.09000000",
@@ -1926,7 +2143,10 @@
       "risk_per_unit": 1227.5090665646858,
       "mfe_r": 0.5519470433697904,
       "mae_r": 1.0076503984297276,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1792179000000|81233.91000000",
@@ -1955,7 +2175,10 @@
       "risk_per_unit": 580.3676392909256,
       "mfe_r": 0.9199513616098883,
       "mae_r": 1.0911876492178765,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1792185300000|81617.14000000",
@@ -1984,7 +2207,11 @@
       "risk_per_unit": 156.39359172989498,
       "mfe_r": 2.113961296898866,
       "mae_r": 0.6583389949751078,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_short|1792193400000|81519.15000000",
@@ -2013,7 +2240,11 @@
       "risk_per_unit": 256.60414964181837,
       "mfe_r": 2.0231551232692504,
       "mae_r": 0.5312462802736808,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_short|1792212300000|81416.36000000",
@@ -2042,7 +2273,10 @@
       "risk_per_unit": 162.00835646566702,
       "mfe_r": 6.172521105033568e-05,
       "mae_r": 1.4759115221977641,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1792233000000|81523.88000000",
@@ -2071,7 +2305,11 @@
       "risk_per_unit": 155.7686579500296,
       "mfe_r": 2.2234254602817245,
       "mae_r": 0.3500704231366749,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|breakout_short|1792251900000|81242.50000000",
@@ -2100,7 +2338,10 @@
       "risk_per_unit": 282.88879878426087,
       "mfe_r": 0.5999177087581757,
       "mae_r": 1.1688338365498783,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1792277100000|81257.37000000",
@@ -2129,7 +2370,10 @@
       "risk_per_unit": 383.78745948144933,
       "mfe_r": 0.38130479874908463,
       "mae_r": 1.3721917873803267,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|breakout_short|1792329300000|81461.86000000",
@@ -2158,7 +2402,10 @@
       "risk_per_unit": 734.6541367156897,
       "mfe_r": 1.2213774552626575,
       "mae_r": 1.2509015522710385,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "BTCUSD|breakout_short|1792351800000|80743.12000000",
@@ -2187,7 +2434,10 @@
       "risk_per_unit": 480.3541034247173,
       "mfe_r": 0.3717049541723574,
       "mae_r": 1.7768350346439254,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|breakout_long|1792360800000|4174.30783000",
@@ -2216,7 +2466,10 @@
       "risk_per_unit": 13.868400899013977,
       "mfe_r": 1.1407364205288555,
       "mae_r": 1.1584904501240476,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "XAUUSD|pullback_short|1792433700000|4145.15646000",
@@ -2245,7 +2498,11 @@
       "risk_per_unit": 8.045273458170414,
       "mfe_r": 2.8889807314624245,
       "mae_r": 0.5489919047456029,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1792447200000|4142.16888000",
@@ -2274,7 +2531,11 @@
       "risk_per_unit": 8.327342043312456,
       "mfe_r": 2.4323559539945765,
       "mae_r": 0.02686331350820432,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1792473300000|4133.04453000",
@@ -2303,7 +2564,10 @@
       "risk_per_unit": 15.67853218766777,
       "mfe_r": 1.3523217445493827,
       "mae_r": 1.2505596675320063,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "XAUUSD|pullback_short|1792493100000|4120.96498000",
@@ -2332,7 +2596,10 @@
       "risk_per_unit": 14.892958346888918,
       "mfe_r": 0.5671452107273434,
       "mae_r": 2.127615565823377,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1792496700000|81386.96000000",
@@ -2361,7 +2628,10 @@
       "risk_per_unit": 213.32254681718769,
       "mfe_r": 0.7725390609612052,
       "mae_r": 1.3127538751915482,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|pullback_short|1792512000000|4127.55496000",
@@ -2390,7 +2660,11 @@
       "risk_per_unit": 31.00256444655861,
       "mfe_r": 2.2345925647350944,
       "mae_r": 0.4876603039100436,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "XAUUSD|pullback_short|1792521000000|4121.96107000",
@@ -2419,7 +2693,10 @@
       "risk_per_unit": 19.84408032823376,
       "mfe_r": 0.7597575574489618,
       "mae_r": 1.0115575863417259,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_long|1792559700000|82798.76000000",
@@ -2448,7 +2725,10 @@
       "risk_per_unit": 211.71681011516193,
       "mfe_r": 0.2181687886515841,
       "mae_r": 1.245815104887157,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_long|1792577700000|83201.67000000",
@@ -2477,7 +2757,11 @@
       "risk_per_unit": 610.4565144623048,
       "mfe_r": 2.3856736155609237,
       "mae_r": 0.07807271913869708,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_long|1792610100000|84431.43000000",
@@ -2506,7 +2790,10 @@
       "risk_per_unit": 393.2172972893022,
       "mfe_r": 0.9751605604417131,
       "mae_r": 1.14041270079243,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1792706400000|81350.00000000",
@@ -2535,7 +2822,10 @@
       "risk_per_unit": 174.62353090498073,
       "mfe_r": 1.983066074803075,
       "mae_r": 1.7227346076497259,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     },
     {
       "id": "BTCUSD|pullback_short|1792926000000|80228.00000000",
@@ -2564,7 +2854,10 @@
       "risk_per_unit": 421.4885546434962,
       "mfe_r": 0.22411047455346123,
       "mae_r": 1.1096149464736575,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1793078100000|79652.41000000",
@@ -2593,7 +2886,10 @@
       "risk_per_unit": 379.68834670043725,
       "mfe_r": 0.7545135437776146,
       "mae_r": 1.2056466941324284,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_long|1793865600000|80449.59000000",
@@ -2622,7 +2918,10 @@
       "risk_per_unit": 285.16558137470565,
       "mfe_r": 0.41607405573992967,
       "mae_r": 1.1720558925406217,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "XAUUSD|pullback_long|1793865600000|4128.87373000",
@@ -2651,7 +2950,10 @@
       "risk_per_unit": 20.174506424645188,
       "mfe_r": 0.540464771256041,
       "mae_r": 1.456922879862587,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1793982600000|75535.14000000",
@@ -2680,7 +2982,10 @@
       "risk_per_unit": 615.2300790802983,
       "mfe_r": 0.25863494879486765,
       "mae_r": 1.0033482123025823,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": -1.0
     },
     {
       "id": "BTCUSD|pullback_short|1794059100000|75837.73000000",
@@ -2709,7 +3014,11 @@
       "risk_per_unit": 133.73390555808146,
       "mfe_r": 2.4663154689425753,
       "mae_r": 0.38778498080636303,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 1.5,
+      "managed_estimated": true
     },
     {
       "id": "BTCUSD|pullback_short|1794075300000|75698.37000000",
@@ -2738,30 +3047,33 @@
       "risk_per_unit": 177.37586144740635,
       "mfe_r": 1.3840101916730132,
       "mae_r": 1.02539318775308,
-      "tp1_ts": null
+      "tp1_ts": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": 0.5
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-09T19:12:50.693585+00:00",
+    "last_cycle_started_at": "2026-11-10T02:04:56.961457+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-09T19:12:52.026397+00:00",
-        "last_candle_ts": 1794249900000,
-        "data_age_minutes": 12.9,
-        "price": 74596.54,
-        "signals_detected": 0
+        "checked_at": "2026-11-10T02:04:58.173894+00:00",
+        "last_candle_ts": 1794275100000,
+        "data_age_minutes": 5.0,
+        "price": 74977.57,
+        "signals_detected": 2
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-09T19:12:52.203862+00:00",
-        "last_candle_ts": 1794249900000,
-        "data_age_minutes": 12.9,
-        "price": 4105.57665,
-        "signals_detected": 0
+        "checked_at": "2026-11-10T02:04:58.305895+00:00",
+        "last_candle_ts": 1794275100000,
+        "data_age_minutes": 5.0,
+        "price": 4128.11699,
+        "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-09T19:12:52.562235+00:00",
+    "last_cycle_completed_at": "2026-11-10T02:04:58.305991+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -2865,6 +3177,78 @@
         "tp2": 4263.080867823481,
         "structural_target": 4139.77734,
         "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.24R: meno di mezzo R di spazio utile."
+      }
+    },
+    {
+      "observed_at": "2026-11-10T02:04:58.173991+00:00",
+      "candle_ts": 1794275100000,
+      "symbol": "BTCUSD",
+      "key": "level_approach",
+      "title": "Prezzo sul resistenza a 74.981,0",
+      "direction": "neutro",
+      "score": 62,
+      "decision": "quiet_hours",
+      "detail": "orario di silenzio UTC",
+      "price": 74977.57,
+      "atr_15m": 200.29793652414287,
+      "ema20_15m": 74994.1430591939,
+      "candle_range_atr": 0.9911235404867763,
+      "data_age_minutes": 5.0,
+      "reasons": [
+        "Livello costruito su 3 tocchi (min orario)",
+        "Distanza attuale: 3,5, meno di mezzo ATR",
+        "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-10T02:04:58.174004+00:00",
+      "candle_ts": 1794275100000,
+      "symbol": "BTCUSD",
+      "key": "squeeze",
+      "title": "Compressione di volatilita'",
+      "direction": "neutro",
+      "score": 55,
+      "decision": "quiet_hours",
+      "detail": "orario di silenzio UTC",
+      "price": 74977.57,
+      "atr_15m": 200.29793652414287,
+      "ema20_15m": 74994.1430591939,
+      "candle_range_atr": 0.9911235404867763,
+      "data_age_minutes": 5.0,
+      "reasons": [
+        "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
+        "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
+        "Contesto orario: laterale"
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-10T02:04:58.305971+00:00",
+      "candle_ts": 1794275100000,
+      "symbol": "XAUUSD",
+      "key": "momentum_down_1h",
+      "title": "L'inerzia oraria passa al ribasso",
+      "direction": "short",
+      "score": 48,
+      "decision": "quiet_hours",
+      "detail": "orario di silenzio UTC",
+      "price": 4128.11699,
+      "atr_15m": 8.366694463791926,
+      "ema20_15m": 4132.515026952305,
+      "candle_range_atr": 1.313736272737984,
+      "data_age_minutes": 5.0,
+      "reasons": [
+        "L'istogramma MACD sull'orario e' sceso sotto lo zero",
+        "Trend orario attuale: rialzista"
+      ],
+      "plan": {
+        "entry": 4128.11699,
+        "sl": 4150.9799472318955,
+        "tp1": 4105.254032768105,
+        "tp2": 4082.3910755362103,
+        "structural_target": 4106.21235,
+        "warning": null
       }
     }
   ]
