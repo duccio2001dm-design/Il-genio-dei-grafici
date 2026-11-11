@@ -10,9 +10,9 @@
     "BTCUSD:breakout_short": 1792353254.7702827,
     "BTCUSD:pullback_short": 1794076322.3414536,
     "XAUUSD:pullback_long": 1793867315.0393622,
-    "XAUUSD:overextension": 1794303513.389846
+    "XAUUSD:overextension": 1794415208.2392998
   },
-  "last_summary": 1794387236.356026,
+  "last_summary": 1794415208.737802,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3055,26 +3055,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-11T08:53:54.142853+00:00",
+    "last_cycle_started_at": "2026-11-11T16:40:05.366334+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-11T08:53:55.705701+00:00",
-        "last_candle_ts": 1794385800000,
-        "data_age_minutes": 8.9,
-        "price": 73705.56,
+        "checked_at": "2026-11-11T16:40:07.201255+00:00",
+        "last_candle_ts": 1794413700000,
+        "data_age_minutes": 10.1,
+        "price": 74240.77,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-11T08:53:55.946916+00:00",
-        "last_candle_ts": 1794385800000,
-        "data_age_minutes": 8.9,
-        "price": 4059.59548,
-        "signals_detected": 0
+        "checked_at": "2026-11-11T16:40:07.552673+00:00",
+        "last_candle_ts": 1794413700000,
+        "data_age_minutes": 10.1,
+        "price": 4002.82529,
+        "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-11T08:53:56.356077+00:00",
+    "last_cycle_completed_at": "2026-11-11T16:40:08.737846+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -3365,6 +3365,28 @@
         "Livello costruito su 3 tocchi (min orario)",
         "Distanza attuale: 1,44, meno di mezzo ATR",
         "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-11T16:40:08.239309+00:00",
+      "candle_ts": 1794413700000,
+      "symbol": "XAUUSD",
+      "key": "overextension",
+      "title": "Prezzo molto esteso al ribasso",
+      "direction": "neutro",
+      "score": 45,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 4002.82529,
+      "atr_15m": 6.647828386529833,
+      "ema20_15m": 4023.8757812489243,
+      "candle_range_atr": 0.7480518014087941,
+      "data_age_minutes": 10.1,
+      "reasons": [
+        "Il prezzo dista 3.2 ATR dalla EMA20 sui 15m",
+        "Entrare adesso nella direzione del movimento significa comprare caro o vendere a sconto",
+        "Statisticamente segue una pausa o un ritracciamento, ma un trend forte puo' restare esteso a lungo"
       ],
       "plan": null
     }
