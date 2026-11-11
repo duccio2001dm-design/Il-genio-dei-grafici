@@ -3055,26 +3055,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-10T22:23:07.578405+00:00",
+    "last_cycle_started_at": "2026-11-11T01:59:32.826379+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-10T22:23:08.801234+00:00",
-        "last_candle_ts": 1794348000000,
-        "data_age_minutes": 8.1,
-        "price": 73834.98,
+        "checked_at": "2026-11-11T01:59:34.104368+00:00",
+        "last_candle_ts": 1794360600000,
+        "data_age_minutes": 14.6,
+        "price": 73756.29,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-10T22:23:09.110272+00:00",
-        "last_candle_ts": 1794348000000,
-        "data_age_minutes": 8.2,
-        "price": 4033.17883,
-        "signals_detected": 1
+        "checked_at": "2026-11-11T01:59:34.237532+00:00",
+        "last_candle_ts": 1794360600000,
+        "data_age_minutes": 14.6,
+        "price": 4051.17933,
+        "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-10T22:23:09.826391+00:00",
+    "last_cycle_completed_at": "2026-11-11T01:59:34.237635+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
