@@ -10,9 +10,10 @@
     "BTCUSD:breakout_short": 1792353254.7702827,
     "BTCUSD:pullback_short": 1794076322.3414536,
     "XAUUSD:pullback_long": 1793867315.0393622,
-    "XAUUSD:overextension": 1794415208.2392998
+    "XAUUSD:overextension": 1794415208.2392998,
+    "XAUUSD:squeeze": 1794438103.8098633
   },
-  "last_summary": 1794415208.737802,
+  "last_summary": 1794438104.2209983,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3055,26 +3056,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-11T16:40:05.366334+00:00",
+    "last_cycle_started_at": "2026-11-11T23:01:40.657295+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-11T16:40:07.201255+00:00",
-        "last_candle_ts": 1794413700000,
-        "data_age_minutes": 10.1,
-        "price": 74240.77,
-        "signals_detected": 0
+        "checked_at": "2026-11-11T23:01:43.118767+00:00",
+        "last_candle_ts": 1794437100000,
+        "data_age_minutes": 1.7,
+        "price": 73850.0,
+        "signals_detected": 1
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-11T16:40:07.552673+00:00",
-        "last_candle_ts": 1794413700000,
-        "data_age_minutes": 10.1,
-        "price": 4002.82529,
+        "checked_at": "2026-11-11T23:01:43.403084+00:00",
+        "last_candle_ts": 1794437100000,
+        "data_age_minutes": 1.7,
+        "price": 3987.59653,
         "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-11T16:40:08.737846+00:00",
+    "last_cycle_completed_at": "2026-11-11T23:01:44.221043+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -3389,10 +3390,94 @@
         "Statisticamente segue una pausa o un ritracciamento, ma un trend forte puo' restare esteso a lungo"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-11T23:01:43.125817+00:00",
+      "candle_ts": 1794437100000,
+      "symbol": "BTCUSD",
+      "key": "divergence_bear",
+      "title": "Divergenza ribassista sull'RSI",
+      "direction": "short",
+      "score": 50,
+      "decision": "below_min_score",
+      "detail": "soglia operativa 60",
+      "price": 73850.0,
+      "atr_15m": 228.62451535185593,
+      "ema20_15m": 74273.83123938303,
+      "candle_range_atr": 1.1020690393251873,
+      "data_age_minutes": 1.7,
+      "reasons": [
+        "Il prezzo ha fatto un massimo piu' alto, l'RSI un massimo piu' basso",
+        "RSI passato da 67 a 54",
+        "La spinta in acquisto sta calando, ma serve conferma dal prezzo prima di parlare di inversione"
+      ],
+      "plan": {
+        "entry": 73850.0,
+        "sl": 74805.73735460555,
+        "tp1": 72894.26264539445,
+        "tp2": 71938.52529078891,
+        "structural_target": 73556.5,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.31R: meno di mezzo R di spazio utile."
+      }
+    },
+    {
+      "observed_at": "2026-11-11T23:01:43.809872+00:00",
+      "candle_ts": 1794437100000,
+      "symbol": "XAUUSD",
+      "key": "squeeze",
+      "title": "Compressione di volatilita'",
+      "direction": "neutro",
+      "score": 55,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 3987.59653,
+      "atr_15m": 3.53707111896598,
+      "ema20_15m": 3990.7346720666087,
+      "candle_range_atr": 0.1780738862226044,
+      "data_age_minutes": 1.7,
+      "reasons": [
+        "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
+        "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
+        "Contesto orario: laterale"
+      ],
+      "plan": null
     }
   ],
   "oracle": {
-    "pending": [],
+    "pending": [
+      {
+        "symbol": "BTCUSD",
+        "ts": 1794437100000,
+        "price": 73850.0,
+        "h": {
+          "1h": {
+            "p_up": 0.5421,
+            "lean": "up",
+            "b80": [
+              73479.84,
+              74217.08
+            ],
+            "b50": [
+              73670.62,
+              74033.37
+            ]
+          },
+          "4h": {
+            "p_up": 0.5209,
+            "lean": "none",
+            "b80": [
+              73086.47,
+              74601.47
+            ],
+            "b50": [
+              73502.19,
+              74213.48
+            ]
+          }
+        },
+        "done": []
+      }
+    ],
     "score": {
       "BTCUSD:1h": {
         "n": 1,
