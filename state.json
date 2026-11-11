@@ -12,7 +12,7 @@
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1794303513.389846
   },
-  "last_summary": 1794349389.8263385,
+  "last_summary": 1794387236.356026,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3055,26 +3055,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-11T01:59:32.826379+00:00",
+    "last_cycle_started_at": "2026-11-11T08:53:54.142853+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-11T01:59:34.104368+00:00",
-        "last_candle_ts": 1794360600000,
-        "data_age_minutes": 14.6,
-        "price": 73756.29,
+        "checked_at": "2026-11-11T08:53:55.705701+00:00",
+        "last_candle_ts": 1794385800000,
+        "data_age_minutes": 8.9,
+        "price": 73705.56,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-11T01:59:34.237532+00:00",
-        "last_candle_ts": 1794360600000,
-        "data_age_minutes": 14.6,
-        "price": 4051.17933,
+        "checked_at": "2026-11-11T08:53:55.946916+00:00",
+        "last_candle_ts": 1794385800000,
+        "data_age_minutes": 8.9,
+        "price": 4059.59548,
         "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-11T01:59:34.237635+00:00",
+    "last_cycle_completed_at": "2026-11-11T08:53:56.356077+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
