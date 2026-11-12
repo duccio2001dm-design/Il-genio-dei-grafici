@@ -7,13 +7,14 @@
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1792362511.879453,
     "XAUUSD:pullback_short": 1792522083.2284892,
-    "BTCUSD:breakout_short": 1792353254.7702827,
+    "BTCUSD:breakout_short": 1794484213.4583373,
     "BTCUSD:pullback_short": 1794076322.3414536,
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1794415208.2392998,
-    "XAUUSD:squeeze": 1794438103.8098633
+    "XAUUSD:squeeze": 1794438103.8098633,
+    "BTCUSD:overextension": 1794484213.1392877
   },
-  "last_summary": 1794438104.2209983,
+  "last_summary": 1794484213.9214652,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3053,29 +3054,61 @@
       "shadow": false,
       "be_hit": false,
       "managed_r": 0.5
+    },
+    {
+      "id": "BTCUSD|breakout_short|1794483000000|72850.88000000",
+      "symbol": "BTCUSD",
+      "signal_key": "breakout_short",
+      "title": "Rottura al ribasso del range",
+      "direction": "short",
+      "score": 80,
+      "entry": 72850.88,
+      "sl": 73584.42823796082,
+      "tp1": 72117.33176203919,
+      "tp2": 71383.78352407838,
+      "structural_target": 72643.48,
+      "size_units": 0.013632368646674041,
+      "money_at_risk": 10.0,
+      "entry_ts": 1794483000000,
+      "created_at": 1794484213.4583783,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "risk_per_unit": 733.5482379608147,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "mfe_r": 0.0,
+      "mae_r": 0.0,
+      "tp1_ts": null,
+      "last_checked_ts": 1794483000000,
+      "outcome_ts": null,
+      "outcome_note": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": null
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-12T03:41:20.115455+00:00",
+    "last_cycle_started_at": "2026-11-12T11:50:11.583038+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-12T03:41:21.338901+00:00",
-        "last_candle_ts": 1794453300000,
-        "data_age_minutes": 11.4,
-        "price": 73748.67,
-        "signals_detected": 0
+        "checked_at": "2026-11-12T11:50:12.809792+00:00",
+        "last_candle_ts": 1794483000000,
+        "data_age_minutes": 5.2,
+        "price": 72850.88,
+        "signals_detected": 3
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-12T03:41:21.480302+00:00",
-        "last_candle_ts": 1794453300000,
-        "data_age_minutes": 11.4,
-        "price": 3980.87192,
+        "checked_at": "2026-11-12T11:50:13.598415+00:00",
+        "last_candle_ts": 1794483000000,
+        "data_age_minutes": 5.2,
+        "price": 3945.27114,
         "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-12T03:41:21.480371+00:00",
+    "last_cycle_completed_at": "2026-11-12T11:50:13.921508+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -3441,6 +3474,87 @@
         "Contesto orario: laterale"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-12T11:50:13.139298+00:00",
+      "candle_ts": 1794483000000,
+      "symbol": "BTCUSD",
+      "key": "overextension",
+      "title": "Prezzo molto esteso al ribasso",
+      "direction": "neutro",
+      "score": 45,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 72850.88,
+      "atr_15m": 159.02745986939271,
+      "ema20_15m": 73358.94914383412,
+      "candle_range_atr": 2.3669497098748216,
+      "data_age_minutes": 5.2,
+      "reasons": [
+        "Il prezzo dista 3.2 ATR dalla EMA20 sui 15m",
+        "Entrare adesso nella direzione del movimento significa comprare caro o vendere a sconto",
+        "Statisticamente segue una pausa o un ritracciamento, ma un trend forte puo' restare esteso a lungo"
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-12T11:50:13.458432+00:00",
+      "candle_ts": 1794483000000,
+      "symbol": "BTCUSD",
+      "key": "breakout_short",
+      "title": "Rottura al ribasso del range",
+      "direction": "short",
+      "score": 80,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 72850.88,
+      "atr_15m": 159.02745986939271,
+      "ema20_15m": 73358.94914383412,
+      "candle_range_atr": 2.3669497098748216,
+      "data_age_minutes": 5.2,
+      "reasons": [
+        "Chiusura sotto il minimo delle ultime 40 candele da 15m",
+        "Candela ampia 2.4 volte l'ATR: c'e' partecipazione dietro la rottura",
+        "1h coerente (ribassista debole)",
+        "4h coerente (ribassista)"
+      ],
+      "plan": {
+        "entry": 72850.88,
+        "sl": 73584.42823796082,
+        "tp1": 72117.33176203919,
+        "tp2": 71383.78352407838,
+        "structural_target": 72643.48,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.28R: meno di mezzo R di spazio utile."
+      }
+    },
+    {
+      "observed_at": "2026-11-12T11:50:13.458469+00:00",
+      "candle_ts": 1794483000000,
+      "symbol": "BTCUSD",
+      "key": "divergence_bull",
+      "title": "Divergenza rialzista sull'RSI",
+      "direction": "long",
+      "score": 50,
+      "decision": "below_min_score",
+      "detail": "soglia operativa 60",
+      "price": 72850.88,
+      "atr_15m": 159.02745986939271,
+      "ema20_15m": 73358.94914383412,
+      "candle_range_atr": 2.3669497098748216,
+      "data_age_minutes": 5.2,
+      "reasons": [
+        "Il prezzo ha fatto un minimo piu' basso, l'RSI un minimo piu' alto",
+        "RSI passato da 37 a 40",
+        "La pressione in vendita sta calando, ma serve conferma dal prezzo prima di parlare di inversione"
+      ],
+      "plan": {
+        "entry": 72850.88,
+        "sl": 72776.53176203919,
+        "tp1": 72925.22823796082,
+        "tp2": 72999.57647592164,
+        "structural_target": 73238.66,
+        "warning": null
+      }
     }
   ],
   "oracle": {
