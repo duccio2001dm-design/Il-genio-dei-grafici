@@ -14,7 +14,7 @@
     "XAUUSD:squeeze": 1794438103.8098633,
     "BTCUSD:overextension": 1794484213.1392877
   },
-  "last_summary": 1794484213.9214652,
+  "last_summary": 1794510712.8780715,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3071,44 +3071,44 @@
       "money_at_risk": 10.0,
       "entry_ts": 1794483000000,
       "created_at": 1794484213.4583783,
-      "status": "open",
-      "tp1_hit": false,
-      "tp2_hit": false,
+      "status": "tp2",
+      "tp1_hit": true,
+      "tp2_hit": true,
       "risk_per_unit": 733.5482379608147,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "mfe_r": 0.0,
-      "mae_r": 0.0,
-      "tp1_ts": null,
-      "last_checked_ts": 1794483000000,
-      "outcome_ts": null,
-      "outcome_note": null,
+      "mfe_units": 1651.8800000000047,
+      "mae_units": 198.34999999999127,
+      "mfe_r": 2.251903712006798,
+      "mae_r": 0.2703980321067677,
+      "tp1_ts": 1794492000000,
+      "last_checked_ts": 1794493800000,
+      "outcome_ts": 1794494700000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m.",
       "shadow": false,
       "be_hit": false,
-      "managed_r": null
+      "managed_r": 1.5
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-12T11:50:11.583038+00:00",
+    "last_cycle_started_at": "2026-11-12T19:11:50.297622+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-12T11:50:12.809792+00:00",
-        "last_candle_ts": 1794483000000,
-        "data_age_minutes": 5.2,
-        "price": 72850.88,
-        "signals_detected": 3
+        "checked_at": "2026-11-12T19:11:51.552072+00:00",
+        "last_candle_ts": 1794509100000,
+        "data_age_minutes": 11.9,
+        "price": 71678.98,
+        "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-12T11:50:13.598415+00:00",
-        "last_candle_ts": 1794483000000,
-        "data_age_minutes": 5.2,
-        "price": 3945.27114,
+        "checked_at": "2026-11-12T19:11:52.526426+00:00",
+        "last_candle_ts": 1794509100000,
+        "data_age_minutes": 11.9,
+        "price": 3883.44885,
         "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-12T11:50:13.921508+00:00",
+    "last_cycle_completed_at": "2026-11-12T19:11:52.878145+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -3558,7 +3558,40 @@
     }
   ],
   "oracle": {
-    "pending": [],
+    "pending": [
+      {
+        "symbol": "BTCUSD",
+        "ts": 1794509100000,
+        "price": 71678.98,
+        "h": {
+          "1h": {
+            "p_up": 0.5153,
+            "lean": "none",
+            "b80": [
+              71290.4,
+              72064.49
+            ],
+            "b50": [
+              71490.65,
+              71871.53
+            ]
+          },
+          "4h": {
+            "p_up": 0.5314,
+            "lean": "up",
+            "b80": [
+              70912.59,
+              72433.53
+            ],
+            "b50": [
+              71329.83,
+              72043.91
+            ]
+          }
+        },
+        "done": []
+      }
+    ],
     "score": {
       "BTCUSD:1h": {
         "n": 2,
