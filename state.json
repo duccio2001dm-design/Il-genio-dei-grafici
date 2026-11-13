@@ -2,7 +2,7 @@
   "last_alerts": {
     "BTCUSD:pullback_long": 1793867314.3126047,
     "BTCUSD:level_approach": 1793806891.7084913,
-    "XAUUSD:level_approach": 1794349389.4247527,
+    "XAUUSD:level_approach": 1794552651.808604,
     "XAUUSD:breakout_short": 1791808874.6300426,
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1792362511.879453,
@@ -14,7 +14,7 @@
     "XAUUSD:squeeze": 1794438103.8098633,
     "BTCUSD:overextension": 1794484213.1392877
   },
-  "last_summary": 1794510712.8780715,
+  "last_summary": 1794552652.2034526,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3089,26 +3089,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-13T00:17:14.550402+00:00",
+    "last_cycle_started_at": "2026-11-13T06:50:50.082000+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-13T00:17:15.845389+00:00",
-        "last_candle_ts": 1794528000000,
-        "data_age_minutes": 2.3,
-        "price": 71209.0,
+        "checked_at": "2026-11-13T06:50:51.354036+00:00",
+        "last_candle_ts": 1794551400000,
+        "data_age_minutes": 5.9,
+        "price": 68844.36,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-13T00:17:15.993242+00:00",
-        "last_candle_ts": 1794528000000,
-        "data_age_minutes": 2.3,
-        "price": 3889.71436,
+        "checked_at": "2026-11-13T06:50:51.487059+00:00",
+        "last_candle_ts": 1794551400000,
+        "data_age_minutes": 5.9,
+        "price": 3891.09916,
         "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-13T00:17:15.993354+00:00",
+    "last_cycle_completed_at": "2026-11-13T06:50:52.203501+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -3583,6 +3583,28 @@
         "structural_target": 3891.93527,
         "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.11R: meno di mezzo R di spazio utile."
       }
+    },
+    {
+      "observed_at": "2026-11-13T06:50:51.808613+00:00",
+      "candle_ts": 1794551400000,
+      "symbol": "XAUUSD",
+      "key": "level_approach",
+      "title": "Prezzo sul resistenza a 3.891,94",
+      "direction": "neutro",
+      "score": 58,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 3891.09916,
+      "atr_15m": 7.866212427160809,
+      "ema20_15m": 3904.4541668050406,
+      "candle_range_atr": 1.1313271898521229,
+      "data_age_minutes": 5.9,
+      "reasons": [
+        "Livello costruito su 2 tocchi (max orario)",
+        "Distanza attuale: 0,84, meno di mezzo ATR",
+        "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
+      ],
+      "plan": null
     }
   ],
   "oracle": {
