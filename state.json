@@ -8,14 +8,14 @@
     "XAUUSD:breakout_long": 1792362511.879453,
     "XAUUSD:pullback_short": 1792522083.2284892,
     "BTCUSD:breakout_short": 1794484213.4583373,
-    "BTCUSD:pullback_short": 1794581780.8471746,
+    "BTCUSD:pullback_short": 1794603942.9207897,
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1794415208.2392998,
     "XAUUSD:squeeze": 1794438103.8098633,
     "BTCUSD:overextension": 1794484213.1392877,
-    "BTCUSD:squeeze": 1794581781.1640534
+    "BTCUSD:squeeze": 1794603943.3107235
   },
-  "last_summary": 1794581781.6398056,
+  "last_summary": 1794603943.6881213,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3108,12 +3108,44 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "risk_per_unit": 1172.2791738833184,
+      "mfe_units": 1039.1699999999983,
+      "mae_units": 105.8700000000099,
+      "mfe_r": 0.8864526668657093,
+      "mae_r": 0.09031125209646312,
+      "tp1_ts": null,
+      "last_checked_ts": 1794602700000,
+      "outcome_ts": null,
+      "outcome_note": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": null
+    },
+    {
+      "id": "BTCUSD|pullback_short|1794602700000|68838.87000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 70,
+      "entry": 68838.87,
+      "sl": 69138.2609767131,
+      "tp1": 68539.47902328688,
+      "tp2": 68240.08804657377,
+      "structural_target": 68065.36499999999,
+      "size_units": 0.03340114024071739,
+      "money_at_risk": 10.0,
+      "entry_ts": 1794602700000,
+      "created_at": 1794603942.9208443,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "risk_per_unit": 299.39097671311174,
       "mfe_units": 0.0,
       "mae_units": 0.0,
       "mfe_r": 0.0,
       "mae_r": 0.0,
       "tp1_ts": null,
-      "last_checked_ts": 1794580200000,
+      "last_checked_ts": 1794602700000,
       "outcome_ts": null,
       "outcome_note": null,
       "shadow": false,
@@ -3122,26 +3154,22 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-13T14:56:19.241932+00:00",
+    "last_cycle_started_at": "2026-11-13T21:05:39.839325+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-13T14:56:20.500605+00:00",
-        "last_candle_ts": 1794580200000,
-        "data_age_minutes": 11.3,
-        "price": 69069.9,
+        "checked_at": "2026-11-13T21:05:42.499399+00:00",
+        "last_candle_ts": 1794602700000,
+        "data_age_minutes": 5.7,
+        "price": 68838.87,
         "signals_detected": 2
       },
       "XAUUSD": {
-        "status": "ok",
-        "checked_at": "2026-11-13T14:56:21.311897+00:00",
-        "last_candle_ts": 1794580200000,
-        "data_age_minutes": 11.4,
-        "price": 3896.68542,
-        "signals_detected": 0
+        "status": "market_closed",
+        "checked_at": "2026-11-13T21:05:43.310823+00:00"
       }
     },
-    "last_cycle_completed_at": "2026-11-13T14:56:21.639851+00:00",
+    "last_cycle_completed_at": "2026-11-13T21:05:43.688181+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -3692,10 +3720,96 @@
         "Contesto orario: ribassista"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-13T21:05:42.920909+00:00",
+      "candle_ts": 1794602700000,
+      "symbol": "BTCUSD",
+      "key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 70,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 68838.87,
+      "atr_15m": 234.33658904368494,
+      "ema20_15m": 68881.3326785734,
+      "candle_range_atr": 0.7245134048116938,
+      "data_age_minutes": 5.7,
+      "reasons": [
+        "Il prezzo e' risalito sulla zona EMA20/50 dentro un trend orario ribassista",
+        "Chiusura nella parte bassa della candela (67% del range)",
+        "RSI a 48: rimbalzo tecnico, non ipercomprato",
+        "1h coerente (ribassista)",
+        "4h coerente (ribassista)"
+      ],
+      "plan": {
+        "entry": 68838.87,
+        "sl": 69138.2609767131,
+        "tp1": 68539.47902328688,
+        "tp2": 68240.08804657377,
+        "structural_target": 68065.36499999999,
+        "warning": null
+      }
+    },
+    {
+      "observed_at": "2026-11-13T21:05:43.310738+00:00",
+      "candle_ts": 1794602700000,
+      "symbol": "BTCUSD",
+      "key": "squeeze",
+      "title": "Compressione di volatilita'",
+      "direction": "neutro",
+      "score": 55,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 68838.87,
+      "atr_15m": 234.33658904368494,
+      "ema20_15m": 68881.3326785734,
+      "candle_range_atr": 0.7245134048116938,
+      "data_age_minutes": 5.7,
+      "reasons": [
+        "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
+        "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
+        "Contesto orario: ribassista"
+      ],
+      "plan": null
     }
   ],
   "oracle": {
-    "pending": [],
+    "pending": [
+      {
+        "symbol": "BTCUSD",
+        "ts": 1794602700000,
+        "price": 68838.87,
+        "h": {
+          "1h": {
+            "p_up": 0.5242,
+            "lean": "none",
+            "b80": [
+              68518.21,
+              69156.75
+            ],
+            "b50": [
+              68683.49,
+              68997.67
+            ]
+          },
+          "4h": {
+            "p_up": 0.5245,
+            "lean": "none",
+            "b80": [
+              68157.07,
+              69509.6
+            ],
+            "b50": [
+              68528.33,
+              69163.33
+            ]
+          }
+        },
+        "done": []
+      }
+    ],
     "score": {
       "BTCUSD:1h": {
         "n": 3,
