@@ -3089,26 +3089,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-12T19:11:50.297622+00:00",
+    "last_cycle_started_at": "2026-11-13T00:17:14.550402+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-12T19:11:51.552072+00:00",
-        "last_candle_ts": 1794509100000,
-        "data_age_minutes": 11.9,
-        "price": 71678.98,
+        "checked_at": "2026-11-13T00:17:15.845389+00:00",
+        "last_candle_ts": 1794528000000,
+        "data_age_minutes": 2.3,
+        "price": 71209.0,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-12T19:11:52.526426+00:00",
-        "last_candle_ts": 1794509100000,
-        "data_age_minutes": 11.9,
-        "price": 3883.44885,
-        "signals_detected": 0
+        "checked_at": "2026-11-13T00:17:15.993242+00:00",
+        "last_candle_ts": 1794528000000,
+        "data_age_minutes": 2.3,
+        "price": 3889.71436,
+        "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-12T19:11:52.878145+00:00",
+    "last_cycle_completed_at": "2026-11-13T00:17:15.993354+00:00",
     "last_cycle_status": "ok"
   },
   "signal_audit": [
@@ -3555,60 +3555,55 @@
         "structural_target": 73238.66,
         "warning": null
       }
+    },
+    {
+      "observed_at": "2026-11-13T00:17:15.993334+00:00",
+      "candle_ts": 1794528000000,
+      "symbol": "XAUUSD",
+      "key": "momentum_up_1h",
+      "title": "L'inerzia oraria passa al rialzo",
+      "direction": "long",
+      "score": 48,
+      "decision": "quiet_hours",
+      "detail": "orario di silenzio UTC",
+      "price": 3889.71436,
+      "atr_15m": 5.508734727194571,
+      "ema20_15m": 3880.0020148634403,
+      "candle_range_atr": 1.9290945246535753,
+      "data_age_minutes": 2.3,
+      "reasons": [
+        "L'istogramma MACD sull'orario ha superato lo zero",
+        "Trend orario attuale: ribassista"
+      ],
+      "plan": {
+        "entry": 3889.71436,
+        "sl": 3869.6124226364027,
+        "tp1": 3909.816297363597,
+        "tp2": 3929.9182347271944,
+        "structural_target": 3891.93527,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.11R: meno di mezzo R di spazio utile."
+      }
     }
   ],
   "oracle": {
-    "pending": [
-      {
-        "symbol": "BTCUSD",
-        "ts": 1794509100000,
-        "price": 71678.98,
-        "h": {
-          "1h": {
-            "p_up": 0.5153,
-            "lean": "none",
-            "b80": [
-              71290.4,
-              72064.49
-            ],
-            "b50": [
-              71490.65,
-              71871.53
-            ]
-          },
-          "4h": {
-            "p_up": 0.5314,
-            "lean": "up",
-            "b80": [
-              70912.59,
-              72433.53
-            ],
-            "b50": [
-              71329.83,
-              72043.91
-            ]
-          }
-        },
-        "done": []
-      }
-    ],
+    "pending": [],
     "score": {
       "BTCUSD:1h": {
-        "n": 2,
+        "n": 3,
         "hits": 1,
-        "brier": 0.46288264999999995,
+        "brier": 0.7284167399999999,
         "lean_n": 1,
         "lean_hits": 1,
-        "in80": 2,
-        "in50": 1
+        "in80": 3,
+        "in50": 2
       },
       "BTCUSD:4h": {
-        "n": 2,
+        "n": 3,
         "hits": 0,
-        "brier": 0.5251512500000001,
-        "lean_n": 0,
+        "brier": 0.80753721,
+        "lean_n": 1,
         "lean_hits": 0,
-        "in80": 2,
+        "in80": 3,
         "in50": 2
       }
     },
@@ -3642,6 +3637,22 @@
         "ts": 1794437100000,
         "h": "4h",
         "p_up": 0.5209,
+        "up": 0,
+        "in80": 1
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1794509100000,
+        "h": "1h",
+        "p_up": 0.5153,
+        "up": 0,
+        "in80": 1
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1794509100000,
+        "h": "4h",
+        "p_up": 0.5314,
         "up": 0,
         "in80": 1
       }
