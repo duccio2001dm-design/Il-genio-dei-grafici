@@ -160,10 +160,17 @@ Per disattivarlo: in `config.json` metti `"oracle": {"enabled": false}`.
   sia tenendo tutta la posizione sia con la gestione "metà a T1 + pareggio"
 - `/report 30` — lo stesso, solo sugli ultimi 30 giorni
 - `/oracolo` — probabilità e forbici di BTC a 1 e 4 ore, con la pagella
+- `/salute` — quanti giri ha fatto negli ultimi 7 giorni, ogni quanto, le pause
+  lunghe e lo stato dei dati
 - `/aiuto` — elenco dei comandi
 
 La risposta arriva al ciclo successivo (di solito entro 5-10 minuti): senza un server
-sempre acceso il bot non può ascoltare in tempo reale. Per una risposta immediata, lancia il
+sempre acceso il bot non può ascoltare in tempo reale.
+
+Il bot ti avvisa da solo se un giro fallisce, se è rimasto fermo più di 45 minuti
+o se i dati di uno strumento mancano da più di mezz'ora. Per sapere subito se si
+ferma del tutto e per farlo partire puntuale ogni 5 minuti, segui la sezione
+"Rendere il bot affidabile" in [GUIDA-GITHUB.md](GUIDA-GITHUB.md). Per una risposta immediata, lancia il
 workflow a mano da GitHub → Actions → Run workflow.
 
 ---

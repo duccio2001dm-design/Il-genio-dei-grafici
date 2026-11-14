@@ -47,6 +47,16 @@ def fmt_pct(value: Optional[float], digits: int = 2) -> str:
     return f"{value:.{digits}f}".replace(".", ",") + "%"
 
 
+def fmt_duration(minutes: float) -> str:
+    minutes = int(round(minutes))
+    if minutes < 60:
+        return f"{minutes} minuti"
+    h, m = divmod(minutes, 60)
+    if h < 48:
+        return f"{h} or{'a' if h == 1 else 'e'}" + (f" e {m} minuti" if m else "")
+    return f"{h // 24} giorni"
+
+
 def fmt_money(value: Optional[float]) -> str:
     if value is None:
         return "n/d"
@@ -341,6 +351,66 @@ def format_oracle(symbol: str, forecast: dict, model: dict, score: dict, digits:
     return "\n".join(lines)
 
 
+def format_health(state: dict, now: Optional[datetime] = None) -> str:
+    """Puntualita' dei giri negli ultimi 7 giorni e stato dei dati."""
+    now = now or datetime.now(timezone.utc)
+    health = state.get("health", {})
+    week_ago = now.timestamp() - 7 * 86400
+
+    def ts(text):
+        try:
+            return datetime.fromisoformat(text).timestamp()
+        except (TypeError, ValueError):
+            return None
+
+    cycles = [c for c in health.get("cycles", []) if (ts(c["at"]) or 0) >= week_ago]
+    gaps = [g for g in health.get("gaps", []) if (ts(g["to"]) or 0) >= week_ago]
+    lines = ["🩺 <b>Salute del bot</b> · ultimi 7 giorni", ""]
+
+    last = ts(health.get("last_cycle_completed_at", ""))
+    if last:
+        lines.append(f"Ultimo giro completato: {fmt_duration((now.timestamp() - last) / 60)} fa")
+    if cycles:
+        stamps = sorted(ts(c["at"]) for c in cycles)
+        intervals = [(b - a) / 60 for a, b in zip(stamps, stamps[1:])]
+        span_h = (stamps[-1] - stamps[0]) / 3600 if len(stamps) > 1 else 0
+        lines.append(f"Giri eseguiti: {len(cycles)}" + (f" (circa {len(cycles) / span_h:.1f} all'ora)".replace(".", ",") if span_h > 1 else ""))
+        if intervals:
+            intervals.sort()
+            median = intervals[len(intervals) // 2]
+            p90 = intervals[int(len(intervals) * 0.9)]
+            lines.append(f"Intervallo tra un giro e l'altro: di solito {median:.0f} min, nel 10% peggiore oltre {p90:.0f} min")
+        triggers = {}
+        for c in cycles:
+            triggers[c.get("trigger", "?")] = triggers.get(c.get("trigger", "?"), 0) + 1
+        names = {"workflow_dispatch": "avvio esterno/manuale", "schedule": "orario GitHub", "locale": "locale"}
+        lines.append("Avviati da: " + ", ".join(f"{names.get(k, k)} {v}" for k, v in sorted(triggers.items(), key=lambda x: -x[1])))
+    else:
+        lines.append("Nessun giro registrato negli ultimi 7 giorni.")
+
+    if gaps:
+        worst = max(gaps, key=lambda g: g["minutes"])
+        total = sum(g["minutes"] for g in gaps)
+        lines.append(f"Pause oltre 20 minuti: {len(gaps)}, in tutto {fmt_duration(total)}; la peggiore "
+                     f"{fmt_duration(worst['minutes'])} il {worst['from'][8:10]}/{worst['from'][5:7]}")
+    else:
+        lines.append("Pause oltre 20 minuti: nessuna")
+
+    streaks = health.get("data_streaks", {})
+    lines += ["", "<b>Dati</b>"]
+    for name, info in health.get("symbols", {}).items():
+        status = info.get("status")
+        label = {"ok": "regolari", "market_closed": "mercato chiuso", "stale_data": "in ritardo",
+                 "data_error": "errore"}.get(status, status)
+        extra = ""
+        if status == "ok" and info.get("data_age_minutes") is not None:
+            extra = f" (ultima candela di {info['data_age_minutes']:.0f} min fa)".replace(".", ",")
+        if streaks.get(name, {}).get("since"):
+            extra += " · problema in corso"
+        lines.append(f"{html.escape(name)}: {label}{extra}")
+    return "\n".join(lines)
+
+
 HELP_TEXT = "\n".join([
     "🤖 <b>Comandi</b>",
     "/stato — riepilogo di entrambi gli strumenti",
@@ -348,6 +418,7 @@ HELP_TEXT = "\n".join([
     "/oracolo — probabilita' e forbici di prezzo di BTC a 1 e 4 ore, con la pagella",
     "/report — risultati di tutti i segnali registrati",
     "/report 30 — solo gli ultimi 30 giorni (o il numero che vuoi)",
+    "/salute — puntualita' dei giri e stato dei dati",
     "/aiuto — questo elenco",
     "",
     "<i>La risposta arriva al ciclo successivo, di solito entro 5-10 minuti.</i>",

@@ -3,7 +3,7 @@
 Tutto quello che serve si fa dal browser, anche dal telefono. Costo totale: zero.
 Tempo: una ventina di minuti la prima volta.
 
-Il meccanismo: GitHub esegue gratuitamente uno script ogni 5 minuti. Lo script
+Il meccanismo: GitHub esegue gratuitamente uno script ogni pochi minuti. Lo script
 guarda i grafici, e se trova qualcosa ti scrive su Telegram. Non c'e' nessun server
 da gestire, nessuna carta di credito, niente da tenere acceso in casa.
 
@@ -122,17 +122,92 @@ workflow a mano.
 
 ## Dopo, nell'uso normale
 
-- **Non devi fare niente.** Il workflow parte da solo ogni 5 minuti.
+- **Non devi fare niente.** Il workflow parte da solo: ogni 5 minuti con l'avvio esterno
+  descritto sotto, ogni 15 minuti con il solo orario di GitHub.
 - **Per un controllo immediato**: Actions → Assistente trading → Run workflow.
 - **Per chiedere il punto della situazione**: manda `/stato` al bot. La risposta
   arriva al ciclo successivo, di solito entro 5-10 minuti. Con `/report` vedi i
-  risultati di tutti i segnali, con `/aiuto` l'elenco dei comandi. È il limite di un
+  risultati di tutti i segnali, con `/salute` la puntualità dei giri, con `/aiuto`
+  l'elenco dei comandi. È il limite di un
   sistema che non ha un server sempre acceso.
 - **Per cambiare le impostazioni**: apri `config.json` nel repository, clicca la
   matita, modifica, **Commit changes**. Le più utili sono `min_score` (alzala a 70
   se ricevi troppi messaggi), `risk_pct` e `equity` per il calcolo della size, e
   `quiet_hours_utc` per le ore di silenzio (sono in UTC: l'Italia d'estate è UTC+2,
   d'inverno UTC+1).
+
+---
+
+## Rendere il bot affidabile (consigliato, 15 minuti)
+
+GitHub, da solo, ha due difetti: gli orari pianificati arrivano spesso in ritardo
+(anche 10-20 minuti) o saltano, e se il bot si ferma nessuno ti avvisa. Due servizi
+gratuiti risolvono entrambe le cose. Il bot funziona anche senza, ma meno bene.
+
+### A. Allarme se il bot si ferma (healthchecks.io)
+
+Un servizio esterno aspetta un "battito" a ogni giro. Se i battiti smettono, ti
+scrive lui su Telegram: è l'unico modo di saperlo, perché un bot fermo non può
+avvisare di essere fermo.
+
+1. Vai su **healthchecks.io** e crea un account gratuito.
+2. Nel progetto che ti crea c'è già un check: aprilo, **Edit** sulla riga
+   *Schedule*: imposta **Period 15 minutes** e **Grace 15 minutes**. Così ti avvisa
+   se non arriva nessun giro per mezz'ora.
+3. Copia l'indirizzo di ping, quello che inizia con `https://hc-ping.com/`.
+4. Sempre su healthchecks.io: **Integrations** → **Telegram** → **Add Integration**,
+   e segui le istruzioni (scrivi al loro bot e premi il link che ti manda).
+5. Su GitHub, nel repository: **Settings → Secrets and variables → Actions →
+   New repository secret**. Nome `HEALTHCHECK_URL`, valore l'indirizzo di ping.
+
+Da questo momento, se il bot tace per mezz'ora ti arriva un messaggio da
+healthchecks.io, e un altro quando riparte.
+
+### B. Avvio puntuale ogni 5 minuti (cron-job.org)
+
+Invece di aspettare l'orario di GitHub, un servizio esterno lo avvia lui, con
+precisione. L'orario di GitHub resta attivo ogni 15 minuti come riserva.
+
+**Prima crea un token GitHub che può solo avviare questo workflow:**
+
+1. Su GitHub: foto profilo in alto a destra → **Settings** → in fondo a sinistra
+   **Developer settings** → **Personal access tokens** → **Fine-grained tokens** →
+   **Generate new token**.
+2. Nome: `avvio-assistente`. Scadenza: la più lunga disponibile (segnati la data:
+   quando scade, l'avvio esterno smette e resta solo la riserva ogni 15 minuti).
+3. **Repository access** → *Only select repositories* → scegli `Il-genio-dei-grafici`.
+4. **Permissions** → **Actions**: *Read and write*. Nient'altro.
+5. **Generate token** e copialo subito (non lo rivedrai più).
+
+**Poi il servizio che lo usa:**
+
+1. Vai su **cron-job.org**, crea un account gratuito, **Create cronjob**.
+2. **URL**:
+   `https://api.github.com/repos/duccio2001dm-design/Il-genio-dei-grafici/actions/workflows/Assistente%20tradding.yml/dispatches`
+3. **Execution schedule**: *Every 5 minutes*.
+4. Nella scheda **Advanced**:
+   - **Request method**: `POST`
+   - **Headers**, aggiungine tre:
+     `Authorization` = `Bearer ` seguito dal token (con lo spazio dopo Bearer)
+     `Accept` = `application/vnd.github+json`
+     `X-GitHub-Api-Version` = `2022-11-28`
+   - **Request body**: `{"ref":"main"}`
+5. Salva e premi **Test run**: deve rispondere **204**. Su GitHub, in **Actions**,
+   vedrai partire un giro.
+
+Se risponde 401 o 403 il token è sbagliato o non ha il permesso Actions; se risponde
+404 controlla l'URL (lo spazio nel nome del file va scritto `%20`).
+
+### Come vedi se funziona
+
+Manda `/salute` al bot: ti dice quanti giri ha fatto negli ultimi 7 giorni,
+ogni quanto di solito, quante pause lunghe ci sono state e chi li ha avviati
+("avvio esterno" è cron-job.org, "orario GitHub" è la riserva). Inoltre il bot ti
+scrive da solo se:
+
+- un giro fallisce (🚨, con il link all'errore);
+- è rimasto fermo più di 45 minuti (⏱️, appena riparte);
+- i dati di uno strumento mancano da più di 30 minuti (📡), e quando tornano (✅).
 
 ---
 
@@ -172,5 +247,6 @@ dentro il contenuto del file e salva.
 | Dati Bitcoin (Coinbase) | 0 € |
 | Dati oro (Twelve Data, piano free) | 0 € |
 | Telegram | 0 € |
+| healthchecks.io e cron-job.org (piani gratuiti) | 0 € |
 
 Nessuna carta di credito richiesta in nessun passaggio.

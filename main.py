@@ -129,6 +129,8 @@ def handle_commands(cfg: dict, state: dict, bot: notifier.Telegram) -> set:
             requests.add("stato")
         elif name in ("/oracolo", "/oracle"):
             requests.add("oracolo")
+        elif name in ("/salute", "/health"):
+            bot.send(notifier.format_health(state))
         elif name == "/report":
             days = None
             if len(parts) > 1 and parts[1].isdigit() and int(parts[1]) > 0:
@@ -188,11 +190,74 @@ def _record_signal_audit(state: dict, symbol: str, signal: analysis.Signal, cand
     log(f"{symbol}: audit {signal.key} score={signal.score} decision={decision}" + (f" ({detail})" if detail else ""))
 
 
+def _parse_iso(text: str):
+    try:
+        return datetime.fromisoformat(text)
+    except (TypeError, ValueError):
+        return None
+
+
+def check_gap(cfg: dict, state: dict, bot: notifier.Telegram, now: datetime) -> None:
+    """Se dall'ultimo giro completato e' passato troppo tempo, lo registra e avvisa."""
+    health = state.setdefault("health", {})
+    prev = _parse_iso(health.get("last_cycle_completed_at", ""))
+    if prev is None:
+        return
+    gap = (now - prev).total_seconds() / 60
+    gaps = health.setdefault("gaps", [])
+    if gap >= cfg.get("gap_record_minutes", 20):
+        gaps.append({"from": prev.isoformat(timespec="minutes"), "to": now.isoformat(timespec="minutes"),
+                     "minutes": round(gap)})
+        del gaps[:-200]
+        log(f"pausa di {gap:.0f} minuti dall'ultimo giro")
+    if gap >= cfg.get("gap_alert_minutes", 45):
+        text = (f"⏱️ <b>Il bot è rimasto fermo {notifier.fmt_duration(gap)}</b>\n"
+                f"Dalle {prev.strftime('%d/%m %H:%M')} alle {now.strftime('%H:%M')} UTC.\n"
+                "Gli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi.")
+        queue_or_send(state, bot, text, in_quiet_hours(cfg))
+
+
+def track_data_health(cfg: dict, state: dict, bot: notifier.Telegram, name: str, ok: bool, error: str, now: datetime) -> None:
+    """Avvisa una volta quando i dati di uno strumento mancano da troppo, e quando tornano."""
+    streaks = state.setdefault("health", {}).setdefault("data_streaks", {})
+    st = streaks.setdefault(name, {"since": None, "alerted": False})
+    if ok:
+        if st.get("alerted"):
+            since = _parse_iso(st.get("since"))
+            mins = (now - since).total_seconds() / 60 if since else 0
+            queue_or_send(state, bot, f"✅ <b>{notifier.html.escape(name)}</b>: dati di nuovo regolari dopo {notifier.fmt_duration(mins)}.",
+                          in_quiet_hours(cfg))
+        streaks[name] = {"since": None, "alerted": False}
+        return
+    if st.get("since") is None:
+        st["since"] = now.isoformat()
+    since = _parse_iso(st["since"])
+    mins = (now - since).total_seconds() / 60 if since else 0
+    if not st.get("alerted") and mins >= cfg.get("data_alert_minutes", 30):
+        st["alerted"] = True
+        queue_or_send(state, bot,
+                      f"📡 <b>{notifier.html.escape(name)}: dati non disponibili da {notifier.fmt_duration(mins)}</b>\n"
+                      f"Nessun segnale finché non tornano.\nUltimo errore: {notifier.html.escape(error[:200])}",
+                      in_quiet_hours(cfg))
+
+
+def record_cycle(state: dict, started: datetime, trigger: str) -> None:
+    """Statistiche di puntualita' dei giri, per /salute."""
+    health = state.setdefault("health", {})
+    cycles = health.setdefault("cycles", [])
+    cycles.append({"at": started.isoformat(timespec="minutes"), "trigger": trigger})
+    del cycles[:-2500]
+
+
 def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False) -> None:
     snapshots: List[analysis.Snapshot] = []
     closed_markets: List[str] = []
     health = state.setdefault("health", {})
-    health["last_cycle_started_at"] = datetime.now(timezone.utc).isoformat()
+    now = datetime.now(timezone.utc)
+    if not demo:
+        check_gap(cfg, state, bot, now)
+        record_cycle(state, now, os.environ.get("GITHUB_EVENT", "locale"))
+    health["last_cycle_started_at"] = now.isoformat()
     health["symbols"] = health.get("symbols", {})
     account = cfg.get("account", {})
     currency = account.get("currency", "USD")
@@ -222,6 +287,8 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
         except datafeed.DataError as exc:
             health["symbols"][name] = {"status": "data_error", "checked_at": datetime.now(timezone.utc).isoformat(), "error": str(exc)}
             log(f"{name}: dati non disponibili — {exc}")
+            if not demo:
+                track_data_health(cfg, state, bot, name, False, str(exc), now)
             continue
 
         snapshot = analysis.analyze(symbol_cfg, frames, account)
@@ -237,6 +304,9 @@ def run_cycle(cfg: dict, state: dict, bot: notifier.Telegram, demo: bool = False
             "last_candle_ts": int(last_candle.ts), "data_age_minutes": round(data_age, 1),
             "price": snapshot.price, "signals_detected": len(snapshot.signals),
         }
+        if not demo:
+            track_data_health(cfg, state, bot, name, not stale_data,
+                              f"ultima candela vecchia di {data_age:.0f} minuti", now)
         if stale_data:
             log(f"{name}: dati obsoleti ({data_age:.1f} min), nuovi avvisi sospesi")
         log(f"{name}: prezzo {snapshot.price:.2f}, {len(snapshot.signals)} condizioni rilevate")
