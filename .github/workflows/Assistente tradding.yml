@@ -1,11 +1,14 @@
 name: Assistente trading
 
-# Ogni 5 minuti. I minuti sono sfalsati da :00 per ridurre i ritardi
-# nei momenti di maggiore congestione su GitHub.
+# Due modi di partire, uno di riserva all'altro:
+#  - un servizio esterno (cron-job.org, vedi GUIDA-GITHUB.md) lo avvia ogni 5 minuti
+#    con puntualita'; e' il canale principale;
+#  - l'orario interno di GitHub qui sotto, piu' rado, resta come riserva se il
+#    servizio esterno si ferma. Se partono entrambi, i giri si mettono in coda.
 on:
   schedule:
-    - cron: "2,7,12,17,22,27,32,37,42,47,52,57 * * * *"
-  workflow_dispatch:        # ti permette di lanciarlo a mano quando vuoi
+    - cron: "4,19,34,49 * * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write           # serve per salvare state.json tra un giro e l'altro
@@ -20,8 +23,13 @@ jobs:
     timeout-minutes: 8
 
     steps:
+      # ref: main scarica lo stato PIU' RECENTE al momento in cui il giro parte.
+      # Senza, un giro rimasto in coda partirebbe dallo state.json di quando e'
+      # stato lanciato, cancellando quello che ha salvato il giro precedente.
       - name: Scarica il codice
         uses: actions/checkout@v5
+        with:
+          ref: main
 
       - name: Prepara Python
         uses: actions/setup-python@v6
@@ -33,6 +41,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TWELVEDATA_API_KEY: ${{ secrets.TWELVEDATA_API_KEY }}
+          GITHUB_EVENT: ${{ github.event_name }}
         run: python3 main.py --once
 
       - name: Salva lo stato
@@ -47,8 +56,48 @@ jobs:
           git add state.json
           if git diff --staged --quiet; then
             echo "Stato invariato."
-          else
-            git commit -m "stato $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git pull --rebase --autostash
-            git push
+            exit 0
           fi
+          git commit -q -m "stato $(date -u '+%Y-%m-%d %H:%M UTC')"
+          for attempt in 1 2 3; do
+            if git pull --rebase -q && git push -q; then
+              echo "Stato salvato."
+              exit 0
+            fi
+            echo "Salvataggio fallito (tentativo $attempt), riprovo..."
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 5))
+          done
+          echo "::error::Impossibile salvare state.json dopo 3 tentativi"
+          exit 1
+
+      # Battito per il controllo esterno (healthchecks.io, vedi la guida).
+      # Se i battiti smettono di arrivare, e' healthchecks.io a scriverti:
+      # e' l'unico modo di sapere che il bot si e' fermato del tutto.
+      - name: Segnale di vita
+        if: always()
+        env:
+          HC_URL: ${{ secrets.HEALTHCHECK_URL }}
+          OUTCOME: ${{ job.status }}
+        run: |
+          if [ -z "$HC_URL" ]; then
+            echo "HEALTHCHECK_URL non impostato: salto."
+            exit 0
+          fi
+          if [ "$OUTCOME" = "success" ]; then
+            curl -fsS -m 10 --retry 3 "$HC_URL" > /dev/null || true
+          else
+            curl -fsS -m 10 --retry 3 "$HC_URL/fail" > /dev/null || true
+          fi
+
+      - name: Avvisa su Telegram se il giro fallisce
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then exit 0; fi
+          curl -fsS -m 15 --retry 3 "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=🚨 Il giro dell'assistente è fallito. Dettagli: ${RUN_URL}" > /dev/null || true
