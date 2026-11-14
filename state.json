@@ -15,7 +15,7 @@
     "BTCUSD:overextension": 1794484213.1392877,
     "BTCUSD:squeeze": 1794603943.3107235
   },
-  "last_summary": 1794642087.9125304,
+  "last_summary": 1794674675.6860425,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3154,23 +3154,42 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-14T07:41:25.888780+00:00",
+    "last_cycle_started_at": "2026-11-14T16:44:33.877615+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-14T07:41:27.313478+00:00",
-        "last_candle_ts": 1794640500000,
-        "data_age_minutes": 11.5,
-        "price": 67185.81,
+        "checked_at": "2026-11-14T16:44:35.370012+00:00",
+        "last_candle_ts": 1794672900000,
+        "data_age_minutes": 14.6,
+        "price": 65270.25,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "market_closed",
-        "checked_at": "2026-11-14T07:41:27.615855+00:00"
+        "checked_at": "2026-11-14T16:44:35.374814+00:00"
       }
     },
-    "last_cycle_completed_at": "2026-11-14T07:41:27.912575+00:00",
-    "last_cycle_status": "ok"
+    "last_cycle_completed_at": "2026-11-14T16:44:35.686082+00:00",
+    "last_cycle_status": "ok",
+    "gaps": [
+      {
+        "from": "2026-11-14T07:41+00:00",
+        "to": "2026-11-14T16:44+00:00",
+        "minutes": 543
+      }
+    ],
+    "cycles": [
+      {
+        "at": "2026-11-14T16:44+00:00",
+        "trigger": "schedule"
+      }
+    ],
+    "data_streaks": {
+      "BTCUSD": {
+        "since": null,
+        "alerted": false
+      }
+    }
   },
   "signal_audit": [
     {
