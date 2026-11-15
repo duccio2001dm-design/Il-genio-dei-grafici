@@ -8,14 +8,14 @@
     "XAUUSD:breakout_long": 1792362511.879453,
     "XAUUSD:pullback_short": 1792522083.2284892,
     "BTCUSD:breakout_short": 1794484213.4583373,
-    "BTCUSD:pullback_short": 1794603942.9207897,
+    "BTCUSD:pullback_short": 1794728443.5284495,
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1794415208.2392998,
     "XAUUSD:squeeze": 1794438103.8098633,
     "BTCUSD:overextension": 1794484213.1392877,
     "BTCUSD:squeeze": 1794603943.3107235
   },
-  "last_summary": 1794689825.3975403,
+  "last_summary": 1794728443.9825368,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3151,25 +3151,57 @@
       "shadow": false,
       "be_hit": false,
       "managed_r": 1.5
+    },
+    {
+      "id": "BTCUSD|pullback_short|1794726900000|64319.17000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 70,
+      "entry": 64319.17,
+      "sl": 65245.64977397181,
+      "tp1": 63392.690226028186,
+      "tp2": 62466.21045205637,
+      "structural_target": 61946.17,
+      "size_units": 0.010793543778219863,
+      "money_at_risk": 10.0,
+      "entry_ts": 1794726900000,
+      "created_at": 1794728443.5284922,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "risk_per_unit": 926.4797739718124,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "mfe_r": 0.0,
+      "mae_r": 0.0,
+      "tp1_ts": null,
+      "last_checked_ts": 1794726900000,
+      "outcome_ts": null,
+      "outcome_note": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": null
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-15T00:53:52.190860+00:00",
+    "last_cycle_started_at": "2026-11-15T07:40:40.399521+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-15T00:53:53.308460+00:00",
-        "last_candle_ts": 1794702600000,
-        "data_age_minutes": 8.9,
-        "price": 63769.03,
-        "signals_detected": 0
+        "checked_at": "2026-11-15T07:40:43.072303+00:00",
+        "last_candle_ts": 1794726900000,
+        "data_age_minutes": 10.7,
+        "price": 64319.17,
+        "signals_detected": 1
       },
       "XAUUSD": {
         "status": "market_closed",
-        "checked_at": "2026-11-15T00:53:53.312975+00:00"
+        "checked_at": "2026-11-15T07:40:43.528571+00:00"
       }
     },
-    "last_cycle_completed_at": "2026-11-15T00:53:53.312988+00:00",
+    "last_cycle_completed_at": "2026-11-15T07:40:43.982583+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3186,6 +3218,11 @@
         "from": "2026-11-14T20:57+00:00",
         "to": "2026-11-15T00:53+00:00",
         "minutes": 237
+      },
+      {
+        "from": "2026-11-15T00:53+00:00",
+        "to": "2026-11-15T07:40+00:00",
+        "minutes": 407
       }
     ],
     "cycles": [
@@ -3199,6 +3236,10 @@
       },
       {
         "at": "2026-11-15T00:53+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-15T07:40+00:00",
         "trigger": "schedule"
       }
     ],
@@ -3810,6 +3851,37 @@
         "Contesto orario: ribassista"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-15T07:40:43.528542+00:00",
+      "candle_ts": 1794726900000,
+      "symbol": "BTCUSD",
+      "key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 70,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 64319.17,
+      "atr_15m": 395.93257990603075,
+      "ema20_15m": 64485.86314934347,
+      "candle_range_atr": 0.5920199849571185,
+      "data_age_minutes": 10.7,
+      "reasons": [
+        "Il prezzo e' risalito sulla zona EMA20/50 dentro un trend orario ribassista",
+        "Chiusura nella parte bassa della candela (80% del range)",
+        "RSI a 47: rimbalzo tecnico, non ipercomprato",
+        "1h coerente (ribassista)",
+        "4h coerente (ribassista)"
+      ],
+      "plan": {
+        "entry": 64319.17,
+        "sl": 65245.64977397181,
+        "tp1": 63392.690226028186,
+        "tp2": 62466.21045205637,
+        "structural_target": 61946.17,
+        "warning": null
+      }
     }
   ],
   "oracle": {
@@ -3901,7 +3973,5 @@
       }
     ]
   },
-  "pending_notices": [
-    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 3 ore e 57 minuti</b>\nDalle 14/11 20:57 alle 00:53 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
-  ]
+  "pending_notices": []
 }
