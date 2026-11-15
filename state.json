@@ -10,10 +10,10 @@
     "BTCUSD:breakout_short": 1794484213.4583373,
     "BTCUSD:pullback_short": 1794728443.5284495,
     "XAUUSD:pullback_long": 1793867315.0393622,
-    "XAUUSD:overextension": 1794415208.2392998,
+    "XAUUSD:overextension": 1794787133.8514752,
     "XAUUSD:squeeze": 1794438103.8098633,
     "BTCUSD:overextension": 1794484213.1392877,
-    "BTCUSD:squeeze": 1794773657.1986313
+    "BTCUSD:squeeze": 1794787133.3757007
   },
   "last_summary": 1794773657.7493303,
   "update_offset": 917340068,
@@ -3186,22 +3186,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-15T20:14:13.801951+00:00",
+    "last_cycle_started_at": "2026-11-15T23:58:51.364231+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-15T20:14:16.649825+00:00",
-        "last_candle_ts": 1794771900000,
-        "data_age_minutes": 14.3,
-        "price": 64908.43,
+        "checked_at": "2026-11-15T23:58:53.043295+00:00",
+        "last_candle_ts": 1794785400000,
+        "data_age_minutes": 13.9,
+        "price": 65292.14,
         "signals_detected": 1
       },
       "XAUUSD": {
-        "status": "market_closed",
-        "checked_at": "2026-11-15T20:14:17.198734+00:00"
+        "status": "ok",
+        "checked_at": "2026-11-15T23:58:53.521109+00:00",
+        "last_candle_ts": 1794785400000,
+        "data_age_minutes": 13.9,
+        "price": 3889.74512,
+        "signals_detected": 2
       }
     },
-    "last_cycle_completed_at": "2026-11-15T20:14:17.749371+00:00",
+    "last_cycle_completed_at": "2026-11-15T23:58:53.851570+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3233,6 +3237,11 @@
         "from": "2026-11-15T14:59+00:00",
         "to": "2026-11-15T20:14+00:00",
         "minutes": 315
+      },
+      {
+        "from": "2026-11-15T20:14+00:00",
+        "to": "2026-11-15T23:58+00:00",
+        "minutes": 225
       }
     ],
     "cycles": [
@@ -3259,10 +3268,18 @@
       {
         "at": "2026-11-15T20:14+00:00",
         "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-15T23:58+00:00",
+        "trigger": "schedule"
       }
     ],
     "data_streaks": {
       "BTCUSD": {
+        "since": null,
+        "alerted": false
+      },
+      "XAUUSD": {
         "since": null,
         "alerted": false
       }
@@ -3944,6 +3961,80 @@
         "Contesto orario: ribassista"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-15T23:58:53.375710+00:00",
+      "candle_ts": 1794785400000,
+      "symbol": "BTCUSD",
+      "key": "squeeze",
+      "title": "Compressione di volatilita'",
+      "direction": "neutro",
+      "score": 55,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 65292.14,
+      "atr_15m": 264.34076386691646,
+      "ema20_15m": 65021.48187678595,
+      "candle_range_atr": 1.529654352529516,
+      "data_age_minutes": 13.9,
+      "reasons": [
+        "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
+        "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
+        "Contesto orario: laterale"
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-15T23:58:53.851485+00:00",
+      "candle_ts": 1794785400000,
+      "symbol": "XAUUSD",
+      "key": "overextension",
+      "title": "Prezzo molto esteso al rialzo",
+      "direction": "neutro",
+      "score": 45,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 3889.74512,
+      "atr_15m": 2.4428527561208417,
+      "ema20_15m": 3881.5308576598222,
+      "candle_range_atr": 4.622996605793633,
+      "data_age_minutes": 13.9,
+      "reasons": [
+        "Il prezzo dista 3.4 ATR dalla EMA20 sui 15m",
+        "Entrare adesso nella direzione del movimento significa comprare caro o vendere a sconto",
+        "Statisticamente segue una pausa o un ritracciamento, ma un trend forte puo' restare esteso a lungo"
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-15T23:58:53.851545+00:00",
+      "candle_ts": 1794785400000,
+      "symbol": "XAUUSD",
+      "key": "breakout_long",
+      "title": "Rottura al rialzo del range",
+      "direction": "long",
+      "score": 50,
+      "decision": "below_min_score",
+      "detail": "soglia operativa 60",
+      "price": 3889.74512,
+      "atr_15m": 2.4428527561208417,
+      "ema20_15m": 3881.5308576598222,
+      "candle_range_atr": 4.622996605793633,
+      "data_age_minutes": 13.9,
+      "reasons": [
+        "Chiusura sopra il massimo delle ultime 40 candele da 15m",
+        "Candela ampia 4.6 volte l'ATR: c'e' partecipazione dietro la rottura",
+        "\u26a0\ufe0f BREAKOUT ESTESO: range candela 4.62 ATR. Rischio di inseguire il movimento; attendere conferma e non aumentare la size.",
+        "4h in contrasto (ribassista)"
+      ],
+      "plan": {
+        "entry": 3889.74512,
+        "sl": 3873.095723621939,
+        "tp1": 3906.394516378061,
+        "tp2": 3923.0439127561217,
+        "structural_target": 3905.02968,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato."
+      }
     }
   ],
   "oracle": {
@@ -3978,17 +4069,19 @@
             ]
           }
         },
-        "done": []
+        "done": [
+          "1h"
+        ]
       }
     ],
     "score": {
       "BTCUSD:1h": {
-        "n": 4,
-        "hits": 1,
-        "brier": 1.0032023799999998,
+        "n": 5,
+        "hits": 2,
+        "brier": 1.2406636699999998,
         "lean_n": 1,
         "lean_hits": 1,
-        "in80": 3,
+        "in80": 4,
         "in50": 2
       },
       "BTCUSD:4h": {
@@ -4064,6 +4157,14 @@
         "h": "4h",
         "p_up": 0.5245,
         "up": 0,
+        "in80": 1
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1794771900000,
+        "h": "1h",
+        "p_up": 0.5127,
+        "up": 1,
         "in80": 1
       }
     ]
