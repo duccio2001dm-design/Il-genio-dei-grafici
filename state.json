@@ -3154,22 +3154,22 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-14T20:57:03.502932+00:00",
+    "last_cycle_started_at": "2026-11-15T00:53:52.190860+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-14T20:57:05.072268+00:00",
-        "last_candle_ts": 1794688200000,
-        "data_age_minutes": 12.1,
-        "price": 65381.22,
+        "checked_at": "2026-11-15T00:53:53.308460+00:00",
+        "last_candle_ts": 1794702600000,
+        "data_age_minutes": 8.9,
+        "price": 63769.03,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "market_closed",
-        "checked_at": "2026-11-14T20:57:05.079886+00:00"
+        "checked_at": "2026-11-15T00:53:53.312975+00:00"
       }
     },
-    "last_cycle_completed_at": "2026-11-14T20:57:05.397585+00:00",
+    "last_cycle_completed_at": "2026-11-15T00:53:53.312988+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3181,6 +3181,11 @@
         "from": "2026-11-14T16:44+00:00",
         "to": "2026-11-14T20:57+00:00",
         "minutes": 252
+      },
+      {
+        "from": "2026-11-14T20:57+00:00",
+        "to": "2026-11-15T00:53+00:00",
+        "minutes": 237
       }
     ],
     "cycles": [
@@ -3190,6 +3195,10 @@
       },
       {
         "at": "2026-11-14T20:57+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-15T00:53+00:00",
         "trigger": "schedule"
       }
     ],
@@ -3892,5 +3901,7 @@
       }
     ]
   },
-  "pending_notices": []
+  "pending_notices": [
+    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 3 ore e 57 minuti</b>\nDalle 14/11 20:57 alle 00:53 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
+  ]
 }
