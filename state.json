@@ -2,7 +2,7 @@
   "last_alerts": {
     "BTCUSD:pullback_long": 1793867314.3126047,
     "BTCUSD:level_approach": 1793806891.7084913,
-    "XAUUSD:level_approach": 1794552651.808604,
+    "XAUUSD:level_approach": 1794892072.735765,
     "XAUUSD:breakout_short": 1791808874.6300426,
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1792362511.879453,
@@ -15,7 +15,7 @@
     "BTCUSD:overextension": 1794484213.1392877,
     "BTCUSD:squeeze": 1794787133.3757007
   },
-  "last_summary": 1794871131.4666033,
+  "last_summary": 1794892073.2596016,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3232,44 +3232,44 @@
       "money_at_risk": 10.0,
       "entry_ts": 1794870000000,
       "created_at": 1794871130.407417,
-      "status": "open",
+      "status": "sl",
       "tp1_hit": false,
       "tp2_hit": false,
       "risk_per_unit": 15.892749900050148,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "mfe_r": 0.0,
-      "mae_r": 0.0,
+      "mfe_units": 9.227060000000165,
+      "mae_units": 17.497379999999794,
+      "mfe_r": 0.5805829738735805,
+      "mae_r": 1.100966170740822,
       "tp1_ts": null,
-      "last_checked_ts": 1794870000000,
-      "outcome_ts": null,
-      "outcome_note": null,
+      "last_checked_ts": 1794878100000,
+      "outcome_ts": 1794879000000,
+      "outcome_note": "Stop raggiunto sulla candela 15m.",
       "shadow": false,
       "be_hit": false,
-      "managed_r": null
+      "managed_r": -1.0
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-16T23:18:45.189406+00:00",
+    "last_cycle_started_at": "2026-11-17T05:07:48.442704+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-16T23:18:48.015790+00:00",
-        "last_candle_ts": 1794870000000,
-        "data_age_minutes": 3.8,
-        "price": 65233.92,
-        "signals_detected": 0
+        "checked_at": "2026-11-17T05:07:51.403806+00:00",
+        "last_candle_ts": 1794890700000,
+        "data_age_minutes": 7.9,
+        "price": 64981.57,
+        "signals_detected": 1
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-16T23:18:49.873901+00:00",
-        "last_candle_ts": 1794870000000,
-        "data_age_minutes": 3.8,
-        "price": 3852.86637,
-        "signals_detected": 2
+        "checked_at": "2026-11-17T05:07:51.704814+00:00",
+        "last_candle_ts": 1794890700000,
+        "data_age_minutes": 7.9,
+        "price": 3875.17516,
+        "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-16T23:18:51.466651+00:00",
+    "last_cycle_completed_at": "2026-11-17T05:07:53.259650+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3321,6 +3321,11 @@
         "from": "2026-11-16T14:01+00:00",
         "to": "2026-11-16T23:18+00:00",
         "minutes": 557
+      },
+      {
+        "from": "2026-11-16T23:18+00:00",
+        "to": "2026-11-17T05:07+00:00",
+        "minutes": 349
       }
     ],
     "cycles": [
@@ -3362,6 +3367,10 @@
       },
       {
         "at": "2026-11-16T23:18+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-17T05:07+00:00",
         "trigger": "schedule"
       }
     ],
@@ -4240,10 +4249,94 @@
         "Contesto orario: ribassista debole"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-17T05:07:51.409488+00:00",
+      "candle_ts": 1794890700000,
+      "symbol": "BTCUSD",
+      "key": "divergence_bull",
+      "title": "Divergenza rialzista sull'RSI",
+      "direction": "long",
+      "score": 50,
+      "decision": "below_min_score",
+      "detail": "soglia operativa 60",
+      "price": 64981.57,
+      "atr_15m": 222.73721355473262,
+      "ema20_15m": 64823.83530123226,
+      "candle_range_atr": 0.5650604943438127,
+      "data_age_minutes": 7.9,
+      "reasons": [
+        "Il prezzo ha fatto un minimo piu' basso, l'RSI un minimo piu' alto",
+        "RSI passato da 38 a 41",
+        "La pressione in vendita sta calando, ma serve conferma dal prezzo prima di parlare di inversione"
+      ],
+      "plan": {
+        "entry": 64981.57,
+        "sl": 64248.318835933576,
+        "tp1": 65714.82116406642,
+        "tp2": 66448.07232813284,
+        "structural_target": 65590.43999999999,
+        "warning": null
+      }
+    },
+    {
+      "observed_at": "2026-11-17T05:07:52.735778+00:00",
+      "candle_ts": 1794890700000,
+      "symbol": "XAUUSD",
+      "key": "level_approach",
+      "title": "Prezzo sul supporto a 3.873,17",
+      "direction": "neutro",
+      "score": 62,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 3875.17516,
+      "atr_15m": 7.221654502393257,
+      "ema20_15m": 3866.984233594933,
+      "candle_range_atr": 0.4598184528074073,
+      "data_age_minutes": 7.9,
+      "reasons": [
+        "Livello costruito su 9 tocchi (min orario)",
+        "Distanza attuale: 2,00, meno di mezzo ATR",
+        "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
+      ],
+      "plan": null
     }
   ],
   "oracle": {
-    "pending": [],
+    "pending": [
+      {
+        "symbol": "BTCUSD",
+        "ts": 1794890700000,
+        "price": 64981.57,
+        "h": {
+          "1h": {
+            "p_up": 0.4754,
+            "lean": "none",
+            "b80": [
+              64656.54,
+              65303.89
+            ],
+            "b50": [
+              64824.06,
+              65142.58
+            ]
+          },
+          "4h": {
+            "p_up": 0.4742,
+            "lean": "none",
+            "b80": [
+              64242.97,
+              65709.25
+            ],
+            "b50": [
+              64645.02,
+              65333.45
+            ]
+          }
+        },
+        "done": []
+      }
+    ],
     "score": {
       "BTCUSD:1h": {
         "n": 6,
