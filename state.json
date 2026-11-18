@@ -15,7 +15,7 @@
     "BTCUSD:overextension": 1794484213.1392877,
     "BTCUSD:squeeze": 1794787133.3757007
   },
-  "last_summary": 1795006113.2971773,
+  "last_summary": 1795035377.9389884,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3264,21 +3264,21 @@
       "money_at_risk": 10.0,
       "entry_ts": 1795005000000,
       "created_at": 1795006111.7027721,
-      "status": "open",
-      "tp1_hit": false,
-      "tp2_hit": false,
+      "status": "tp2",
+      "tp1_hit": true,
+      "tp2_hit": true,
       "risk_per_unit": 742.1521147386156,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "mfe_r": 0.0,
-      "mae_r": 0.0,
-      "tp1_ts": null,
-      "last_checked_ts": 1795005000000,
-      "outcome_ts": null,
-      "outcome_note": null,
+      "mfe_units": 1740.4000000000015,
+      "mae_units": 131.65000000000146,
+      "mfe_r": 2.3450718059504103,
+      "mae_r": 0.17738951002836972,
+      "tp1_ts": 1795012200000,
+      "last_checked_ts": 1795017600000,
+      "outcome_ts": 1795018500000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m.",
       "shadow": false,
       "be_hit": false,
-      "managed_r": null
+      "managed_r": 1.5
     },
     {
       "id": "XAUUSD|breakout_short|1795005000000|3753.44572000",
@@ -3300,12 +3300,12 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "risk_per_unit": 37.31283948444798,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "mfe_r": 0.0,
-      "mae_r": 0.0,
+      "mfe_units": 34.25451999999996,
+      "mae_units": 35.658390000000054,
+      "mfe_r": 0.9180357344360583,
+      "mae_r": 0.955660048731014,
       "tp1_ts": null,
-      "last_checked_ts": 1795005000000,
+      "last_checked_ts": 1795033800000,
       "outcome_ts": null,
       "outcome_note": null,
       "shadow": false,
@@ -3314,26 +3314,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-18T12:48:28.149345+00:00",
+    "last_cycle_started_at": "2026-11-18T20:56:15.061497+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-18T12:48:31.043442+00:00",
-        "last_candle_ts": 1795005000000,
-        "data_age_minutes": 3.5,
-        "price": 63988.43,
-        "signals_detected": 1
+        "checked_at": "2026-11-18T20:56:16.620587+00:00",
+        "last_candle_ts": 1795033800000,
+        "data_age_minutes": 11.3,
+        "price": 62452.15,
+        "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-18T12:48:32.215345+00:00",
-        "last_candle_ts": 1795005000000,
-        "data_age_minutes": 3.5,
-        "price": 3753.44572,
-        "signals_detected": 1
+        "checked_at": "2026-11-18T20:56:17.569413+00:00",
+        "last_candle_ts": 1795033800000,
+        "data_age_minutes": 11.3,
+        "price": 3732.56314,
+        "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-18T12:48:33.297226+00:00",
+    "last_cycle_completed_at": "2026-11-18T20:56:17.939039+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3410,6 +3410,11 @@
         "from": "2026-11-18T03:53+00:00",
         "to": "2026-11-18T12:48+00:00",
         "minutes": 535
+      },
+      {
+        "from": "2026-11-18T12:48+00:00",
+        "to": "2026-11-18T20:56+00:00",
+        "minutes": 488
       }
     ],
     "cycles": [
@@ -3471,6 +3476,10 @@
       },
       {
         "at": "2026-11-18T12:48+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-18T20:56+00:00",
         "trigger": "schedule"
       }
     ],
