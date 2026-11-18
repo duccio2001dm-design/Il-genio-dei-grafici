@@ -3,11 +3,11 @@
     "BTCUSD:pullback_long": 1793867314.3126047,
     "BTCUSD:level_approach": 1793806891.7084913,
     "XAUUSD:level_approach": 1794892072.735765,
-    "XAUUSD:breakout_short": 1791808874.6300426,
+    "XAUUSD:breakout_short": 1795006112.7639039,
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1792362511.879453,
     "XAUUSD:pullback_short": 1794871130.4073558,
-    "BTCUSD:breakout_short": 1794484213.4583373,
+    "BTCUSD:breakout_short": 1795006111.702732,
     "BTCUSD:pullback_short": 1794837680.5276725,
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1794787133.8514752,
@@ -15,7 +15,7 @@
     "BTCUSD:overextension": 1794484213.1392877,
     "BTCUSD:squeeze": 1794787133.3757007
   },
-  "last_summary": 1794954882.8764095,
+  "last_summary": 1795006113.2971773,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3247,29 +3247,93 @@
       "shadow": false,
       "be_hit": false,
       "managed_r": -1.0
+    },
+    {
+      "id": "BTCUSD|breakout_short|1795005000000|63988.43000000",
+      "symbol": "BTCUSD",
+      "signal_key": "breakout_short",
+      "title": "Rottura al ribasso del range",
+      "direction": "short",
+      "score": 79,
+      "entry": 63988.43,
+      "sl": 64730.582114738616,
+      "tp1": 63246.277885261385,
+      "tp2": 62504.12577052277,
+      "structural_target": 63898.4625,
+      "size_units": 0.01347432662577803,
+      "money_at_risk": 10.0,
+      "entry_ts": 1795005000000,
+      "created_at": 1795006111.7027721,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "risk_per_unit": 742.1521147386156,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "mfe_r": 0.0,
+      "mae_r": 0.0,
+      "tp1_ts": null,
+      "last_checked_ts": 1795005000000,
+      "outcome_ts": null,
+      "outcome_note": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": null
+    },
+    {
+      "id": "XAUUSD|breakout_short|1795005000000|3753.44572000",
+      "symbol": "XAUUSD",
+      "signal_key": "breakout_short",
+      "title": "Rottura al ribasso del range",
+      "direction": "short",
+      "score": 80,
+      "entry": 3753.44572,
+      "sl": 3790.758559484448,
+      "tp1": 3716.132880515552,
+      "tp2": 3678.820041031104,
+      "structural_target": null,
+      "size_units": 0.2680042617546705,
+      "money_at_risk": 10.0,
+      "entry_ts": 1795005000000,
+      "created_at": 1795006112.7639573,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "risk_per_unit": 37.31283948444798,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "mfe_r": 0.0,
+      "mae_r": 0.0,
+      "tp1_ts": null,
+      "last_checked_ts": 1795005000000,
+      "outcome_ts": null,
+      "outcome_note": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": null
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-18T03:53:32.097864+00:00",
+    "last_cycle_started_at": "2026-11-18T12:48:28.149345+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-18T03:53:34.115718+00:00",
-        "last_candle_ts": 1794972600000,
-        "data_age_minutes": 8.6,
-        "price": 64443.14,
-        "signals_detected": 0
+        "checked_at": "2026-11-18T12:48:31.043442+00:00",
+        "last_candle_ts": 1795005000000,
+        "data_age_minutes": 3.5,
+        "price": 63988.43,
+        "signals_detected": 1
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-18T03:53:34.399162+00:00",
-        "last_candle_ts": 1794972600000,
-        "data_age_minutes": 8.6,
-        "price": 3793.89971,
-        "signals_detected": 0
+        "checked_at": "2026-11-18T12:48:32.215345+00:00",
+        "last_candle_ts": 1795005000000,
+        "data_age_minutes": 3.5,
+        "price": 3753.44572,
+        "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-18T03:53:34.399219+00:00",
+    "last_cycle_completed_at": "2026-11-18T12:48:33.297226+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3341,6 +3405,11 @@
         "from": "2026-11-17T22:34+00:00",
         "to": "2026-11-18T03:53+00:00",
         "minutes": 319
+      },
+      {
+        "from": "2026-11-18T03:53+00:00",
+        "to": "2026-11-18T12:48+00:00",
+        "minutes": 535
       }
     ],
     "cycles": [
@@ -3398,6 +3467,10 @@
       },
       {
         "at": "2026-11-18T03:53+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-18T12:48+00:00",
         "trigger": "schedule"
       }
     ],
@@ -4327,6 +4400,66 @@
         "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-18T12:48:31.702818+00:00",
+      "candle_ts": 1795005000000,
+      "symbol": "BTCUSD",
+      "key": "breakout_short",
+      "title": "Rottura al ribasso del range",
+      "direction": "short",
+      "score": 79,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 63988.43,
+      "atr_15m": 184.2737157953816,
+      "ema20_15m": 64300.66643631307,
+      "candle_range_atr": 1.7124525797829842,
+      "data_age_minutes": 3.5,
+      "reasons": [
+        "Chiusura sotto il minimo delle ultime 40 candele da 15m",
+        "Candela ampia 1.7 volte l'ATR: c'e' partecipazione dietro la rottura",
+        "1h coerente (ribassista debole)",
+        "4h coerente (ribassista)"
+      ],
+      "plan": {
+        "entry": 63988.43,
+        "sl": 64730.582114738616,
+        "tp1": 63246.277885261385,
+        "tp2": 62504.12577052277,
+        "structural_target": 63898.4625,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.12R: meno di mezzo R di spazio utile."
+      }
+    },
+    {
+      "observed_at": "2026-11-18T12:48:32.764008+00:00",
+      "candle_ts": 1795005000000,
+      "symbol": "XAUUSD",
+      "key": "breakout_short",
+      "title": "Rottura al ribasso del range",
+      "direction": "short",
+      "score": 80,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 3753.44572,
+      "atr_15m": 8.341298968895911,
+      "ema20_15m": 3770.060052865216,
+      "candle_range_atr": 1.9019375830021283,
+      "data_age_minutes": 3.5,
+      "reasons": [
+        "Chiusura sotto il minimo delle ultime 40 candele da 15m",
+        "Candela ampia 1.9 volte l'ATR: c'e' partecipazione dietro la rottura",
+        "1h coerente (ribassista)",
+        "4h coerente (ribassista)"
+      ],
+      "plan": {
+        "entry": 3753.44572,
+        "sl": 3790.758559484448,
+        "tp1": 3716.132880515552,
+        "tp2": 3678.820041031104,
+        "structural_target": null,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato."
+      }
     }
   ],
   "oracle": {
@@ -4466,7 +4599,5 @@
       }
     ]
   },
-  "pending_notices": [
-    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 5 ore e 19 minuti</b>\nDalle 17/11 22:34 alle 03:53 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
-  ]
+  "pending_notices": []
 }
