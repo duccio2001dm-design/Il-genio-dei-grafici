@@ -3250,26 +3250,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-17T22:34:39.684628+00:00",
+    "last_cycle_started_at": "2026-11-18T03:53:32.097864+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-17T22:34:42.124345+00:00",
-        "last_candle_ts": 1794953700000,
-        "data_age_minutes": 4.7,
-        "price": 64558.95,
+        "checked_at": "2026-11-18T03:53:34.115718+00:00",
+        "last_candle_ts": 1794972600000,
+        "data_age_minutes": 8.6,
+        "price": 64443.14,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-17T22:34:42.423884+00:00",
-        "last_candle_ts": 1794953700000,
-        "data_age_minutes": 4.7,
-        "price": 3844.38942,
+        "checked_at": "2026-11-18T03:53:34.399162+00:00",
+        "last_candle_ts": 1794972600000,
+        "data_age_minutes": 8.6,
+        "price": 3793.89971,
         "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-17T22:34:42.876457+00:00",
+    "last_cycle_completed_at": "2026-11-18T03:53:34.399219+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3336,6 +3336,11 @@
         "from": "2026-11-17T14:27+00:00",
         "to": "2026-11-17T22:34+00:00",
         "minutes": 487
+      },
+      {
+        "from": "2026-11-17T22:34+00:00",
+        "to": "2026-11-18T03:53+00:00",
+        "minutes": 319
       }
     ],
     "cycles": [
@@ -3389,6 +3394,10 @@
       },
       {
         "at": "2026-11-17T22:34+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-18T03:53+00:00",
         "trigger": "schedule"
       }
     ],
@@ -4457,5 +4466,7 @@
       }
     ]
   },
-  "pending_notices": []
+  "pending_notices": [
+    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 5 ore e 19 minuti</b>\nDalle 17/11 22:34 alle 03:53 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
+  ]
 }
