@@ -6,16 +6,16 @@
     "XAUUSD:breakout_short": 1795006112.7639039,
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1792362511.879453,
-    "XAUUSD:pullback_short": 1794871130.4073558,
+    "XAUUSD:pullback_short": 1795084852.3218393,
     "BTCUSD:breakout_short": 1795006111.702732,
     "BTCUSD:pullback_short": 1794837680.5276725,
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1794787133.8514752,
-    "XAUUSD:squeeze": 1794871130.9398537,
+    "XAUUSD:squeeze": 1795084852.8550332,
     "BTCUSD:overextension": 1794484213.1392877,
     "BTCUSD:squeeze": 1794787133.3757007
   },
-  "last_summary": 1795035377.9389884,
+  "last_summary": 1795084853.3858821,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3297,15 +3297,47 @@
       "entry_ts": 1795005000000,
       "created_at": 1795006112.7639573,
       "status": "open",
-      "tp1_hit": false,
+      "tp1_hit": true,
       "tp2_hit": false,
       "risk_per_unit": 37.31283948444798,
-      "mfe_units": 34.25451999999996,
+      "mfe_units": 58.363870000000134,
       "mae_units": 35.658390000000054,
-      "mfe_r": 0.9180357344360583,
+      "mfe_r": 1.5641765892495596,
       "mae_r": 0.955660048731014,
+      "tp1_ts": 1795056300000,
+      "last_checked_ts": 1795083300000,
+      "outcome_ts": null,
+      "outcome_note": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": null
+    },
+    {
+      "id": "XAUUSD|pullback_short|1795083300000|3727.35417000",
+      "symbol": "XAUUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 70,
+      "entry": 3727.35417,
+      "sl": 3745.6544773547507,
+      "tp1": 3709.0538626452494,
+      "tp2": 3690.7535552904988,
+      "structural_target": 3719.1912,
+      "size_units": 0.5464389098035589,
+      "money_at_risk": 10.0,
+      "entry_ts": 1795083300000,
+      "created_at": 1795084852.3218818,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "risk_per_unit": 18.300307354750657,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "mfe_r": 0.0,
+      "mae_r": 0.0,
       "tp1_ts": null,
-      "last_checked_ts": 1795053600000,
+      "last_checked_ts": 1795083300000,
       "outcome_ts": null,
       "outcome_note": null,
       "shadow": false,
@@ -3314,26 +3346,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-19T02:24:16.325379+00:00",
+    "last_cycle_started_at": "2026-11-19T10:40:47.685476+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-19T02:24:18.048906+00:00",
-        "last_candle_ts": 1795053600000,
-        "data_age_minutes": 9.3,
-        "price": 62817.36,
+        "checked_at": "2026-11-19T10:40:50.944779+00:00",
+        "last_candle_ts": 1795083300000,
+        "data_age_minutes": 10.8,
+        "price": 63751.94,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-19T02:24:18.393612+00:00",
-        "last_candle_ts": 1795053600000,
-        "data_age_minutes": 9.3,
-        "price": 3752.18778,
-        "signals_detected": 0
+        "checked_at": "2026-11-19T10:40:51.258421+00:00",
+        "last_candle_ts": 1795083300000,
+        "data_age_minutes": 10.9,
+        "price": 3727.35417,
+        "signals_detected": 2
       }
     },
-    "last_cycle_completed_at": "2026-11-19T02:24:18.393799+00:00",
+    "last_cycle_completed_at": "2026-11-19T10:40:53.385916+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3420,6 +3452,11 @@
         "from": "2026-11-18T20:56+00:00",
         "to": "2026-11-19T02:24+00:00",
         "minutes": 328
+      },
+      {
+        "from": "2026-11-19T02:24+00:00",
+        "to": "2026-11-19T10:40+00:00",
+        "minutes": 496
       }
     ],
     "cycles": [
@@ -3489,6 +3526,10 @@
       },
       {
         "at": "2026-11-19T02:24+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-19T10:40+00:00",
         "trigger": "schedule"
       }
     ],
@@ -4478,6 +4519,59 @@
         "structural_target": null,
         "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato."
       }
+    },
+    {
+      "observed_at": "2026-11-19T10:40:52.321917+00:00",
+      "candle_ts": 1795083300000,
+      "symbol": "XAUUSD",
+      "key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 70,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 3727.35417,
+      "atr_15m": 8.23939470950177,
+      "ema20_15m": 3732.0499785512197,
+      "candle_range_atr": 0.6535989826764421,
+      "data_age_minutes": 10.9,
+      "reasons": [
+        "Il prezzo e' risalito sulla zona EMA20/50 dentro un trend orario ribassista",
+        "Chiusura nella parte bassa della candela (91% del range)",
+        "RSI a 46: rimbalzo tecnico, non ipercomprato",
+        "1h coerente (ribassista)",
+        "4h coerente (ribassista)"
+      ],
+      "plan": {
+        "entry": 3727.35417,
+        "sl": 3745.6544773547507,
+        "tp1": 3709.0538626452494,
+        "tp2": 3690.7535552904988,
+        "structural_target": 3719.1912,
+        "warning": "\u26a0\ufe0f Ostacolo strutturale a 0.45R: meno di mezzo R di spazio utile."
+      }
+    },
+    {
+      "observed_at": "2026-11-19T10:40:52.855044+00:00",
+      "candle_ts": 1795083300000,
+      "symbol": "XAUUSD",
+      "key": "squeeze",
+      "title": "Compressione di volatilita'",
+      "direction": "neutro",
+      "score": 55,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 3727.35417,
+      "atr_15m": 8.23939470950177,
+      "ema20_15m": 3732.0499785512197,
+      "candle_range_atr": 0.6535989826764421,
+      "data_age_minutes": 10.9,
+      "reasons": [
+        "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
+        "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
+        "Contesto orario: ribassista"
+      ],
+      "plan": null
     }
   ],
   "oracle": {
@@ -4617,7 +4711,5 @@
       }
     ]
   },
-  "pending_notices": [
-    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 5 ore e 28 minuti</b>\nDalle 18/11 20:56 alle 02:24 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
-  ]
+  "pending_notices": []
 }
