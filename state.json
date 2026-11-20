@@ -8,14 +8,14 @@
     "XAUUSD:breakout_long": 1792362511.879453,
     "XAUUSD:pullback_short": 1795084852.3218393,
     "BTCUSD:breakout_short": 1795006111.702732,
-    "BTCUSD:pullback_short": 1795115426.3349743,
+    "BTCUSD:pullback_short": 1795216675.3926547,
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1794787133.8514752,
     "XAUUSD:squeeze": 1795084852.8550332,
     "BTCUSD:overextension": 1795195184.900118,
     "BTCUSD:squeeze": 1794787133.3757007
   },
-  "last_summary": 1795195185.3356097,
+  "last_summary": 1795216675.927127,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3376,29 +3376,57 @@
       "shadow": false,
       "be_hit": false,
       "managed_r": 1.5
+    },
+    {
+      "id": "BTCUSD|pullback_short|1795215600000|59016.01000000",
+      "symbol": "BTCUSD",
+      "signal_key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 76,
+      "entry": 59016.01,
+      "sl": 59409.562528959264,
+      "tp1": 58622.45747104074,
+      "tp2": 58228.90494208148,
+      "structural_target": 57655.17,
+      "size_units": 0.025409568644990527,
+      "money_at_risk": 10.0,
+      "entry_ts": 1795215600000,
+      "created_at": 1795216675.392714,
+      "status": "open",
+      "tp1_hit": false,
+      "tp2_hit": false,
+      "risk_per_unit": 393.5525289592624,
+      "mfe_units": 0.0,
+      "mae_units": 0.0,
+      "mfe_r": 0.0,
+      "mae_r": 0.0,
+      "tp1_ts": null,
+      "last_checked_ts": 1795215600000,
+      "outcome_ts": null,
+      "outcome_note": null,
+      "shadow": false,
+      "be_hit": false,
+      "managed_r": null
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-20T17:19:43.039612+00:00",
+    "last_cycle_started_at": "2026-11-20T23:17:52.272170+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-20T17:19:44.566557+00:00",
-        "last_candle_ts": 1795194000000,
-        "data_age_minutes": 4.7,
-        "price": 59185.43,
+        "checked_at": "2026-11-20T23:17:54.847899+00:00",
+        "last_candle_ts": 1795215600000,
+        "data_age_minutes": 2.9,
+        "price": 59016.01,
         "signals_detected": 1
       },
       "XAUUSD": {
-        "status": "ok",
-        "checked_at": "2026-11-20T17:19:45.010383+00:00",
-        "last_candle_ts": 1795194000000,
-        "data_age_minutes": 4.8,
-        "price": 3535.82474,
-        "signals_detected": 0
+        "status": "market_closed",
+        "checked_at": "2026-11-20T23:17:55.392819+00:00"
       }
     },
-    "last_cycle_completed_at": "2026-11-20T17:19:45.335654+00:00",
+    "last_cycle_completed_at": "2026-11-20T23:17:55.927178+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3510,6 +3538,11 @@
         "from": "2026-11-20T08:39+00:00",
         "to": "2026-11-20T17:19+00:00",
         "minutes": 520
+      },
+      {
+        "from": "2026-11-20T17:19+00:00",
+        "to": "2026-11-20T23:17+00:00",
+        "minutes": 358
       }
     ],
     "cycles": [
@@ -3599,6 +3632,10 @@
       },
       {
         "at": "2026-11-20T17:19+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-20T23:17+00:00",
         "trigger": "schedule"
       }
     ],
@@ -4753,6 +4790,38 @@
         "Statisticamente segue una pausa o un ritracciamento, ma un trend forte puo' restare esteso a lungo"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-20T23:17:55.392790+00:00",
+      "candle_ts": 1795215600000,
+      "symbol": "BTCUSD",
+      "key": "pullback_short",
+      "title": "Ritracciamento in trend ribassista",
+      "direction": "short",
+      "score": 76,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 59016.01,
+      "atr_15m": 425.54176319754606,
+      "ema20_15m": 58948.010330021585,
+      "candle_range_atr": 0.5555036436935142,
+      "data_age_minutes": 2.9,
+      "reasons": [
+        "Il prezzo e' risalito sulla zona EMA20/50 dentro un trend orario ribassista",
+        "Chiusura nella parte bassa della candela (66% del range)",
+        "RSI a 49: rimbalzo tecnico, non ipercomprato",
+        "1h coerente (ribassista)",
+        "4h coerente (ribassista)",
+        "ADX 15m a 30: il movimento ha ancora direzionalita'"
+      ],
+      "plan": {
+        "entry": 59016.01,
+        "sl": 59409.562528959264,
+        "tp1": 58622.45747104074,
+        "tp2": 58228.90494208148,
+        "structural_target": 57655.17,
+        "warning": null
+      }
     }
   ],
   "oracle": {
