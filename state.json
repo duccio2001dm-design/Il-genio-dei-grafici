@@ -15,7 +15,7 @@
     "BTCUSD:overextension": 1794484213.1392877,
     "BTCUSD:squeeze": 1794787133.3757007
   },
-  "last_summary": 1795115428.3519628,
+  "last_summary": 1795163972.3264601,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3379,26 +3379,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-20T01:17:22.652530+00:00",
+    "last_cycle_started_at": "2026-11-20T08:39:29.860302+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-20T01:17:24.726526+00:00",
-        "last_candle_ts": 1795136400000,
-        "data_age_minutes": 2.4,
-        "price": 62263.69,
+        "checked_at": "2026-11-20T08:39:31.767012+00:00",
+        "last_candle_ts": 1795162500000,
+        "data_age_minutes": 9.5,
+        "price": 61916.98,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-20T01:17:25.142820+00:00",
-        "last_candle_ts": 1795136400000,
-        "data_age_minutes": 2.4,
-        "price": 3608.70881,
+        "checked_at": "2026-11-20T08:39:31.933853+00:00",
+        "last_candle_ts": 1795162500000,
+        "data_age_minutes": 9.5,
+        "price": 3586.37249,
         "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-20T01:17:25.142896+00:00",
+    "last_cycle_completed_at": "2026-11-20T08:39:32.326511+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3500,6 +3500,11 @@
         "from": "2026-11-19T19:10+00:00",
         "to": "2026-11-20T01:17+00:00",
         "minutes": 367
+      },
+      {
+        "from": "2026-11-20T01:17+00:00",
+        "to": "2026-11-20T08:39+00:00",
+        "minutes": 442
       }
     ],
     "cycles": [
@@ -3581,6 +3586,10 @@
       },
       {
         "at": "2026-11-20T01:17+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-20T08:39+00:00",
         "trigger": "schedule"
       }
     ],
@@ -4868,9 +4877,5 @@
       }
     ]
   },
-  "pending_notices": [
-    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 6 ore e 7 minuti</b>\nDalle 19/11 19:10 alle 01:17 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi.",
-    "\ud83c\udfaf <b>BTCUSD \u00b7 Target 1 raggiunto</b>\nVENDI da 62.810,6 (Ritracciamento in trend ribassista, 19/11 18:45 UTC)\nStop 63.445,8 \u00b7 T1 62.175,4 \u00b7 T2 61.540,2\nChiudi meta' posizione e sposta lo stop a pareggio (62.810,6).",
-    "\u2705 <b>BTCUSD \u00b7 Target 2 raggiunto</b>\nVENDI da 62.810,6 (Ritracciamento in trend ribassista, 19/11 18:45 UTC)\nStop 63.445,8 \u00b7 T1 62.175,4 \u00b7 T2 61.540,2\nOperazione completata."
-  ]
+  "pending_notices": []
 }
