@@ -3361,44 +3361,44 @@
       "money_at_risk": 10.0,
       "entry_ts": 1795113900000,
       "created_at": 1795115426.335023,
-      "status": "open",
-      "tp1_hit": false,
-      "tp2_hit": false,
+      "status": "tp2",
+      "tp1_hit": true,
+      "tp2_hit": true,
       "risk_per_unit": 635.1975507960888,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "mfe_r": 0.0,
-      "mae_r": 0.0,
-      "tp1_ts": null,
-      "last_checked_ts": 1795113900000,
-      "outcome_ts": null,
-      "outcome_note": null,
+      "mfe_units": 1383.560000000005,
+      "mae_units": 32.14999999999418,
+      "mfe_r": 2.1781570131465378,
+      "mae_r": 0.0506141750069735,
+      "tp1_ts": 1795118400000,
+      "last_checked_ts": 1795122000000,
+      "outcome_ts": 1795122900000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m.",
       "shadow": false,
       "be_hit": false,
-      "managed_r": null
+      "managed_r": 1.5
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-19T19:10:24.275391+00:00",
+    "last_cycle_started_at": "2026-11-20T01:17:22.652530+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-19T19:10:25.965785+00:00",
-        "last_candle_ts": 1795113900000,
-        "data_age_minutes": 10.4,
-        "price": 62810.62,
-        "signals_detected": 2
+        "checked_at": "2026-11-20T01:17:24.726526+00:00",
+        "last_candle_ts": 1795136400000,
+        "data_age_minutes": 2.4,
+        "price": 62263.69,
+        "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-19T19:10:26.509735+00:00",
-        "last_candle_ts": 1795113900000,
-        "data_age_minutes": 10.4,
-        "price": 3680.07358,
-        "signals_detected": 1
+        "checked_at": "2026-11-20T01:17:25.142820+00:00",
+        "last_candle_ts": 1795136400000,
+        "data_age_minutes": 2.4,
+        "price": 3608.70881,
+        "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-19T19:10:28.352014+00:00",
+    "last_cycle_completed_at": "2026-11-20T01:17:25.142896+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3495,6 +3495,11 @@
         "from": "2026-11-19T10:40+00:00",
         "to": "2026-11-19T19:10+00:00",
         "minutes": 510
+      },
+      {
+        "from": "2026-11-19T19:10+00:00",
+        "to": "2026-11-20T01:17+00:00",
+        "minutes": 367
       }
     ],
     "cycles": [
@@ -3572,6 +3577,10 @@
       },
       {
         "at": "2026-11-19T19:10+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-20T01:17+00:00",
         "trigger": "schedule"
       }
     ],
@@ -4707,57 +4716,24 @@
     }
   ],
   "oracle": {
-    "pending": [
-      {
-        "symbol": "BTCUSD",
-        "ts": 1795113900000,
-        "price": 62810.62,
-        "h": {
-          "1h": {
-            "p_up": 0.5192,
-            "lean": "none",
-            "b80": [
-              62295.02,
-              63323.58
-            ],
-            "b50": [
-              62560.55,
-              63066.65
-            ]
-          },
-          "4h": {
-            "p_up": 0.5211,
-            "lean": "none",
-            "b80": [
-              61795.92,
-              63815.12
-            ],
-            "b50": [
-              62347.65,
-              63295.77
-            ]
-          }
-        },
-        "done": []
-      }
-    ],
+    "pending": [],
     "score": {
       "BTCUSD:1h": {
-        "n": 7,
+        "n": 8,
         "hits": 4,
-        "brier": 1.6896416699999997,
+        "brier": 1.9592103099999996,
         "lean_n": 1,
         "lean_hits": 1,
         "in80": 5,
         "in50": 2
       },
       "BTCUSD:4h": {
-        "n": 7,
+        "n": 8,
         "hits": 3,
-        "brier": 1.75780663,
+        "brier": 2.02935184,
         "lean_n": 2,
         "lean_hits": 1,
-        "in80": 7,
+        "in80": 8,
         "in50": 2
       }
     },
@@ -4873,8 +4849,28 @@
         "p_up": 0.4742,
         "up": 0,
         "in80": 1
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1795113900000,
+        "h": "1h",
+        "p_up": 0.5192,
+        "up": 0,
+        "in80": 0
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1795113900000,
+        "h": "4h",
+        "p_up": 0.5211,
+        "up": 0,
+        "in80": 1
       }
     ]
   },
-  "pending_notices": []
+  "pending_notices": [
+    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 6 ore e 7 minuti</b>\nDalle 19/11 19:10 alle 01:17 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi.",
+    "\ud83c\udfaf <b>BTCUSD \u00b7 Target 1 raggiunto</b>\nVENDI da 62.810,6 (Ritracciamento in trend ribassista, 19/11 18:45 UTC)\nStop 63.445,8 \u00b7 T1 62.175,4 \u00b7 T2 61.540,2\nChiudi meta' posizione e sposta lo stop a pareggio (62.810,6).",
+    "\u2705 <b>BTCUSD \u00b7 Target 2 raggiunto</b>\nVENDI da 62.810,6 (Ritracciamento in trend ribassista, 19/11 18:45 UTC)\nStop 63.445,8 \u00b7 T1 62.175,4 \u00b7 T2 61.540,2\nOperazione completata."
+  ]
 }
