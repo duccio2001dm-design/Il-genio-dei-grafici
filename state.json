@@ -13,9 +13,9 @@
     "XAUUSD:overextension": 1794787133.8514752,
     "XAUUSD:squeeze": 1795084852.8550332,
     "BTCUSD:overextension": 1795195184.900118,
-    "BTCUSD:squeeze": 1795290023.0235326
+    "BTCUSD:squeeze": 1795305398.63138
   },
-  "last_summary": 1795290023.5641403,
+  "last_summary": 1795305399.1923904,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3411,22 +3411,22 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-21T19:40:20.025807+00:00",
+    "last_cycle_started_at": "2026-11-21T23:56:35.706006+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-21T19:40:22.516035+00:00",
-        "last_candle_ts": 1795288500000,
-        "data_age_minutes": 10.4,
-        "price": 60179.55,
-        "signals_detected": 1
+        "checked_at": "2026-11-21T23:56:38.088778+00:00",
+        "last_candle_ts": 1795303800000,
+        "data_age_minutes": 11.6,
+        "price": 60104.35,
+        "signals_detected": 2
       },
       "XAUUSD": {
         "status": "market_closed",
-        "checked_at": "2026-11-21T19:40:23.023617+00:00"
+        "checked_at": "2026-11-21T23:56:38.631473+00:00"
       }
     },
-    "last_cycle_completed_at": "2026-11-21T19:40:23.564194+00:00",
+    "last_cycle_completed_at": "2026-11-21T23:56:39.192436+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3558,6 +3558,11 @@
         "from": "2026-11-21T12:28+00:00",
         "to": "2026-11-21T19:40+00:00",
         "minutes": 432
+      },
+      {
+        "from": "2026-11-21T19:40+00:00",
+        "to": "2026-11-21T23:56+00:00",
+        "minutes": 256
       }
     ],
     "cycles": [
@@ -3663,6 +3668,10 @@
       },
       {
         "at": "2026-11-21T19:40+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-21T23:56+00:00",
         "trigger": "schedule"
       }
     ],
@@ -4915,6 +4924,57 @@
         "Contesto orario: laterale"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-21T23:56:38.631391+00:00",
+      "candle_ts": 1795303800000,
+      "symbol": "BTCUSD",
+      "key": "squeeze",
+      "title": "Compressione di volatilita'",
+      "direction": "neutro",
+      "score": 55,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 60104.35,
+      "atr_15m": 191.85838379721037,
+      "ema20_15m": 60140.48300460376,
+      "candle_range_atr": 0.47279664409076533,
+      "data_age_minutes": 11.6,
+      "reasons": [
+        "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
+        "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
+        "Contesto orario: laterale"
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-21T23:56:38.631452+00:00",
+      "candle_ts": 1795303800000,
+      "symbol": "BTCUSD",
+      "key": "divergence_bear",
+      "title": "Divergenza ribassista sull'RSI",
+      "direction": "short",
+      "score": 50,
+      "decision": "below_min_score",
+      "detail": "soglia operativa 60",
+      "price": 60104.35,
+      "atr_15m": 191.85838379721037,
+      "ema20_15m": 60140.48300460376,
+      "candle_range_atr": 0.47279664409076533,
+      "data_age_minutes": 11.6,
+      "reasons": [
+        "Il prezzo ha fatto un massimo piu' alto, l'RSI un massimo piu' basso",
+        "RSI passato da 68 a 64",
+        "La spinta in acquisto sta calando, ma serve conferma dal prezzo prima di parlare di inversione"
+      ],
+      "plan": {
+        "entry": 60104.35,
+        "sl": 60500.63751513916,
+        "tp1": 59708.062484860835,
+        "tp2": 59311.77496972167,
+        "structural_target": 59281.9,
+        "warning": null
+      }
     }
   ],
   "oracle": {
