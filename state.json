@@ -12,10 +12,10 @@
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1794787133.8514752,
     "XAUUSD:squeeze": 1795084852.8550332,
-    "BTCUSD:overextension": 1795195184.900118,
+    "BTCUSD:overextension": 1795326743.8440611,
     "BTCUSD:squeeze": 1795305398.63138
   },
-  "last_summary": 1795305399.1923904,
+  "last_summary": 1795326744.3619666,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3411,22 +3411,22 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-21T23:56:35.706006+00:00",
+    "last_cycle_started_at": "2026-11-22T05:52:20.652939+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-21T23:56:38.088778+00:00",
-        "last_candle_ts": 1795303800000,
-        "data_age_minutes": 11.6,
-        "price": 60104.35,
-        "signals_detected": 2
+        "checked_at": "2026-11-22T05:52:23.298646+00:00",
+        "last_candle_ts": 1795325400000,
+        "data_age_minutes": 7.4,
+        "price": 58684.79,
+        "signals_detected": 1
       },
       "XAUUSD": {
         "status": "market_closed",
-        "checked_at": "2026-11-21T23:56:38.631473+00:00"
+        "checked_at": "2026-11-22T05:52:23.844134+00:00"
       }
     },
-    "last_cycle_completed_at": "2026-11-21T23:56:39.192436+00:00",
+    "last_cycle_completed_at": "2026-11-22T05:52:24.362039+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3563,6 +3563,11 @@
         "from": "2026-11-21T19:40+00:00",
         "to": "2026-11-21T23:56+00:00",
         "minutes": 256
+      },
+      {
+        "from": "2026-11-21T23:56+00:00",
+        "to": "2026-11-22T05:52+00:00",
+        "minutes": 356
       }
     ],
     "cycles": [
@@ -3672,6 +3677,10 @@
       },
       {
         "at": "2026-11-21T23:56+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-22T05:52+00:00",
         "trigger": "schedule"
       }
     ],
@@ -4975,6 +4984,28 @@
         "structural_target": 59281.9,
         "warning": null
       }
+    },
+    {
+      "observed_at": "2026-11-22T05:52:23.844071+00:00",
+      "candle_ts": 1795325400000,
+      "symbol": "BTCUSD",
+      "key": "overextension",
+      "title": "Prezzo molto esteso al ribasso",
+      "direction": "neutro",
+      "score": 45,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 58684.79,
+      "atr_15m": 229.33191337628136,
+      "ema20_15m": 59334.920650336586,
+      "candle_range_atr": 1.2670717987828366,
+      "data_age_minutes": 7.4,
+      "reasons": [
+        "Il prezzo dista 2.8 ATR dalla EMA20 sui 15m",
+        "Entrare adesso nella direzione del movimento significa comprare caro o vendere a sconto",
+        "Statisticamente segue una pausa o un ritracciamento, ma un trend forte puo' restare esteso a lungo"
+      ],
+      "plan": null
     }
   ],
   "oracle": {
