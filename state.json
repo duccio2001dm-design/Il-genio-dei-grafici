@@ -1,7 +1,7 @@
 {
   "last_alerts": {
     "BTCUSD:pullback_long": 1793867314.3126047,
-    "BTCUSD:level_approach": 1793806891.7084913,
+    "BTCUSD:level_approach": 1795424921.454487,
     "XAUUSD:level_approach": 1794892072.735765,
     "XAUUSD:breakout_short": 1795006112.7639039,
     "BTCUSD:breakout_long": 1791733766.012543,
@@ -15,7 +15,7 @@
     "BTCUSD:overextension": 1795326743.8440611,
     "BTCUSD:squeeze": 1795305398.63138
   },
-  "last_summary": 1795380488.1707866,
+  "last_summary": 1795424922.333728,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3411,26 +3411,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-23T01:09:46.365994+00:00",
+    "last_cycle_started_at": "2026-11-23T09:08:37.754164+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-23T01:09:47.738895+00:00",
-        "last_candle_ts": 1795394700000,
-        "data_age_minutes": 9.8,
-        "price": 61249.06,
-        "signals_detected": 0
+        "checked_at": "2026-11-23T09:08:40.888679+00:00",
+        "last_candle_ts": 1795423500000,
+        "data_age_minutes": 8.7,
+        "price": 61412.85,
+        "signals_detected": 1
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-23T01:09:47.860422+00:00",
-        "last_candle_ts": 1795394700000,
-        "data_age_minutes": 9.8,
-        "price": 3570.71424,
-        "signals_detected": 1
+        "checked_at": "2026-11-23T09:08:41.759570+00:00",
+        "last_candle_ts": 1795423500000,
+        "data_age_minutes": 8.7,
+        "price": 3614.46926,
+        "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-23T01:09:47.860513+00:00",
+    "last_cycle_completed_at": "2026-11-23T09:08:42.333768+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3587,6 +3587,11 @@
         "from": "2026-11-22T20:48+00:00",
         "to": "2026-11-23T01:09+00:00",
         "minutes": 262
+      },
+      {
+        "from": "2026-11-23T01:09+00:00",
+        "to": "2026-11-23T09:08+00:00",
+        "minutes": 479
       }
     ],
     "cycles": [
@@ -3712,6 +3717,10 @@
       },
       {
         "at": "2026-11-23T01:09+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-23T09:08+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5095,37 +5104,59 @@
         "structural_target": 3585.707465,
         "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.28R: meno di mezzo R di spazio utile."
       }
+    },
+    {
+      "observed_at": "2026-11-23T09:08:41.454499+00:00",
+      "candle_ts": 1795423500000,
+      "symbol": "BTCUSD",
+      "key": "level_approach",
+      "title": "Prezzo sul supporto a 61.365,8",
+      "direction": "neutro",
+      "score": 62,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 61412.85,
+      "atr_15m": 239.54478529634633,
+      "ema20_15m": 61313.079519168044,
+      "candle_range_atr": 0.507379026638551,
+      "data_age_minutes": 8.7,
+      "reasons": [
+        "Livello costruito su 4 tocchi (min orario)",
+        "Distanza attuale: 47,1, meno di mezzo ATR",
+        "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
+      ],
+      "plan": null
     }
   ],
   "oracle": {
     "pending": [
       {
         "symbol": "BTCUSD",
-        "ts": 1795394700000,
-        "price": 61249.06,
+        "ts": 1795423500000,
+        "price": 61412.85,
         "h": {
           "1h": {
-            "p_up": 0.4475,
-            "lean": "down",
+            "p_up": 0.487,
+            "lean": "none",
             "b80": [
-              60831.02,
-              61664.37
+              61032.93,
+              61790.06
             ],
             "b50": [
-              61046.38,
-              61456.43
+              61228.68,
+              61601.22
             ]
           },
           "4h": {
-            "p_up": 0.4507,
-            "lean": "down",
+            "p_up": 0.4796,
+            "lean": "none",
             "b80": [
-              60444.33,
-              62043.29
+              60555.8,
+              62259.42
             ],
             "b50": [
-              60882.2,
-              61632.95
+              61022.05,
+              61821.95
             ]
           }
         },
@@ -5134,22 +5165,22 @@
     ],
     "score": {
       "BTCUSD:1h": {
-        "n": 9,
-        "hits": 4,
-        "brier": 2.2817207199999996,
-        "lean_n": 2,
-        "lean_hits": 1,
+        "n": 10,
+        "hits": 5,
+        "brier": 2.4819769699999994,
+        "lean_n": 3,
+        "lean_hits": 2,
         "in80": 6,
         "in50": 2
       },
       "BTCUSD:4h": {
-        "n": 9,
-        "hits": 4,
-        "brier": 2.22871409,
-        "lean_n": 3,
-        "lean_hits": 2,
-        "in80": 8,
-        "in50": 2
+        "n": 10,
+        "hits": 5,
+        "brier": 2.43184458,
+        "lean_n": 4,
+        "lean_hits": 3,
+        "in80": 9,
+        "in50": 3
       }
     },
     "history": [
@@ -5296,10 +5327,24 @@
         "p_up": 0.5535,
         "up": 1,
         "in80": 0
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1795394700000,
+        "h": "1h",
+        "p_up": 0.4475,
+        "up": 0,
+        "in80": 0
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1795394700000,
+        "h": "4h",
+        "p_up": 0.4507,
+        "up": 0,
+        "in80": 1
       }
     ]
   },
-  "pending_notices": [
-    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 4 ore e 22 minuti</b>\nDalle 22/11 20:48 alle 01:09 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
-  ]
+  "pending_notices": []
 }
