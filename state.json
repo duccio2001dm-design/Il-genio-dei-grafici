@@ -3411,22 +3411,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-22T20:48:04.951880+00:00",
+    "last_cycle_started_at": "2026-11-23T01:09:46.365994+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-22T20:48:07.615710+00:00",
-        "last_candle_ts": 1795379400000,
-        "data_age_minutes": 3.1,
-        "price": 60537.16,
+        "checked_at": "2026-11-23T01:09:47.738895+00:00",
+        "last_candle_ts": 1795394700000,
+        "data_age_minutes": 9.8,
+        "price": 61249.06,
         "signals_detected": 0
       },
       "XAUUSD": {
-        "status": "market_closed",
-        "checked_at": "2026-11-22T20:48:07.623022+00:00"
+        "status": "ok",
+        "checked_at": "2026-11-23T01:09:47.860422+00:00",
+        "last_candle_ts": 1795394700000,
+        "data_age_minutes": 9.8,
+        "price": 3570.71424,
+        "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-22T20:48:08.170830+00:00",
+    "last_cycle_completed_at": "2026-11-23T01:09:47.860513+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3578,6 +3582,11 @@
         "from": "2026-11-22T14:20+00:00",
         "to": "2026-11-22T20:48+00:00",
         "minutes": 388
+      },
+      {
+        "from": "2026-11-22T20:48+00:00",
+        "to": "2026-11-23T01:09+00:00",
+        "minutes": 262
       }
     ],
     "cycles": [
@@ -3699,6 +3708,10 @@
       },
       {
         "at": "2026-11-22T20:48+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-23T01:09+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5053,10 +5066,72 @@
         "structural_target": 60443.08,
         "warning": "\u26a0\ufe0f Ostacolo strutturale a 0.21R: meno di mezzo R di spazio utile."
       }
+    },
+    {
+      "observed_at": "2026-11-23T01:09:47.860492+00:00",
+      "candle_ts": 1795394700000,
+      "symbol": "XAUUSD",
+      "key": "divergence_bull",
+      "title": "Divergenza rialzista sull'RSI",
+      "direction": "long",
+      "score": 50,
+      "decision": "quiet_hours",
+      "detail": "orario di silenzio UTC",
+      "price": 3570.71424,
+      "atr_15m": 7.560590448488661,
+      "ema20_15m": 3555.827066067725,
+      "candle_range_atr": 1.3412907456225354,
+      "data_age_minutes": 9.8,
+      "reasons": [
+        "Il prezzo ha fatto un minimo piu' basso, l'RSI un minimo piu' alto",
+        "RSI passato da 13 a 94",
+        "La pressione in vendita sta calando, ma serve conferma dal prezzo prima di parlare di inversione"
+      ],
+      "plan": {
+        "entry": 3570.71424,
+        "sl": 3517.969954775756,
+        "tp1": 3623.4585252242437,
+        "tp2": 3676.2028104484875,
+        "structural_target": 3585.707465,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.28R: meno di mezzo R di spazio utile."
+      }
     }
   ],
   "oracle": {
-    "pending": [],
+    "pending": [
+      {
+        "symbol": "BTCUSD",
+        "ts": 1795394700000,
+        "price": 61249.06,
+        "h": {
+          "1h": {
+            "p_up": 0.4475,
+            "lean": "down",
+            "b80": [
+              60831.02,
+              61664.37
+            ],
+            "b50": [
+              61046.38,
+              61456.43
+            ]
+          },
+          "4h": {
+            "p_up": 0.4507,
+            "lean": "down",
+            "b80": [
+              60444.33,
+              62043.29
+            ],
+            "b50": [
+              60882.2,
+              61632.95
+            ]
+          }
+        },
+        "done": []
+      }
+    ],
     "score": {
       "BTCUSD:1h": {
         "n": 9,
@@ -5224,5 +5299,7 @@
       }
     ]
   },
-  "pending_notices": []
+  "pending_notices": [
+    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 4 ore e 22 minuti</b>\nDalle 22/11 20:48 alle 01:09 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
+  ]
 }
