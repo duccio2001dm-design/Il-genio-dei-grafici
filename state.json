@@ -1,7 +1,7 @@
 {
   "last_alerts": {
     "BTCUSD:pullback_long": 1793867314.3126047,
-    "BTCUSD:level_approach": 1795469269.9849894,
+    "BTCUSD:level_approach": 1795498061.1375403,
     "XAUUSD:level_approach": 1794892072.735765,
     "XAUUSD:breakout_short": 1795006112.7639039,
     "BTCUSD:breakout_long": 1791733766.012543,
@@ -15,7 +15,7 @@
     "BTCUSD:overextension": 1795326743.8440611,
     "BTCUSD:squeeze": 1795305398.63138
   },
-  "last_summary": 1795469270.312116,
+  "last_summary": 1795498061.843321,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3411,22 +3411,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-23T21:27:48.032215+00:00",
+    "last_cycle_started_at": "2026-11-24T05:27:38.361195+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-23T21:27:49.640705+00:00",
-        "last_candle_ts": 1795467600000,
-        "data_age_minutes": 12.8,
-        "price": 61301.27,
+        "checked_at": "2026-11-24T05:27:40.687596+00:00",
+        "last_candle_ts": 1795496400000,
+        "data_age_minutes": 12.7,
+        "price": 60505.41,
         "signals_detected": 1
       },
       "XAUUSD": {
-        "status": "market_closed",
-        "checked_at": "2026-11-23T21:27:49.985067+00:00"
+        "status": "ok",
+        "checked_at": "2026-11-24T05:27:41.398497+00:00",
+        "last_candle_ts": 1795496400000,
+        "data_age_minutes": 12.7,
+        "price": 3636.82501,
+        "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-23T21:27:50.312163+00:00",
+    "last_cycle_completed_at": "2026-11-24T05:27:41.843366+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3593,6 +3597,11 @@
         "from": "2026-11-23T09:08+00:00",
         "to": "2026-11-23T21:27+00:00",
         "minutes": 739
+      },
+      {
+        "from": "2026-11-23T21:27+00:00",
+        "to": "2026-11-24T05:27+00:00",
+        "minutes": 480
       }
     ],
     "cycles": [
@@ -3726,6 +3735,10 @@
       },
       {
         "at": "2026-11-23T21:27+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-24T05:27+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5150,6 +5163,28 @@
       "reasons": [
         "Livello costruito su 6 tocchi (max orario)",
         "Distanza attuale: 78,4, meno di mezzo ATR",
+        "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-24T05:27:41.137550+00:00",
+      "candle_ts": 1795496400000,
+      "symbol": "BTCUSD",
+      "key": "level_approach",
+      "title": "Prezzo sul resistenza a 60.550,5",
+      "direction": "neutro",
+      "score": 62,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 60505.41,
+      "atr_15m": 331.371614650098,
+      "ema20_15m": 60579.34387514607,
+      "candle_range_atr": 1.023322412084273,
+      "data_age_minutes": 12.7,
+      "reasons": [
+        "Livello costruito su 5 tocchi (min orario)",
+        "Distanza attuale: 45,1, meno di mezzo ATR",
         "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
       ],
       "plan": null
