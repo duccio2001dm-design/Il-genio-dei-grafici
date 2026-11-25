@@ -3429,12 +3429,12 @@
       "tp1_hit": false,
       "tp2_hit": false,
       "risk_per_unit": 84.88053764837377,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "mfe_r": 0.0,
-      "mae_r": 0.0,
+      "mfe_units": 29.690909999999803,
+      "mae_units": 8.540750000000116,
+      "mfe_r": 0.3497964412407165,
+      "mae_r": 0.10062082824429128,
       "tp1_ts": null,
-      "last_checked_ts": 1795535100000,
+      "last_checked_ts": 1795566600000,
       "outcome_ts": null,
       "outcome_note": null,
       "shadow": true,
@@ -3443,26 +3443,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-24T16:11:48.448612+00:00",
+    "last_cycle_started_at": "2026-11-25T00:46:32.146546+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-24T16:11:50.590575+00:00",
-        "last_candle_ts": 1795535100000,
-        "data_age_minutes": 11.8,
-        "price": 59642.51,
+        "checked_at": "2026-11-25T00:46:33.926414+00:00",
+        "last_candle_ts": 1795566600000,
+        "data_age_minutes": 1.6,
+        "price": 59527.42,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-24T16:11:50.771747+00:00",
-        "last_candle_ts": 1795535100000,
-        "data_age_minutes": 11.8,
-        "price": 3567.61321,
-        "signals_detected": 2
+        "checked_at": "2026-11-25T00:46:34.238570+00:00",
+        "last_candle_ts": 1795566600000,
+        "data_age_minutes": 1.6,
+        "price": 3542.88923,
+        "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-24T16:11:51.463433+00:00",
+    "last_cycle_completed_at": "2026-11-25T00:46:34.238813+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3639,6 +3639,11 @@
         "from": "2026-11-24T05:27+00:00",
         "to": "2026-11-24T16:11+00:00",
         "minutes": 644
+      },
+      {
+        "from": "2026-11-24T16:11+00:00",
+        "to": "2026-11-25T00:46+00:00",
+        "minutes": 515
       }
     ],
     "cycles": [
@@ -3780,6 +3785,10 @@
       },
       {
         "at": "2026-11-24T16:11+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-25T00:46+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5283,58 +5292,25 @@
     }
   ],
   "oracle": {
-    "pending": [
-      {
-        "symbol": "BTCUSD",
-        "ts": 1795535100000,
-        "price": 59642.51,
-        "h": {
-          "1h": {
-            "p_up": 0.5651,
-            "lean": "up",
-            "b80": [
-              58987.01,
-              60296.47
-            ],
-            "b50": [
-              59324.35,
-              59968.69
-            ]
-          },
-          "4h": {
-            "p_up": 0.5621,
-            "lean": "up",
-            "b80": [
-              58412.96,
-              60865.16
-            ],
-            "b50": [
-              59080.82,
-              60232.34
-            ]
-          }
-        },
-        "done": []
-      }
-    ],
+    "pending": [],
     "score": {
       "BTCUSD:1h": {
-        "n": 11,
+        "n": 12,
         "hits": 6,
-        "brier": 2.7191459699999996,
-        "lean_n": 3,
+        "brier": 3.0384839799999996,
+        "lean_n": 4,
         "lean_hits": 2,
-        "in80": 7,
-        "in50": 3
+        "in80": 8,
+        "in50": 4
       },
       "BTCUSD:4h": {
-        "n": 11,
+        "n": 12,
         "hits": 6,
-        "brier": 2.66186074,
-        "lean_n": 4,
+        "brier": 2.97781715,
+        "lean_n": 5,
         "lean_hits": 3,
-        "in80": 10,
-        "in50": 4
+        "in80": 11,
+        "in50": 5
       }
     },
     "history": [
@@ -5513,8 +5489,26 @@
         "p_up": 0.4796,
         "up": 0,
         "in80": 1
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1795535100000,
+        "h": "1h",
+        "p_up": 0.5651,
+        "up": 0,
+        "in80": 1
+      },
+      {
+        "symbol": "BTCUSD",
+        "ts": 1795535100000,
+        "h": "4h",
+        "p_up": 0.5621,
+        "up": 0,
+        "in80": 1
       }
     ]
   },
-  "pending_notices": []
+  "pending_notices": [
+    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 8 ore e 35 minuti</b>\nDalle 24/11 16:11 alle 00:46 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
+  ]
 }
