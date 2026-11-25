@@ -15,7 +15,7 @@
     "BTCUSD:overextension": 1795326743.8440611,
     "BTCUSD:squeeze": 1795305398.63138
   },
-  "last_summary": 1795598183.7129123,
+  "last_summary": 1795634577.0368447,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3426,15 +3426,15 @@
       "entry_ts": 1795535100000,
       "created_at": 1795536711.1098437,
       "status": "open",
-      "tp1_hit": false,
+      "tp1_hit": true,
       "tp2_hit": false,
       "risk_per_unit": 84.88053764837377,
-      "mfe_units": 55.23709000000008,
+      "mfe_units": 141.13364,
       "mae_units": 8.540750000000116,
-      "mfe_r": 0.6507627252412717,
+      "mfe_r": 1.662732634713748,
       "mae_r": 0.10062082824429128,
-      "tp1_ts": null,
-      "last_checked_ts": 1795597200000,
+      "tp1_ts": 1795613400000,
+      "last_checked_ts": 1795633200000,
       "outcome_ts": null,
       "outcome_note": null,
       "shadow": true,
@@ -3457,21 +3457,21 @@
       "money_at_risk": 10.0,
       "entry_ts": 1795597200000,
       "created_at": 1795598182.3646913,
-      "status": "open",
-      "tp1_hit": false,
-      "tp2_hit": false,
+      "status": "tp2",
+      "tp1_hit": true,
+      "tp2_hit": true,
       "risk_per_unit": 487.3048558432638,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "mfe_r": 0.0,
-      "mae_r": 0.0,
-      "tp1_ts": null,
-      "last_checked_ts": 1795597200000,
-      "outcome_ts": null,
-      "outcome_note": null,
+      "mfe_units": 1113.5800000000017,
+      "mae_units": 182.58000000000175,
+      "mfe_r": 2.2851814149748026,
+      "mae_r": 0.3746730569389741,
+      "tp1_ts": 1795605300000,
+      "last_checked_ts": 1795613400000,
+      "outcome_ts": 1795614300000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m.",
       "shadow": false,
       "be_hit": false,
-      "managed_r": null
+      "managed_r": 1.5
     },
     {
       "id": "XAUUSD|pullback_short|1795597200000|3530.14118000",
@@ -3489,44 +3489,44 @@
       "money_at_risk": 10.0,
       "entry_ts": 1795597200000,
       "created_at": 1795598183.180175,
-      "status": "open",
-      "tp1_hit": false,
-      "tp2_hit": false,
+      "status": "tp2",
+      "tp1_hit": true,
+      "tp2_hit": true,
       "risk_per_unit": 14.064799131709151,
-      "mfe_units": 0.0,
-      "mae_units": 0.0,
-      "mfe_r": 0.0,
-      "mae_r": 0.0,
-      "tp1_ts": null,
-      "last_checked_ts": 1795597200000,
-      "outcome_ts": null,
-      "outcome_note": null,
+      "mfe_units": 38.16229999999996,
+      "mae_units": 7.678109999999833,
+      "mfe_r": 2.7133199445389082,
+      "mae_r": 0.54590968047951,
+      "tp1_ts": 1795606200000,
+      "last_checked_ts": 1795606200000,
+      "outcome_ts": 1795607100000,
+      "outcome_note": "Target 2 raggiunto sulla candela 15m.",
       "shadow": false,
       "be_hit": false,
-      "managed_r": null
+      "managed_r": 1.5
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-25T09:16:18.862965+00:00",
+    "last_cycle_started_at": "2026-11-25T19:22:51.429156+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-25T09:16:21.789273+00:00",
-        "last_candle_ts": 1795597200000,
-        "data_age_minutes": 1.4,
-        "price": 58993.58,
+        "checked_at": "2026-11-25T19:22:54.092796+00:00",
+        "last_candle_ts": 1795633200000,
+        "data_age_minutes": 7.9,
+        "price": 59842.8,
         "signals_detected": 1
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-25T09:16:22.639258+00:00",
-        "last_candle_ts": 1795597200000,
-        "data_age_minutes": 1.4,
-        "price": 3530.14118,
+        "checked_at": "2026-11-25T19:22:55.445921+00:00",
+        "last_candle_ts": 1795633200000,
+        "data_age_minutes": 7.9,
+        "price": 3550.60346,
         "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-25T09:16:23.712963+00:00",
+    "last_cycle_completed_at": "2026-11-25T19:22:57.036886+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3713,6 +3713,11 @@
         "from": "2026-11-25T00:46+00:00",
         "to": "2026-11-25T09:16+00:00",
         "minutes": 510
+      },
+      {
+        "from": "2026-11-25T09:16+00:00",
+        "to": "2026-11-25T19:22+00:00",
+        "minutes": 606
       }
     ],
     "cycles": [
@@ -3862,6 +3867,10 @@
       },
       {
         "at": "2026-11-25T09:16+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-25T19:22+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5425,6 +5434,63 @@
         "tp2": 3502.011581736582,
         "structural_target": 3510.51291,
         "warning": null
+      }
+    },
+    {
+      "observed_at": "2026-11-25T19:22:55.156199+00:00",
+      "candle_ts": 1795633200000,
+      "symbol": "BTCUSD",
+      "key": "divergence_bull",
+      "title": "Divergenza rialzista sull'RSI",
+      "direction": "long",
+      "score": 50,
+      "decision": "below_min_score",
+      "detail": "soglia operativa 60",
+      "price": 59842.8,
+      "atr_15m": 482.0549227535729,
+      "ema20_15m": 59075.465102918686,
+      "candle_range_atr": 0.717387135110294,
+      "data_age_minutes": 7.9,
+      "reasons": [
+        "Il prezzo ha fatto un minimo piu' basso, l'RSI un minimo piu' alto",
+        "RSI passato da 36 a 44",
+        "La pressione in vendita sta calando, ma serve conferma dal prezzo prima di parlare di inversione"
+      ],
+      "plan": {
+        "entry": 59842.8,
+        "sl": 57752.11352317393,
+        "tp1": 61933.486476826074,
+        "tp2": 64024.172953652145,
+        "structural_target": 60360.78142857143,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.25R: meno di mezzo R di spazio utile."
+      }
+    },
+    {
+      "observed_at": "2026-11-25T19:22:56.511025+00:00",
+      "candle_ts": 1795633200000,
+      "symbol": "XAUUSD",
+      "key": "momentum_up_1h",
+      "title": "L'inerzia oraria passa al rialzo",
+      "direction": "long",
+      "score": 48,
+      "decision": "below_min_score",
+      "detail": "soglia operativa 60",
+      "price": 3550.60346,
+      "atr_15m": 18.774813071527557,
+      "ema20_15m": 3506.3662816651963,
+      "candle_range_atr": 1.192965272925493,
+      "data_age_minutes": 7.9,
+      "reasons": [
+        "L'istogramma MACD sull'orario ha superato lo zero",
+        "Trend orario attuale: laterale"
+      ],
+      "plan": {
+        "entry": 3550.60346,
+        "sl": 3428.4677934642364,
+        "tp1": 3672.7391265357633,
+        "tp2": 3794.8747930715267,
+        "structural_target": 3582.982075,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.27R: meno di mezzo R di spazio utile."
       }
     }
   ],
