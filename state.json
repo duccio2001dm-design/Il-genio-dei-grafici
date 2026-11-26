@@ -3430,16 +3430,17 @@
       "tp2_hit": false,
       "risk_per_unit": 84.88053764837377,
       "mfe_units": 141.13364,
-      "mae_units": 8.540750000000116,
+      "mae_units": 22.46172000000024,
       "mfe_r": 1.662732634713748,
-      "mae_r": 0.10062082824429128,
+      "mae_r": 0.2646274472606452,
       "tp1_ts": 1795613400000,
-      "last_checked_ts": 1795633200000,
+      "last_checked_ts": 1795658400000,
       "outcome_ts": null,
       "outcome_note": null,
       "shadow": true,
-      "be_hit": false,
-      "managed_r": null
+      "be_hit": true,
+      "managed_r": 0.5,
+      "be_ts": 1795636800000
     },
     {
       "id": "BTCUSD|pullback_short|1795597200000|58993.58000000",
@@ -3507,26 +3508,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-25T19:22:51.429156+00:00",
+    "last_cycle_started_at": "2026-11-26T02:23:58.101618+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-25T19:22:54.092796+00:00",
-        "last_candle_ts": 1795633200000,
-        "data_age_minutes": 7.9,
-        "price": 59842.8,
-        "signals_detected": 1
+        "checked_at": "2026-11-26T02:23:59.898395+00:00",
+        "last_candle_ts": 1795658400000,
+        "data_age_minutes": 9.0,
+        "price": 60757.91,
+        "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-25T19:22:55.445921+00:00",
-        "last_candle_ts": 1795633200000,
-        "data_age_minutes": 7.9,
-        "price": 3550.60346,
-        "signals_detected": 1
+        "checked_at": "2026-11-26T02:24:00.168954+00:00",
+        "last_candle_ts": 1795658400000,
+        "data_age_minutes": 9.0,
+        "price": 3582.63058,
+        "signals_detected": 0
       }
     },
-    "last_cycle_completed_at": "2026-11-25T19:22:57.036886+00:00",
+    "last_cycle_completed_at": "2026-11-26T02:24:00.169173+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3718,6 +3719,11 @@
         "from": "2026-11-25T09:16+00:00",
         "to": "2026-11-25T19:22+00:00",
         "minutes": 606
+      },
+      {
+        "from": "2026-11-25T19:22+00:00",
+        "to": "2026-11-26T02:23+00:00",
+        "minutes": 421
       }
     ],
     "cycles": [
@@ -3871,6 +3877,10 @@
       },
       {
         "at": "2026-11-25T19:22+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-26T02:23+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5711,5 +5721,7 @@
       }
     ]
   },
-  "pending_notices": []
+  "pending_notices": [
+    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 7 ore e 1 minuti</b>\nDalle 25/11 19:22 alle 02:23 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
+  ]
 }
