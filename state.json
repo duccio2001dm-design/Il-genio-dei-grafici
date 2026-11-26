@@ -2,7 +2,7 @@
   "last_alerts": {
     "BTCUSD:pullback_long": 1793867314.3126047,
     "BTCUSD:level_approach": 1795498061.1375403,
-    "XAUUSD:level_approach": 1794892072.735765,
+    "XAUUSD:level_approach": 1795692140.2003841,
     "XAUUSD:breakout_short": 1795536711.1098022,
     "BTCUSD:breakout_long": 1791733766.012543,
     "XAUUSD:breakout_long": 1792362511.879453,
@@ -15,7 +15,7 @@
     "BTCUSD:overextension": 1795326743.8440611,
     "BTCUSD:squeeze": 1795305398.63138
   },
-  "last_summary": 1795634577.0368447,
+  "last_summary": 1795692140.765907,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3430,11 +3430,11 @@
       "tp2_hit": false,
       "risk_per_unit": 84.88053764837377,
       "mfe_units": 141.13364,
-      "mae_units": 22.46172000000024,
+      "mae_units": 38.84956999999986,
       "mfe_r": 1.662732634713748,
-      "mae_r": 0.2646274472606452,
+      "mae_r": 0.45769703015947116,
       "tp1_ts": 1795613400000,
-      "last_checked_ts": 1795658400000,
+      "last_checked_ts": 1795690800000,
       "outcome_ts": null,
       "outcome_note": null,
       "shadow": true,
@@ -3508,26 +3508,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-26T02:23:58.101618+00:00",
+    "last_cycle_started_at": "2026-11-26T11:22:16.066211+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-26T02:23:59.898395+00:00",
-        "last_candle_ts": 1795658400000,
-        "data_age_minutes": 9.0,
-        "price": 60757.91,
+        "checked_at": "2026-11-26T11:22:19.261386+00:00",
+        "last_candle_ts": 1795690800000,
+        "data_age_minutes": 7.3,
+        "price": 60527.38,
         "signals_detected": 0
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-26T02:24:00.168954+00:00",
-        "last_candle_ts": 1795658400000,
-        "data_age_minutes": 9.0,
-        "price": 3582.63058,
-        "signals_detected": 0
+        "checked_at": "2026-11-26T11:22:19.562645+00:00",
+        "last_candle_ts": 1795690800000,
+        "data_age_minutes": 7.3,
+        "price": 3566.91952,
+        "signals_detected": 2
       }
     },
-    "last_cycle_completed_at": "2026-11-26T02:24:00.169173+00:00",
+    "last_cycle_completed_at": "2026-11-26T11:22:20.765956+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3724,6 +3724,11 @@
         "from": "2026-11-25T19:22+00:00",
         "to": "2026-11-26T02:23+00:00",
         "minutes": 421
+      },
+      {
+        "from": "2026-11-26T02:24+00:00",
+        "to": "2026-11-26T11:22+00:00",
+        "minutes": 538
       }
     ],
     "cycles": [
@@ -3881,6 +3886,10 @@
       },
       {
         "at": "2026-11-26T02:23+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-26T11:22+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5502,6 +5511,50 @@
         "structural_target": 3582.982075,
         "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.27R: meno di mezzo R di spazio utile."
       }
+    },
+    {
+      "observed_at": "2026-11-26T11:22:20.200393+00:00",
+      "candle_ts": 1795690800000,
+      "symbol": "XAUUSD",
+      "key": "level_approach",
+      "title": "Prezzo sul resistenza a 3.568,77",
+      "direction": "neutro",
+      "score": 58,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 3566.91952,
+      "atr_15m": 8.796747329050387,
+      "ema20_15m": 3568.4038979882143,
+      "candle_range_atr": 1.423360195722653,
+      "data_age_minutes": 7.3,
+      "reasons": [
+        "Livello costruito su 2 tocchi (min orario)",
+        "Distanza attuale: 1,85, meno di mezzo ATR",
+        "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-26T11:22:20.200457+00:00",
+      "candle_ts": 1795690800000,
+      "symbol": "XAUUSD",
+      "key": "squeeze",
+      "title": "Compressione di volatilita'",
+      "direction": "neutro",
+      "score": 55,
+      "decision": "one_alert_per_kind",
+      "detail": "avviso della stessa categoria gia' inviato nel ciclo",
+      "price": 3566.91952,
+      "atr_15m": 8.796747329050387,
+      "ema20_15m": 3568.4038979882143,
+      "candle_range_atr": 1.423360195722653,
+      "data_age_minutes": 7.3,
+      "reasons": [
+        "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
+        "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
+        "Contesto orario: ribassista debole"
+      ],
+      "plan": null
     }
   ],
   "oracle": {
@@ -5721,7 +5774,5 @@
       }
     ]
   },
-  "pending_notices": [
-    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 7 ore e 1 minuti</b>\nDalle 25/11 19:22 alle 02:23 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
-  ]
+  "pending_notices": []
 }
