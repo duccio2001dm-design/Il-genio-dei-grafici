@@ -11,11 +11,11 @@
     "BTCUSD:pullback_short": 1795598182.3646328,
     "XAUUSD:pullback_long": 1793867315.0393622,
     "XAUUSD:overextension": 1795536711.1097145,
-    "XAUUSD:squeeze": 1795084852.8550332,
+    "XAUUSD:squeeze": 1795724823.838205,
     "BTCUSD:overextension": 1795326743.8440611,
-    "BTCUSD:squeeze": 1795305398.63138
+    "BTCUSD:squeeze": 1795724823.4008234
   },
-  "last_summary": 1795692140.765907,
+  "last_summary": 1795724824.1568077,
   "update_offset": 917340068,
   "trade_journal": [
     {
@@ -3434,7 +3434,7 @@
       "mfe_r": 1.662732634713748,
       "mae_r": 0.45769703015947116,
       "tp1_ts": 1795613400000,
-      "last_checked_ts": 1795690800000,
+      "last_checked_ts": 1795723200000,
       "outcome_ts": null,
       "outcome_note": null,
       "shadow": true,
@@ -3508,26 +3508,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-26T11:22:16.066211+00:00",
+    "last_cycle_started_at": "2026-11-26T20:27:01.600751+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-26T11:22:19.261386+00:00",
-        "last_candle_ts": 1795690800000,
-        "data_age_minutes": 7.3,
-        "price": 60527.38,
-        "signals_detected": 0
+        "checked_at": "2026-11-26T20:27:03.105544+00:00",
+        "last_candle_ts": 1795723200000,
+        "data_age_minutes": 12.1,
+        "price": 60660.43,
+        "signals_detected": 1
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-26T11:22:19.562645+00:00",
-        "last_candle_ts": 1795690800000,
-        "data_age_minutes": 7.3,
-        "price": 3566.91952,
-        "signals_detected": 2
+        "checked_at": "2026-11-26T20:27:03.522044+00:00",
+        "last_candle_ts": 1795723200000,
+        "data_age_minutes": 12.1,
+        "price": 3567.44561,
+        "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-26T11:22:20.765956+00:00",
+    "last_cycle_completed_at": "2026-11-26T20:27:04.156850+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3729,6 +3729,11 @@
         "from": "2026-11-26T02:24+00:00",
         "to": "2026-11-26T11:22+00:00",
         "minutes": 538
+      },
+      {
+        "from": "2026-11-26T11:22+00:00",
+        "to": "2026-11-26T20:27+00:00",
+        "minutes": 545
       }
     ],
     "cycles": [
@@ -3890,6 +3895,10 @@
       },
       {
         "at": "2026-11-26T11:22+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-26T20:27+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5553,6 +5562,50 @@
         "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
         "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
         "Contesto orario: ribassista debole"
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-26T20:27:03.400832+00:00",
+      "candle_ts": 1795723200000,
+      "symbol": "BTCUSD",
+      "key": "squeeze",
+      "title": "Compressione di volatilita'",
+      "direction": "neutro",
+      "score": 55,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 60660.43,
+      "atr_15m": 182.20513328086486,
+      "ema20_15m": 60538.720484031146,
+      "candle_range_atr": 0.47452011062017174,
+      "data_age_minutes": 12.1,
+      "reasons": [
+        "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
+        "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
+        "Contesto orario: laterale"
+      ],
+      "plan": null
+    },
+    {
+      "observed_at": "2026-11-26T20:27:03.838217+00:00",
+      "candle_ts": 1795723200000,
+      "symbol": "XAUUSD",
+      "key": "squeeze",
+      "title": "Compressione di volatilita'",
+      "direction": "neutro",
+      "score": 55,
+      "decision": "sent",
+      "detail": "invio Telegram confermato",
+      "price": 3567.44561,
+      "atr_15m": 3.5921962864740506,
+      "ema20_15m": 3568.906535294773,
+      "candle_range_atr": 0.061909200462481835,
+      "data_age_minutes": 12.1,
+      "reasons": [
+        "L'ampiezza delle Bollinger e' ai minimi delle ultime 100 candele da 15m",
+        "Fasi cosi' finiscono quasi sempre con un'espansione, ma la direzione non e' deducibile da qui",
+        "Contesto orario: laterale"
       ],
       "plan": null
     }
