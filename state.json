@@ -3430,11 +3430,11 @@
       "tp2_hit": false,
       "risk_per_unit": 84.88053764837377,
       "mfe_units": 141.13364,
-      "mae_units": 38.84956999999986,
+      "mae_units": 67.29646000000002,
       "mfe_r": 1.662732634713748,
-      "mae_r": 0.45769703015947116,
+      "mae_r": 0.7928373436886371,
       "tp1_ts": 1795613400000,
-      "last_checked_ts": 1795723200000,
+      "last_checked_ts": 1795747500000,
       "outcome_ts": null,
       "outcome_note": null,
       "shadow": true,
@@ -3508,26 +3508,26 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-26T20:27:01.600751+00:00",
+    "last_cycle_started_at": "2026-11-27T03:07:39.733899+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-26T20:27:03.105544+00:00",
-        "last_candle_ts": 1795723200000,
-        "data_age_minutes": 12.1,
-        "price": 60660.43,
+        "checked_at": "2026-11-27T03:07:41.623146+00:00",
+        "last_candle_ts": 1795747500000,
+        "data_age_minutes": 7.7,
+        "price": 61239.89,
         "signals_detected": 1
       },
       "XAUUSD": {
         "status": "ok",
-        "checked_at": "2026-11-26T20:27:03.522044+00:00",
-        "last_candle_ts": 1795723200000,
-        "data_age_minutes": 12.1,
-        "price": 3567.44561,
+        "checked_at": "2026-11-27T03:07:41.954004+00:00",
+        "last_candle_ts": 1795747500000,
+        "data_age_minutes": 7.7,
+        "price": 3622.76691,
         "signals_detected": 1
       }
     },
-    "last_cycle_completed_at": "2026-11-26T20:27:04.156850+00:00",
+    "last_cycle_completed_at": "2026-11-27T03:07:41.954245+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3734,6 +3734,11 @@
         "from": "2026-11-26T11:22+00:00",
         "to": "2026-11-26T20:27+00:00",
         "minutes": 545
+      },
+      {
+        "from": "2026-11-26T20:27+00:00",
+        "to": "2026-11-27T03:07+00:00",
+        "minutes": 401
       }
     ],
     "cycles": [
@@ -3899,6 +3904,10 @@
       },
       {
         "at": "2026-11-26T20:27+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-27T03:07+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5608,10 +5617,93 @@
         "Contesto orario: laterale"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-27T03:07:41.627888+00:00",
+      "candle_ts": 1795747500000,
+      "symbol": "BTCUSD",
+      "key": "momentum_up_1h",
+      "title": "L'inerzia oraria passa al rialzo",
+      "direction": "long",
+      "score": 48,
+      "decision": "quiet_hours",
+      "detail": "orario di silenzio UTC",
+      "price": 61239.89,
+      "atr_15m": 242.09018490221519,
+      "ema20_15m": 60831.88106499306,
+      "candle_range_atr": 0.8434047009484191,
+      "data_age_minutes": 7.7,
+      "reasons": [
+        "L'istogramma MACD sull'orario ha superato lo zero",
+        "Trend orario attuale: laterale"
+      ],
+      "plan": {
+        "entry": 61239.89,
+        "sl": 60212.81294452934,
+        "tp1": 62266.96705547066,
+        "tp2": 63294.04411094132,
+        "structural_target": 61432.246666666666,
+        "warning": "Stop tecnico molto largo rispetto alla volatilita': il rapporto rischio/rendimento parte penalizzato. \u26a0\ufe0f Ostacolo strutturale a 0.19R: meno di mezzo R di spazio utile."
+      }
+    },
+    {
+      "observed_at": "2026-11-27T03:07:41.954225+00:00",
+      "candle_ts": 1795747500000,
+      "symbol": "XAUUSD",
+      "key": "overextension",
+      "title": "Prezzo molto esteso al rialzo",
+      "direction": "neutro",
+      "score": 45,
+      "decision": "quiet_hours",
+      "detail": "orario di silenzio UTC",
+      "price": 3622.76691,
+      "atr_15m": 8.966455725900149,
+      "ema20_15m": 3587.2187886894644,
+      "candle_range_atr": 0.6595716502471718,
+      "data_age_minutes": 7.7,
+      "reasons": [
+        "Il prezzo dista 4.0 ATR dalla EMA20 sui 15m",
+        "Entrare adesso nella direzione del movimento significa comprare caro o vendere a sconto",
+        "Statisticamente segue una pausa o un ritracciamento, ma un trend forte puo' restare esteso a lungo"
+      ],
+      "plan": null
     }
   ],
   "oracle": {
-    "pending": [],
+    "pending": [
+      {
+        "symbol": "BTCUSD",
+        "ts": 1795747500000,
+        "price": 61239.89,
+        "h": {
+          "1h": {
+            "p_up": 0.477,
+            "lean": "none",
+            "b80": [
+              60814.1,
+              61662.96
+            ],
+            "b50": [
+              61033.45,
+              61451.12
+            ]
+          },
+          "4h": {
+            "p_up": 0.4772,
+            "lean": "none",
+            "b80": [
+              60344.8,
+              62124.61
+            ],
+            "b50": [
+              60831.67,
+              61667.36
+            ]
+          }
+        },
+        "done": []
+      }
+    ],
     "score": {
       "BTCUSD:1h": {
         "n": 12,
@@ -5827,5 +5919,7 @@
       }
     ]
   },
-  "pending_notices": []
+  "pending_notices": [
+    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 6 ore e 41 minuti</b>\nDalle 26/11 20:27 alle 03:07 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
+  ]
 }
