@@ -3508,22 +3508,22 @@
     }
   ],
   "health": {
-    "last_cycle_started_at": "2026-11-27T21:33:48.393318+00:00",
+    "last_cycle_started_at": "2026-11-28T03:29:22.225312+00:00",
     "symbols": {
       "BTCUSD": {
         "status": "ok",
-        "checked_at": "2026-11-27T21:33:51.094897+00:00",
-        "last_candle_ts": 1795814100000,
-        "data_age_minutes": 3.9,
-        "price": 59759.49,
-        "signals_detected": 0
+        "checked_at": "2026-11-28T03:29:23.816600+00:00",
+        "last_candle_ts": 1795834800000,
+        "data_age_minutes": 14.4,
+        "price": 59919.67,
+        "signals_detected": 1
       },
       "XAUUSD": {
         "status": "market_closed",
-        "checked_at": "2026-11-27T21:33:51.099461+00:00"
+        "checked_at": "2026-11-28T03:29:23.821288+00:00"
       }
     },
-    "last_cycle_completed_at": "2026-11-27T21:33:51.614657+00:00",
+    "last_cycle_completed_at": "2026-11-28T03:29:23.821297+00:00",
     "last_cycle_status": "ok",
     "gaps": [
       {
@@ -3745,6 +3745,11 @@
         "from": "2026-11-27T12:26+00:00",
         "to": "2026-11-27T21:33+00:00",
         "minutes": 547
+      },
+      {
+        "from": "2026-11-27T21:33+00:00",
+        "to": "2026-11-28T03:29+00:00",
+        "minutes": 356
       }
     ],
     "cycles": [
@@ -3922,6 +3927,10 @@
       },
       {
         "at": "2026-11-27T21:33+00:00",
+        "trigger": "schedule"
+      },
+      {
+        "at": "2026-11-28T03:29+00:00",
         "trigger": "schedule"
       }
     ],
@@ -5703,6 +5712,28 @@
         "Contesto orario: laterale"
       ],
       "plan": null
+    },
+    {
+      "observed_at": "2026-11-28T03:29:23.821272+00:00",
+      "candle_ts": 1795834800000,
+      "symbol": "BTCUSD",
+      "key": "level_approach",
+      "title": "Prezzo sul resistenza a 59.927,5",
+      "direction": "neutro",
+      "score": 58,
+      "decision": "quiet_hours",
+      "detail": "orario di silenzio UTC",
+      "price": 59919.67,
+      "atr_15m": 137.74531288911248,
+      "ema20_15m": 59938.81368917865,
+      "candle_range_atr": 0.6288417237814351,
+      "data_age_minutes": 14.4,
+      "reasons": [
+        "Livello costruito su 2 tocchi (min orario)",
+        "Distanza attuale: 7,9, meno di mezzo ATR",
+        "Qui il mercato decide: o rimbalza o lo rompe. Vale la pena guardare come reagisce."
+      ],
+      "plan": null
     }
   ],
   "oracle": {
@@ -5938,5 +5969,7 @@
       }
     ]
   },
-  "pending_notices": []
+  "pending_notices": [
+    "\u23f1\ufe0f <b>Il bot \u00e8 rimasto fermo 5 ore e 56 minuti</b>\nDalle 27/11 21:33 alle 03:29 UTC.\nGli esiti delle operazioni aperte sono stati recuperati; eventuali segnali di quel periodo sono persi."
+  ]
 }
